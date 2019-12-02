@@ -1,0 +1,33 @@
+<div class="headerTop"></div>
+<div class="header">
+  <img class="logo" src="../assets/logo-bancolombia.png">
+</div>
+
+
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" completed="true">
+        <div class="container">
+      <app-recomendaciones></app-recomendaciones>
+
+         </div>
+  </mat-step>
+
+  <mat-step [stepControl]="firstFormGroup">
+    <app-cargar-cedula></app-cargar-cedula>
+  </mat-step> 
+
+  <mat-step [stepControl]="firstFormGroup">
+    <app-informacion-personal></app-informacion-personal>      
+  </mat-step>
+
+  <mat-step [stepControl]="firstFormGroup">
+      <app-informacion-economica></app-informacion-economica>   
+  </mat-step>
+
+  <mat-step [stepControl]="firstFormGroup">
+  </mat-step>
+
+  
+   
+</mat-horizontal-stepper>
+

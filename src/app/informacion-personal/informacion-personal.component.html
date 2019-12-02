@@ -1,0 +1,125 @@
+<div class="principal">
+    <div>
+        <div>
+            <h4>Igresa tu informacion personal: </h4>
+
+            <h6>En esta paso te solicitamos digitar algunos datos acerca de tu informacion economica y personal,
+                esto sera sencillo! </h6>
+        </div>
+
+        <div class="formIngresar">
+
+            <form [formGroup]="formGroup" class="formDatosPersonales">
+                <div class="form-group">
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Nombre: </label>
+                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                                formControlName="nombre">
+                        </div>
+                        <div class="col">
+                            <label>Apellido: </label>
+                            <input type="text" class="form-group" class="form-control" formControlName="apellido">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Cedula: </label>
+                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                                formControlName="cedula">
+                        </div>
+                        <div class="col">
+                            <label>Celular: </label>
+                            <input type="text" class="form-group" class="form-control" formControlName="celular">
+                        </div>
+                    </div>
+
+                    <label>Correo Electronico: </label>
+                    <input type="mail" class="form-group" class="form-control" formControlName="correo"><br>
+
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Genero: </label>
+                            <select class="form-control form-control-sm" class="form-group "
+                                class="form-control mx-sm-1 mb-2" formControlName="genero">
+                                <option>Small select</option>
+                            </select>
+
+                        </div>
+                        <div class="col">
+                            <label>Estado Civil: </label>
+                            <select class="form-control form-control-sm" class="form-group "
+                                class="form-control mx-sm-1 mb-2" formControlName="estadoCivil">
+                                <option>Small select</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </form>
+            <form [formGroup]="formGroup2" class="formDatosPersonales">
+
+                <h4>Informacion de residencia: </h4>
+                <div class="form-row">
+                    <div class="col">
+                        <label>Pais: </label>
+                        <select class="form-control form-control-sm" class="form-group "
+                            class="form-control mx-sm-1 mb-2" formControlName="pais">
+                            <option>Small select</option>
+                        </select>
+
+                    </div>
+                    <div class="col">
+                        <label> Departamento</label>
+                        <select class="form-control form-control-sm" class="form-group "
+                            class="form-control mx-sm-1 mb-2" formControlName="departamento">
+                            <option>Small select</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <label> Ciudad</label>
+                    <select class="form-control-sm" class="form-group " class="form-control mb-2"
+                        formControlName="ciudad">
+                        <option>Small select</option>
+                    </select>
+                </div>
+
+
+
+                <label> Direccion de la residencia</label>
+
+                <div class="form-row">
+                    <div class="col">
+                        <select class="form-control form-control-sm" class="form-group "
+                            class="form-control mx-sm-1 mb-2" formControlName="inicioDireccion">
+                            <option>Small select</option>
+                        </select>
+
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                            formControlName="numeroInicioDireccion" placeholder="Ejemplo:48 B">
+                    </div>
+                    <label>#</label>
+                    <div class="col">
+                        <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                            formControlName="numeroDireccion" placeholder="Numero">
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+
+    <div>
+        <button mat-button matStepperNext [disabled]="continuar">Continuar </button>
+    </div>
+</div>
