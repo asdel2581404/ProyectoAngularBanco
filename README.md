@@ -1,2 +1,0 @@
-# ProyectoAngularBanco
-Angular
