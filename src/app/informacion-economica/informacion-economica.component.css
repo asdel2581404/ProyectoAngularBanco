@@ -1,0 +1,10 @@
+.formIngresar{
+    width: 100%;
+    padding: 3%;
+}
+
+.principal{
+    display: flex;
+    justify-content: center;
+    
+}
