@@ -14,7 +14,7 @@
                             <label>Ocupacion: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="ocupacion">
-                                <option>Small select</option>
+                                <option *ngFor= "let ocupacion of Ocupacion">{{ocupacion.nombre}}</option>
                             </select>
                         </div>
                         <div class="col">

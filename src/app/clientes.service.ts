@@ -14,4 +14,9 @@ export class ClientesService {
     return this.http.get('http://localhost:8086/genero');
   }
 
+  getOcupacion() {
+    return this.http.get('http://localhost:8086/ocupacion');
+  }
+
+
 }

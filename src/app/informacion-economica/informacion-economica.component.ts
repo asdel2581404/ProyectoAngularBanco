@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import {ClientesService} from '../clientes.service'
 @Component({
   selector: 'app-informacion-economica',
   templateUrl: './informacion-economica.component.html',
@@ -9,13 +10,23 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
   private otroPais:boolean=false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, protected clientesService:ClientesService ) { }
   
+  public Ocupacion:any;
   
   ngOnInit() {
     this.buildForm();
+    this.llenarOcupacion();
     console.log(this.formGroup.value);
   }
+
+  
+  public llenarOcupacion(){
+    this.clientesService.getOcupacion().subscribe(response => {
+      this.Ocupacion=response;
+    })}
+    
+
   private buildForm(){
    this.formGroup = this.formBuilder.group({
      ocupacion:[''],
