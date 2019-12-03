@@ -13,7 +13,8 @@ import { NgxFileDropModule } from "ngx-file-drop";
 import { InformacionPersonalComponent } from './informacion-personal/informacion-personal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InformacionEconomicaComponent } from './informacion-economica/informacion-economica.component';
-
+import { HttpClientModule} from '@angular/common/http';
+import {ClientesService} from '../app/clientes.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { InformacionEconomicaComponent } from './informacion-economica/informaci
   
   ],
   imports: [
-   
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatSliderModule,
@@ -36,7 +37,7 @@ import { InformacionEconomicaComponent } from './informacion-economica/informaci
     NgxFileDropModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ClientesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
