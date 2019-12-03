@@ -10,7 +10,7 @@ export class InformacionPersonalComponent implements OnInit {
 
   public formGroup: FormGroup;
   public formGroup2: FormGroup;
-
+ 
   constructor(private formBuilder: FormBuilder, protected clientesService:ClientesService) { }
 
 
