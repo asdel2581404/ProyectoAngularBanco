@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-
+import {ClientesService} from '../clientes.service'
 @Component({
   selector: 'app-informacion-personal',
   templateUrl: './informacion-personal.component.html',
@@ -11,7 +11,7 @@ export class InformacionPersonalComponent implements OnInit {
   public formGroup: FormGroup;
   public formGroup2: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, protected clientesService:ClientesService) { }
 
   ngOnInit() {
     this.buildForm();
