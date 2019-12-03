@@ -45,7 +45,7 @@
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="genero">
                                
-                                <option>Small select</option>
+                                <option *ngFor="let nombreGenero of genero">{{nombreGenero.nombre}}</option>
                             </select>
 
                         </div>
