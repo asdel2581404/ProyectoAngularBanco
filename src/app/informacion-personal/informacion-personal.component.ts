@@ -15,16 +15,23 @@ export class InformacionPersonalComponent implements OnInit {
 
 
     public estadoCivil :any;
+    public genero:any;
     
   ngOnInit() {
     this.llenarEstadoCivil();
+    this.LlenarGenero();
     this.buildForm();
    }
    public llenarEstadoCivil(){
      this.clientesService.getUsers().subscribe(response => {
-       console.log(response);
        this.estadoCivil=response;
-     })
+     })}
+
+     public LlenarGenero(){
+        this.clientesService.getGenero().subscribe(response =>{
+          this.genero=response;
+        })
+      
    }
    private buildForm(){
     this.formGroup = this.formBuilder.group({

@@ -9,4 +9,9 @@ export class ClientesService {
   getUsers() {
     return this.http.get('http://localhost:8086/estadocivil');
   }
+
+  getGenero() {
+    return this.http.get('http://localhost:8086/genero');
+  }
+
 }
