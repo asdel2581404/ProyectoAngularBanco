@@ -13,8 +13,18 @@ export class InformacionPersonalComponent implements OnInit {
  
   constructor(private formBuilder: FormBuilder, protected clientesService:ClientesService) { }
 
+
+    public genero :any;
+    
   ngOnInit() {
+    this.llenargenero();
     this.buildForm();
+   }
+   public llenargenero(){
+     this.clientesService.getUsers().subscribe(response => {
+       console.log(response);
+       this.genero=response;
+     })
    }
    private buildForm(){
     this.formGroup = this.formBuilder.group({
