@@ -1,8 +1,18 @@
 .contenedorCargar{
 
 display: flex;
+justify-content: center;
 }
 
 .center{
     width: 50%;
+    padding-top: 12%;
+   
+}
+.cedula{
+    display: flex;
+justify-content: center;
+}
+.subir{
+    height:100% ;
 }

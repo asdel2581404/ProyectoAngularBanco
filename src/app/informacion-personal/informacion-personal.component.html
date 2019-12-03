@@ -15,8 +15,8 @@
                     <div class="form-row">
                         <div class="col">
                             <label>Nombre: </label>
-                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
-                                formControlName="nombre">
+                            <input type="text" class="form-group is-valid " class="form-control mx-sm-1 mb-2"
+                                formControlName="nombre" required>
                         </div>
                         <div class="col">
                             <label>Apellido: </label>
@@ -66,7 +66,7 @@
 
                 <h4>Informacion de residencia: </h4>
                 <div class="form-row">
-                    <div class="col">
+                    <div class="col-sm-6">
                         <label>Pais: </label>
                         <select class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais">
@@ -74,9 +74,9 @@
                         </select>
 
                     </div>
-                    <div class="col">
+                    <div class="col-sm-6">
                         <label> Departamento</label>
-                        <select class="form-control form-control-sm" class="form-group "
+                        <select class="form-control form-control-sm " class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="departamento">
                             <option>Small select</option>
                         </select>
@@ -116,11 +116,11 @@
 
             </form>
         </div>
-
+        <div>
+                <button class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar </button>
+            </div>
 
     </div>
 
-    <div>
-        <button mat-button matStepperNext [disabled]="continuar">Continuar </button>
-    </div>
+    
 </div>

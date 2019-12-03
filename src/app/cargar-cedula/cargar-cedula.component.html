@@ -1,21 +1,23 @@
-<div> 
-        <h4>Para poder comenzar el proceso es necesario cargar la cedula</h4><br>
+<div class="cedula">
 
-        <h5>Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>
-
+<div class="contenedorCargar  ">
+        <div class="mt-5 ml-5"> 
+                <h4>Para poder comenzar el proceso es necesario cargar la cedula</h4><br>
         
-        <li>Se requiere foto de la de la cedula por ambos lados en un archivo</li><br>
-        <li>Se requiere  que la imagen sea legible y clara</li><br>
-        <li>Se requiere que la foto sea tomada sin flash</li><br>
-        <li>Se requiere la foto en formato .jpg .png o  un archivo .pdf</li><br>   
-        <hr>     
-       
-</div> 
-<div class="contenedorCargar">
-<div class="center">
-        <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+                <h5>Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>
+        
+                
+                <li>Se requiere foto de la de la cedula por ambos lados en un archivo</li><br>
+                <li>Se requiere  que la imagen sea legible y clara</li><br>
+                <li>Se requiere que la foto sea tomada sin flash</li><br>
+                <li>Se requiere la foto en formato .jpg .png o  un archivo .pdf</li><br>   
+                <hr>     
+                <button  class="btn btn-primary" mat-button matStepperNext [disabled]="continuar"  >Continuar</button>
+        </div> 
+<div class="center"  >
+        <ngx-file-drop   dropZoneLabel="Drop files  here" (onFileDrop)="dropped($event)" 
         (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
-            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
               Señor usuario por favor cargue el archivo.
               <button type="button" (click)="openFileSelector()">Subir Imagen</button>
             </ng-template>
@@ -35,10 +37,11 @@
             </table>
         </div>
     </div>
-
+    <div> 
+           
+    </div>
    
     </div>
 
-    <div> 
-            <button mat-button matStepperNext [disabled]="continuar"  >Continuar</button>
-    </div>
+    
+</div>
