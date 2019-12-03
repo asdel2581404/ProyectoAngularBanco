@@ -113,15 +113,15 @@
                             </label><br>
                             <div class="form-check form-check-inline" >
                                 <input class="form-check-input" type="radio" name="monedaExtranjera" id="inlineRadio1"
-                                    value="si" formControlName="monedaExtranjera">
+                                    value="si" formControlName="monedaExtranjera"  (click)="ValidarOtroPais('si')">
                                 <label class="form-check-label" for="inlineRadio1">SI</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="monedaExtranjera" id="inlineRadio2"
-                                    value="no" formControlName="monedaExtranjera">
+                                    value="no" formControlName="monedaExtranjera" (click)="ValidarOtroPais('no')">
                                 <label class="form-check-label" for="inlineRadio2">NO</label>
                             </div>
-                            <div *ngIf="MonedaExtranjera"> 
+                            <div *ngIf="otroPais">
                             <p>aaa</p>
                             </div>
 
@@ -130,11 +130,11 @@
             </form>
 
         </div>
-
-
+        <div>
+           
+            <button mat-button matStepperNext [disabled]="continuar">Continuar </button>
+        </div>
     </div>
 
-    <div>
-        <button mat-button matStepperNext [disabled]="continuar">Continuar </button>
-    </div>
+    
 </div>

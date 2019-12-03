@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-informacion-economica',
@@ -7,8 +8,9 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
+  private otroPais:boolean=false;
   constructor(private formBuilder: FormBuilder) { }
-
+  
   
   ngOnInit() {
     this.buildForm();
@@ -30,5 +32,14 @@ export class InformacionEconomicaComponent implements OnInit {
    });
    
   }
+  public ValidarOtroPais(value){
+    
+    console.log(value)
+      if(value=='si'){
+         this.otroPais=true;
+      }else
+      this.otroPais=false;
+
+  } 
 
 }
