@@ -98,7 +98,9 @@
                     <div class="col">
                         <select class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="inicioDireccion">
-                            <option>Small select</option>
+                            <option *ngFor= "let esquemas of Direcciones">
+                                {{esquemas.nombre}}
+                            </option>
                         </select>
 
                     </div>

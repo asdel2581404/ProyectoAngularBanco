@@ -30,7 +30,6 @@ export class InformacionEconomicaComponent implements OnInit {
 
     public llenarGastos(){
       this.clientesService.getGastos().subscribe(response => {
-        console.log(response);
         this.GastosMensuales=response;
 
       })

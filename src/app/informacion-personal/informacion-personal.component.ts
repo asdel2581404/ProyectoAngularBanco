@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import {ClientesService} from '../clientes.service'
+import { ClientesService } from '../clientes.service'
 @Component({
   selector: 'app-informacion-personal',
   templateUrl: './informacion-personal.component.html',
@@ -10,49 +10,58 @@ export class InformacionPersonalComponent implements OnInit {
 
   public formGroup: FormGroup;
   public formGroup2: FormGroup;
- 
-  constructor(private formBuilder: FormBuilder, protected clientesService:ClientesService) { }
+
+  constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService) { }
 
 
-    public estadoCivil :any;
-    public genero:any;
-    
+  public estadoCivil: any;
+  public genero: any;
+  public Direcciones:any;
+
   ngOnInit() {
     this.llenarEstadoCivil();
     this.LlenarGenero();
+    this.LlenarDireccion()
     this.buildForm();
-   }
-   public llenarEstadoCivil(){
-     this.clientesService.getUsers().subscribe(response => {
-       this.estadoCivil=response;
-     })}
+  }
+  public llenarEstadoCivil() {
+    this.clientesService.getUsers().subscribe(response => {
+      this.estadoCivil = response;
+    })
+  }
 
-     public LlenarGenero(){
-        this.clientesService.getGenero().subscribe(response =>{
-          this.genero=response;
-        })
-      
-   }
-   private buildForm(){
+  public LlenarGenero() {
+    this.clientesService.getGenero().subscribe(response => {
+      this.genero = response;
+    })
+  }
+
+  public LlenarDireccion(){    
+    this.clientesService.getDirecciones().subscribe(response =>{
+      this.Direcciones=response;
+    })
+  }
+
+  private buildForm() {
     this.formGroup = this.formBuilder.group({
-      nombre:[''],
-      apellido:[''],
-      cedula:[''],
-      celular:[''],
-      correo:[''],
-      genero:[''],
-      estadoCivil:[''],
+      nombre: [''],
+      apellido: [''],
+      cedula: [''],
+      celular: [''],
+      correo: [''],
+      genero: [''],
+      estadoCivil: [''],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais:[''],
-      departamento:[''],
-      ciudad:[''],
-      inicioDireccion:[''],
-      numeroInicioDireccion:[''],
-      numeroDireccion:['']
+      pais: [''],
+      departamento: [''],
+      ciudad: [''],
+      inicioDireccion: [''],
+      numeroInicioDireccion: [''],
+      numeroDireccion: ['']
     });
-    
+
   }
-  
+
 
 }

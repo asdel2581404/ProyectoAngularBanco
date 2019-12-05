@@ -22,5 +22,8 @@ export class ClientesService {
     return this.http.get('http://localhost:8086/gastosmensuales');
   }
 
+  getDirecciones(){
+    return this.http.get('http://localhost:8086/esquemas');
+  }
 
 }
