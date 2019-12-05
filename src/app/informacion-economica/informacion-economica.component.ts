@@ -13,10 +13,12 @@ export class InformacionEconomicaComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, protected clientesService:ClientesService ) { }
   
   public Ocupacion:any;
-  
+  public GastosMensuales:any;
+
   ngOnInit() {
     this.buildForm();
     this.llenarOcupacion();
+    this.llenarGastos();
     console.log(this.formGroup.value);
   }
 
@@ -25,6 +27,14 @@ export class InformacionEconomicaComponent implements OnInit {
     this.clientesService.getOcupacion().subscribe(response => {
       this.Ocupacion=response;
     })}
+
+    public llenarGastos(){
+      this.clientesService.getGastos().subscribe(response => {
+        console.log(response);
+        this.GastosMensuales=response;
+
+      })
+    }
     
 
   private buildForm(){

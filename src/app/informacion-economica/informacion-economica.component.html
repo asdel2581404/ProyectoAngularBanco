@@ -35,7 +35,9 @@
                             <label>Total ingresos mesuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="totalIngresosMensuales">
-                                <option>Small select</option>
+                                <option *ngFor="let gastosmensuales of GastosMensuales ">
+                                        {{gastosmensuales.cantidad}}   
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -52,7 +54,9 @@
                             <label>Gastos Mesuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="gastosMesuales">
-                                <option>Small select</option>
+                                <option *ngFor="let gastosmensuales of GastosMensuales ">                                                                      
+                                    {{gastosmensuales.cantidad}}                                    
+                                </option>
                             </select>
                         </div>
 
