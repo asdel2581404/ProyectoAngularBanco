@@ -1,7 +1,7 @@
 <div class="principal">
     <div>
         <div>
-            <h4>Igresa tu informacion economica: </h4>
+            <h4>Ingresa tu información económica: </h4>
         </div>
 
         <div class="formIngresar">
@@ -11,7 +11,7 @@
 
                     <div class="form-row">
                         <div class="col">
-                            <label>Ocupacion: </label>
+                            <label>Ocupación: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="ocupacion">
                                 <option *ngFor= "let ocupacion of Ocupacion">{{ocupacion.nombre}}</option>
@@ -27,12 +27,12 @@
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <label>Ventas Anuales: </label>
+                            <label>Ventas anuales: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="ventasAnuales">
                         </div>
                         <div class="col">
-                            <label>Total ingresos mesuales: </label>
+                            <label>Total ingresos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="totalIngresosMensuales">
                                 <option *ngFor="let gastosmensuales of GastosMensuales ">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <label>Pais origen de los ingresos: </label>
+                    <label>País origen de los ingresos: </label>
                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                         formControlName="paisOrigenIngreson">
                         <option>Small select</option>
@@ -51,7 +51,7 @@
 
                     <div class="form-row">
                         <div class="col">
-                            <label>Gastos Mesuales: </label>
+                            <label>Gastos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="gastosMesuales">
                                 <option *ngFor="let gastosmensuales of GastosMensuales ">                                                                      

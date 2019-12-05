@@ -1,10 +1,9 @@
 <div class="principal">
     <div>
         <div>
-            <h4>Igresa tu informacion personal: </h4>
+            <h4>Igresa tu información personal: </h4>
 
-            <h6>En esta paso te solicitamos digitar algunos datos acerca de tu informacion economica y personal,
-                esto sera sencillo! </h6>
+            <h6>¡En este paso te solicitamos digitar algunos datos acerca de tu información económica y personal, esto será sencillo! </h6>
         </div>
 
         <div class="formIngresar">
@@ -35,7 +34,7 @@
                         </div>
                     </div>
 
-                    <label>Correo Electronico: </label>
+                    <label>Correo electrónico: </label>
                     <input type="mail" class="form-group" class="form-control" formControlName="correo"><br>
 
 
@@ -50,7 +49,7 @@
 
                         </div>
                         <div class="col">
-                            <label>Estado Civil: </label>
+                            <label>Estado civil: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="estadoCivil">
                                 <option *ngFor="let estado of estadoCivil ">{{estado.nombre}} </option>
@@ -64,7 +63,7 @@
             </form>
             <form [formGroup]="formGroup2" class="formDatosPersonales">
 
-                <h4>Informacion de residencia: </h4>
+                <h4>Información de residencia: </h4>
                 <div class="form-row">
                     <div class="col-sm-6">
                         <label>Pais: </label>
@@ -92,7 +91,7 @@
 
 
 
-                <label> Direccion de la residencia</label>
+                <label> Dirección de la residencia</label>
 
                 <div class="form-row">
                     <div class="col">
