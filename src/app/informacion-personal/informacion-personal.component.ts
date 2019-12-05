@@ -17,12 +17,17 @@ export class InformacionPersonalComponent implements OnInit {
   public estadoCivil: any;
   public genero: any;
   public Direcciones:any;
+  public Pais:any;
+  public Departamento:any;
 
   ngOnInit() {
     this.llenarEstadoCivil();
     this.LlenarGenero();
-    this.LlenarDireccion()
+    this.LlenarDireccion();
+    this.LlenarPais();
     this.buildForm();
+    this.validarPais();
+  
   }
   public llenarEstadoCivil() {
     this.clientesService.getUsers().subscribe(response => {
@@ -39,6 +44,17 @@ export class InformacionPersonalComponent implements OnInit {
   public LlenarDireccion(){    
     this.clientesService.getDirecciones().subscribe(response =>{
       this.Direcciones=response;
+    })
+  }
+  public LlenarPais(){    
+    this.clientesService.getPais().subscribe(response =>{
+      this.Pais=response;
+    })
+    
+  }
+  public LlenarDepartamento(id){    
+    this.clientesService.getDepartamentos(id).subscribe(response =>{
+      this.Departamento=response;
     })
   }
 
@@ -63,5 +79,13 @@ export class InformacionPersonalComponent implements OnInit {
 
   }
 
+  private validarPais(){
+     console.log('hola')
+      console.log( this.formGroup2.get('pais').value)
+        
+  }
+
 
 }
+
+

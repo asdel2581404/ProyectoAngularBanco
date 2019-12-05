@@ -25,5 +25,11 @@ export class ClientesService {
   getDirecciones(){
     return this.http.get('http://localhost:8086/esquemas');
   }
+  getPais(){
+    return this.http.get('http://localhost:8086/Paises');
+  }
+  getDepartamentos(idPais){
+    return this.http.get('http://localhost:8086/Departamentos?id=${idPais}');
+  }
 
 }

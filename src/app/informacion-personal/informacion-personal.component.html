@@ -69,7 +69,7 @@
                         <label>Pais: </label>
                         <select class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais">
-                            <option>Small select</option>
+                            <option *ngFor="let pais of Pais" [value]="pais.idpaises">{{pais.nombre}}</option>
                         </select>
 
                     </div>
