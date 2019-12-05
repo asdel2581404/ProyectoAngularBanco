@@ -29,7 +29,12 @@ export class ClientesService {
     return this.http.get('http://localhost:8086/Paises');
   }
   getDepartamentos(idPais){
-    return this.http.get('http://localhost:8086/Departamentos?id=${idPais}');
+    
+    return this.http.get(`http://localhost:8086/Departamento/${idPais}`);
+  }
+  getCiudad(idCiudad){
+    
+    return this.http.get(`http://localhost:8086/Ciudad/${idCiudad}`);
   }
 
 }

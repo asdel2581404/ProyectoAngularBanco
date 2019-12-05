@@ -67,17 +67,17 @@
                 <div class="form-row">
                     <div class="col-sm-6">
                         <label>Pais: </label>
-                        <select class="form-control form-control-sm" class="form-group "
+                        <select  (change)="LlenarDepartamento()" class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais">
-                            <option *ngFor="let pais of Pais" [value]="pais.idpaises">{{pais.nombre}}</option>
+                            <option *ngFor="let pais of Pais" [value]="pais.idPaises">{{pais.nombre}}</option>
                         </select>
 
                     </div>
                     <div class="col-sm-6">
                         <label> Departamento</label>
-                        <select class="form-control form-control-sm " class="form-group "
+                        <select  (change)="LlenarCiudad()"  class="form-control form-control-sm " class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="departamento">
-                            <option>Small select</option>
+                            <option *ngFor="let dep of Departamento" [value]="dep.idDepartamento">{{dep.nombre}}</option>
                         </select>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     <label> Ciudad</label>
                     <select class="form-control-sm" class="form-group " class="form-control mb-2"
                         formControlName="ciudad">
-                        <option>Small select</option>
+                        <option *ngFor="let ciu of Ciudad">{{ciu.nombre}}</option>
                     </select>
                 </div>
 

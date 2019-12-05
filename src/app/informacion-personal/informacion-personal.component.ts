@@ -19,6 +19,7 @@ export class InformacionPersonalComponent implements OnInit {
   public Direcciones:any;
   public Pais:any;
   public Departamento:any;
+  public Ciudad:any;
 
   ngOnInit() {
     this.llenarEstadoCivil();
@@ -26,7 +27,7 @@ export class InformacionPersonalComponent implements OnInit {
     this.LlenarDireccion();
     this.LlenarPais();
     this.buildForm();
-    this.validarPais();
+    
   
   }
   public llenarEstadoCivil() {
@@ -52,9 +53,16 @@ export class InformacionPersonalComponent implements OnInit {
     })
     
   }
-  public LlenarDepartamento(id){    
-    this.clientesService.getDepartamentos(id).subscribe(response =>{
+  public LlenarDepartamento(){    
+    this.clientesService.getDepartamentos(this.formGroup2.get('pais').value).subscribe(response =>{
       this.Departamento=response;
+    })
+    
+  }
+
+  public LlenarCiudad(){    
+    this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response =>{
+      this.Ciudad=response;
     })
   }
 
@@ -79,11 +87,9 @@ export class InformacionPersonalComponent implements OnInit {
 
   }
 
-  private validarPais(){
-     console.log('hola')
-      console.log( this.formGroup2.get('pais').value)
-        
-  }
+ 
+
+
 
 
 }
