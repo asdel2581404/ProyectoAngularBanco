@@ -22,11 +22,12 @@ export class InformacionPersonalComponent implements OnInit {
   public Ciudad:any;
 
   ngOnInit() {
+    this.buildForm();
     this.llenarEstadoCivil();
     this.LlenarGenero();
     this.LlenarDireccion();
     this.LlenarPais();
-    this.buildForm();
+   
     
   
   }
@@ -52,8 +53,13 @@ export class InformacionPersonalComponent implements OnInit {
       this.Pais=response;
     })
     
+    
+    
+    
   }
-  public LlenarDepartamento(){    
+  public LlenarDepartamento(){   
+    
+    if(this.formGroup2.get('pais').value!=null){}
     this.clientesService.getDepartamentos(this.formGroup2.get('pais').value).subscribe(response =>{
       this.Departamento=response;
     })
@@ -61,6 +67,7 @@ export class InformacionPersonalComponent implements OnInit {
   }
 
   public LlenarCiudad(){    
+    console.log('hola')
     this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response =>{
       this.Ciudad=response;
     })
@@ -68,23 +75,31 @@ export class InformacionPersonalComponent implements OnInit {
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      nombre: [''],
-      apellido: [''],
-      cedula: [''],
-      celular: [''],
-      correo: [''],
-      genero: [''],
-      estadoCivil: [''],
+      nombre: ['',Validators.required],
+      apellido: ['',Validators.required],
+      cedula: ['',Validators.required],
+      celular: ['',Validators.required],
+      correo: ['',Validators.required],
+      genero: ['',Validators.required],
+      estadoCivil: ['',Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: [''],
-      departamento: [''],
-      ciudad: [''],
-      inicioDireccion: [''],
-      numeroInicioDireccion: [''],
-      numeroDireccion: ['']
+      pais: ['',Validators.required],
+      departamento: ['',Validators.required],
+      ciudad: ['',Validators.required],
+      inicioDireccion: ['',Validators.required],
+      numeroInicioDireccion: ['',Validators.required],
+      numeroDireccion: ['',Validators.required]
     });
 
+  }
+  submit() {
+    if (this.formGroup2.valid) {
+      console.log(this.formGroup2.value)
+    }
+    else{
+      alert("FILL ALL FIELDS")
+    }
   }
 
  
