@@ -6,7 +6,7 @@
 
         <div class="formIngresar">
 
-            <form [formGroup]="formGroup" class="formInformacionEconomica">
+            <form [formGroup]="formGroup" class="formInformacionEconomica" (ngSubmit)="submit()">
                 <div class="form-group">
 
                     <div class="form-row">
@@ -45,7 +45,9 @@
                     <label>País origen de los ingresos: </label>
                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                         formControlName="paisOrigenIngreson">
-                        <option>Small select</option>
+                        <option *ngFor="let paises of PaisesInfoEconomica"> 
+                            {{paises.nombre}}
+                        </option>
                     </select>
 
 
@@ -131,13 +133,15 @@
 
 
                         </div><hr>
+
+                        <div>
+                                <button type="submit" class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar </button>
+                            </div>
             </form>
 
         </div>
 
-        <div>
-                <button class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar </button>
-            </div>
+       
     </div>
 
     
