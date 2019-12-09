@@ -61,7 +61,7 @@
 
                 </div>
             </form>
-            <form [formGroup]="formGroup2" class="formDatosPersonales">
+            <form [formGroup]="formGroup2" class="formDatosPersonales" (ngSubmit)="submit()">
 
                 <h4>Información de residencia: </h4>
                 <div class="form-row">
@@ -77,6 +77,7 @@
                         <label> Departamento</label>
                         <select  (change)="LlenarCiudad()"  class="form-control form-control-sm " class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="departamento">
+                            <option>Seleccione Un Departamento</option>
                             <option *ngFor="let dep of Departamento" [value]="dep.idDepartamento">{{dep.nombre}}</option>
                         </select>
                     </div>
@@ -85,6 +86,7 @@
                     <label> Ciudad</label>
                     <select class="form-control-sm" class="form-group " class="form-control mb-2"
                         formControlName="ciudad">
+                        <option>Seleccione Una Ciudad</option>
                         <option *ngFor="let ciu of Ciudad">{{ciu.nombre}}</option>
                     </select>
                 </div>
@@ -114,12 +116,12 @@
                     </div>
 
                 </div>
-
+                <div>
+                    <button type="submit"   id="btnSubmit"  class="btn btn-primary" mat-button matStepperNext  [disabled]="continuar">Continuar </button>
+                </div>
             </form>
         </div>
-        <div>
-                <button class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar </button>
-            </div>
+        
 
     </div>
 
