@@ -14,7 +14,8 @@ import { InformacionPersonalComponent } from './informacion-personal/informacion
 import { ReactiveFormsModule } from '@angular/forms';
 import { InformacionEconomicaComponent } from './informacion-economica/informacion-economica.component';
 import { HttpClientModule} from '@angular/common/http';
-import {ClientesService} from '../app/clientes.service'
+import {ClientesService} from '../app/clientes.service';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,12 +36,14 @@ import {ClientesService} from '../app/clientes.service'
     MatCheckboxModule,
     AngularFileUploaderModule,
     NgxFileDropModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [ClientesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
    
+
 
  }

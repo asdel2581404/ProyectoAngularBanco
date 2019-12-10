@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { ClientesService } from '../clientes.service'
+import { ClientesService } from '../clientes.service';
+
 @Component({
   selector: 'app-informacion-personal',
   templateUrl: './informacion-personal.component.html',
@@ -27,10 +28,14 @@ export class InformacionPersonalComponent implements OnInit {
     this.LlenarGenero();
     this.LlenarDireccion();
     this.LlenarPais();
-   
+    this.notify.emit(this.formGroup); 
     
   
   }
+  @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();  
+
+  
+
   public llenarEstadoCivil() {
     this.clientesService.getUsers().subscribe(response => {
       this.estadoCivil = response;
@@ -77,19 +82,19 @@ export class InformacionPersonalComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       nombre: ['',Validators.required],
       apellido: ['',Validators.required],
-      cedula: ['',Validators.required],
-      celular: ['',Validators.required],
-      correo: ['',Validators.required],
-      genero: ['',Validators.required],
-      estadoCivil: ['',Validators.required],
+      cedula: ['',],
+      celular: ['',],
+      correo: ['',],
+      genero: ['',],
+      estadoCivil: ['',],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: ['',Validators.required],
-      departamento: ['',Validators.required],
-      ciudad: ['',Validators.required],
-      inicioDireccion: ['',Validators.required],
-      numeroInicioDireccion: ['',Validators.required],
-      numeroDireccion: ['',Validators.required]
+      pais: ['', []],
+      departamento: ['', []],
+      ciudad: ['', []],
+      inicioDireccion: ['', []],
+      numeroInicioDireccion: ['', []],
+      numeroDireccion: ['', []]
     });
 
   }

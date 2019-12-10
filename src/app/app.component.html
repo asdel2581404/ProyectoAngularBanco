@@ -5,9 +5,10 @@
 
 
 <mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="firstFormGroup" completed="true">
+  <mat-step [stepControl]="formGroup" completed="true">
         <div class="container">
-      <app-recomendaciones></app-recomendaciones>
+
+      <app-recomendaciones ></app-recomendaciones>
 
          </div>
   </mat-step>
@@ -16,8 +17,8 @@
     <app-cargar-cedula></app-cargar-cedula>
   </mat-step> 
 
-  <mat-step [stepControl]="firstFormGroup">
-    <app-informacion-personal></app-informacion-personal>      
+  <mat-step   [completed]="false" [stepControl]="myFormGroup">
+    <app-informacion-personal (notify)='onNotify($event)'></app-informacion-personal>      
   </mat-step>
 
   <mat-step [stepControl]="firstFormGroup">
