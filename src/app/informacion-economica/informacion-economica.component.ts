@@ -14,11 +14,13 @@ export class InformacionEconomicaComponent implements OnInit {
   
   public Ocupacion:any;
   public GastosMensuales:any;
+  public PaisesInfoEconomica:any;
 
   ngOnInit() {
     this.buildForm();
     this.llenarOcupacion();
     this.llenarGastos();
+    this.llenarPaises();
     console.log(this.formGroup.value);
   }
 
@@ -34,21 +36,28 @@ export class InformacionEconomicaComponent implements OnInit {
 
       })
     }
+
+    public llenarPaises(){
+      this.clientesService.getPais().subscribe(response => {
+        this.PaisesInfoEconomica=response;
+
+      })
+    }
     
 
   private buildForm(){
    this.formGroup = this.formBuilder.group({
-     ocupacion:[''],
+     ocupacion:['',Validators.required],
     ciiu:[''],
-    ventasAnuales:[''],
-    totalIngresosMensuales:[''],
-    paisOrigenIngreson:[''],
-    gastosMesuales:[''],
-    activos:[''],
+    ventasAnuales:['',Validators.required],
+    totalIngresosMensuales:['', Validators.required],
+    paisOrigenIngreson:['',Validators.required],
+    gastosMesuales:['',Validators.required],
+    activos:['',Validators.required],
     pasivos:[''],
-    tributarOtroPais:[''],
-    declaranteRenta:[''],
-    monedaExtranjera:['']  
+    tributarOtroPais:['',Validators.required],
+    declaranteRenta:['', Validators.required],
+    monedaExtranjera:['',Validators.required]  
    });
    
   }
@@ -62,4 +71,13 @@ export class InformacionEconomicaComponent implements OnInit {
 
   } 
 
+  submit() {
+    if (this.formGroup.valid) {
+      console.log(this.formGroup.value)
+    }
+    else{
+      alert("Llene todo los campos por favor")
+    }
+
+  }
 }
