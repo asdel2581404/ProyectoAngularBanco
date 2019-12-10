@@ -37,4 +37,9 @@ export class ClientesService {
     return this.http.get(`http://localhost:8086/Ciudad/${idCiudad}`);
   }
 
+  getValidarCedula(cedula){
+
+    return this.http.get(`http://localhost:8086/control/${cedula}`)
+  }
+
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ClientesService } from '../clientes.service';
 
+
 @Component({
   selector: 'app-informacion-personal',
   templateUrl: './informacion-personal.component.html',
@@ -21,6 +22,7 @@ export class InformacionPersonalComponent implements OnInit {
   public Pais:any;
   public Departamento:any;
   public Ciudad:any;
+  public ValidarDelitos:any;
 
   ngOnInit() {
     this.buildForm();
@@ -56,11 +58,9 @@ export class InformacionPersonalComponent implements OnInit {
   public LlenarPais(){    
     this.clientesService.getPais().subscribe(response =>{
       this.Pais=response;
-    })
+    })    
     
-    
-    
-    
+        
   }
   public LlenarDepartamento(){   
     
@@ -72,11 +72,13 @@ export class InformacionPersonalComponent implements OnInit {
   }
 
   public LlenarCiudad(){    
-    console.log('hola')
-    this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response =>{
+        this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response =>{
       this.Ciudad=response;
     })
   }
+
+  
+
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
@@ -89,28 +91,46 @@ export class InformacionPersonalComponent implements OnInit {
       estadoCivil: ['',Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: [''],
-      departamento: ['' ],
+      pais: ['',Validators.required],
+      departamento: ['' ,Validators.required],
       ciudad: [''],
-      inicioDireccion: ['' ],
-      numeroInicioDireccion: ['' ],
-      numeroDireccion: ['']
+      inicioDireccion: ['' ,Validators.required],
+      numeroInicioDireccion: ['' ,Validators.required],
+      numeroDireccion: ['',Validators.required]
     });
 
   }
   submit() {
-    this.notify.emit(this.formGroup); 
-    if (this.formGroup2.valid) {
-      console.log(this.formGroup2.value)
+    
+   
+    if (this.formGroup2.valid && this.formGroup.valid) {
+      this.notify.emit(this.formGroup ); 
     }
     else{
-      alert("FILL ALL FIELDS")
+      alert("Llenar los datos por favor");
     }
   }
 
+  ValidarCedula(){
+
+    this.clientesService.getValidarCedula(this.formGroup.get('cedula').value).subscribe(response =>{
+      this.ValidarDelitos=response;
+
+      if(this.ValidarDelitos != false){
+            alert('Señor usuario el proceso no puede continuar ');
+
+
+      }
+
+      
+      
+      
+      
+
+      })
  
 
-
+  }
 
 
 }
