@@ -28,7 +28,7 @@ export class InformacionPersonalComponent implements OnInit {
     this.LlenarGenero();
     this.LlenarDireccion();
     this.LlenarPais();
-    this.notify.emit(this.formGroup); 
+
     
   
   }
@@ -82,23 +82,24 @@ export class InformacionPersonalComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       nombre: ['',Validators.required],
       apellido: ['',Validators.required],
-      cedula: ['',],
-      celular: ['',],
-      correo: ['',],
-      genero: ['',],
-      estadoCivil: ['',],
+      cedula: ['',Validators.required],
+      celular: ['',Validators.required],
+      correo: ['',Validators.required],
+      genero: ['',Validators.required],
+      estadoCivil: ['',Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: ['', []],
-      departamento: ['', []],
-      ciudad: ['', []],
-      inicioDireccion: ['', []],
-      numeroInicioDireccion: ['', []],
-      numeroDireccion: ['', []]
+      pais: [''],
+      departamento: ['' ],
+      ciudad: [''],
+      inicioDireccion: ['' ],
+      numeroInicioDireccion: ['' ],
+      numeroDireccion: ['']
     });
 
   }
   submit() {
+    this.notify.emit(this.formGroup); 
     if (this.formGroup2.valid) {
       console.log(this.formGroup2.value)
     }

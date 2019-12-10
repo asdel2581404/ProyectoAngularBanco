@@ -62,7 +62,7 @@
                                 class="form-control mx-sm-1 mb-2" formControlName="estadoCivil">
                                 <option *ngFor="let estado of estadoCivil ">{{estado.nombre}} </option>
                             </select>
-                            <span style="color:Red;" *ngIf="formGroup.controls['estadoCivil'].touched && formGroup.controls[estadoCivil].errors?.required">El genero es requerido</span>
+                          
                         </div>
                     </div>
 
