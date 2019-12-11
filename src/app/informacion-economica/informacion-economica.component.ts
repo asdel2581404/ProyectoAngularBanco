@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import {ClientesService} from '../clientes.service'
+
 @Component({
   selector: 'app-informacion-economica',
   templateUrl: './informacion-economica.component.html',
   styleUrls: ['./informacion-economica.component.css']
 })
+
 export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
   private otroPais:boolean=false;
@@ -23,6 +24,8 @@ export class InformacionEconomicaComponent implements OnInit {
     this.llenarPaises();
     console.log(this.formGroup.value);
   }
+
+  @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   
   public llenarOcupacion(){
@@ -54,7 +57,7 @@ export class InformacionEconomicaComponent implements OnInit {
     paisOrigenIngreson:['',Validators.required],
     gastosMesuales:['',Validators.required],
     activos:['',Validators.required],
-    pasivos:[''],
+    pasivos:['',Validators.required],
     tributarOtroPais:['',Validators.required],
     declaranteRenta:['', Validators.required],
     monedaExtranjera:['',Validators.required]  
@@ -73,7 +76,7 @@ export class InformacionEconomicaComponent implements OnInit {
 
   submit() {
     if (this.formGroup.valid) {
-      console.log(this.formGroup.value)
+       this.notify.emit(this.formGroup);
     }
     else{
       alert("Llene todo los campos por favor")

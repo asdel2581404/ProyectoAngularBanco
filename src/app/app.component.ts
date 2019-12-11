@@ -11,13 +11,18 @@ export class AppComponent implements OnInit {
   title = 'VinculacionDigital';
   isLinear = false;
   myFormGroup: FormGroup;
+  ecoformGroup: FormGroup;
 
   onNotify(formGroup: FormGroup): void {
       this.myFormGroup = formGroup;
   }
 
+  onNotify2(formGroup: FormGroup): void {
+    this.ecoformGroup = formGroup;
+}
+
 
   ngOnInit() {}
 
-  
+
 }

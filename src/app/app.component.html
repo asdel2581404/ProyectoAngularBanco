@@ -21,12 +21,11 @@
     <app-informacion-personal (notify)='onNotify($event)'></app-informacion-personal>      
   </mat-step>
 
-  <mat-step [completed]="false" [stepControl]="myFormGroup">
-    
-      <app-informacion-economica (notify)='onNotify($event)'></app-informacion-economica>   
+  <mat-step [completed]="false" [stepControl]="ecoformGroup">    
+      <app-informacion-economica (notify)='onNotify2($event)'></app-informacion-economica>   
   </mat-step>
 
-  <mat-step [stepControl]="firstFormGroup">
+  <mat-step [stepControl]="formGroup">
   </mat-step>
 
   
