@@ -16,6 +16,8 @@ import { InformacionEconomicaComponent } from './informacion-economica/informaci
 import { HttpClientModule} from '@angular/common/http';
 import {ClientesService} from '../app/clientes.service';
 import {MatCardModule} from '@angular/material/card';
+import { ValidarCedulaControlComponent } from './validar-cedula-control/validar-cedula-control.component';
+import {MatDialogModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import {MatCardModule} from '@angular/material/card';
     CargarCedulaComponent,
     InformacionPersonalComponent,
     InformacionEconomicaComponent,
-   
+    ValidarCedulaControlComponent,
+    
   
   ],
   imports: [
@@ -37,8 +40,10 @@ import {MatCardModule} from '@angular/material/card';
     AngularFileUploaderModule,
     NgxFileDropModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
+  entryComponents:[ValidarCedulaControlComponent],
   providers: [ClientesService],
   bootstrap: [AppComponent]
 })

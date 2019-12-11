@@ -1,7 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ClientesService } from '../clientes.service';
-
+import {MatDialog} from '@angular/material';
+import {ValidarCedulaControlComponent} from '../validar-cedula-control/validar-cedula-control.component';
 
 @Component({
   selector: 'app-informacion-personal',
@@ -13,7 +14,8 @@ export class InformacionPersonalComponent implements OnInit {
   public formGroup: FormGroup;
   public formGroup2: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService) { }
+  constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService,
+    public dialog: MatDialog ) { }
 
 
   public estadoCivil: any;
@@ -107,7 +109,7 @@ export class InformacionPersonalComponent implements OnInit {
       this.notify.emit(this.formGroup ); 
     }
     else{
-      alert("Llenar los datos por favor");
+    
     }
   }
 
@@ -117,8 +119,15 @@ export class InformacionPersonalComponent implements OnInit {
       this.ValidarDelitos=response;
 
       if(this.ValidarDelitos != false){
-            alert('Señor usuario el proceso no puede continuar ');
-
+            
+        let dialogRef= this.dialog.open(ValidarCedulaControlComponent, {
+          data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
+          width: '30%',
+          height:'30%'
+          });
+        dialogRef.afterClosed().subscribe (response =>{
+          console.log(response);
+        })
 
       }
 
@@ -131,7 +140,7 @@ export class InformacionPersonalComponent implements OnInit {
  
 
   }
-
+ 
 
 }
 
