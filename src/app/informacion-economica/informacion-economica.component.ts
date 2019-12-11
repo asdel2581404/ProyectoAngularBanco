@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ClientesService } from '../clientes.service'
 @Component({
@@ -7,6 +6,7 @@ import { ClientesService } from '../clientes.service'
   templateUrl: './informacion-economica.component.html',
   styleUrls: ['./informacion-economica.component.css']
 })
+
 export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
   private otroPais: boolean = false;
@@ -25,8 +25,10 @@ export class InformacionEconomicaComponent implements OnInit {
     console.log(this.formGroup.value);
   }
 
+  @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
-  public llenarOcupacion() {
+  
+  public llenarOcupacion(){
     this.clientesService.getOcupacion().subscribe(response => {
       this.Ocupacion = response;
     })
@@ -87,7 +89,7 @@ export class InformacionEconomicaComponent implements OnInit {
 
   submit() {
     if (this.formGroup.valid) {
-      console.log(this.formGroup.value)
+       this.notify.emit(this.formGroup);
     }
     else {
       alert("Llene todo los campos por favor")
