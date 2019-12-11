@@ -14,8 +14,11 @@
                             <label>Ocupación: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="ocupacion">
-                                <option *ngFor= "let ocupacion of Ocupacion">{{ocupacion.nombre}}</option>
+                                <option *ngFor="let ocupacion of Ocupacion">{{ocupacion.nombre}}</option>
                             </select>
+                            <span style="color:Red;"
+                                *ngIf="formGroup.controls['ocupacion'].touched && formGroup.controls['ocupacion'].errors?.required">la
+                                ocupacion es requerida</span>
                         </div>
                         <div class="col">
                             <label>CIIU: </label>
@@ -30,25 +33,39 @@
                             <label>Ventas anuales: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="ventasAnuales">
+
+                            <span style="color:Red;"
+                                *ngIf="formGroup.controls['ventasAnuales'].touched && formGroup.controls['ventasAnuales'].errors?.required">las
+                                ventas anuales son requeridas</span>
                         </div>
+
+
                         <div class="col">
                             <label>Total ingresos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="totalIngresosMensuales">
                                 <option *ngFor="let gastosmensuales of GastosMensuales ">
-                                        {{gastosmensuales.cantidad}}   
+                                    {{gastosmensuales.cantidad}}
                                 </option>
                             </select>
+                            <span style="color:Red;"
+                                *ngIf="formGroup.controls['totalIngresosMensuales'].touched && formGroup.controls['totalIngresosMensuales'].errors?.required">los
+                                ingresos son requeridos</span>
+
+
                         </div>
                     </div>
 
                     <label>País origen de los ingresos: </label>
                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                         formControlName="paisOrigenIngreson">
-                        <option *ngFor="let paises of PaisesInfoEconomica"> 
+                        <option *ngFor="let paises of PaisesInfoEconomica">
                             {{paises.nombre}}
                         </option>
                     </select>
+                    <span style="color:Red;"
+                        *ngIf="formGroup.controls['paisOrigenIngreson'].touched && formGroup.controls['paisOrigenIngreson'].errors?.required">el
+                        país es requerido</span>
 
 
                     <div class="form-row">
@@ -56,10 +73,13 @@
                             <label>Gastos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="gastosMesuales">
-                                <option *ngFor="let gastosmensuales of GastosMensuales ">                                                                      
-                                    {{gastosmensuales.cantidad}}                                    
+                                <option *ngFor="let gastosmensuales of GastosMensuales ">
+                                    {{gastosmensuales.cantidad}}
                                 </option>
                             </select>
+                            <span style="color:Red;"
+                                *ngIf="formGroup.controls['gastosMesuales'].touched && formGroup.controls['gastosMesuales'].errors?.required">los
+                                Gastos mensuales son requeridos</span>
                         </div>
 
                     </div>
@@ -68,11 +88,19 @@
                             <label>Activos: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="activos">
+
+                            <span style="color:Red;"
+                                *ngIf="formGroup.controls['activos'].touched && formGroup.controls['activos'].errors?.required">los
+                                activos son requeridos</span>
                         </div>
                         <div class="col">
                             <label>pasivos: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="pasivos">
+
+                            <span style="color:Red;"
+                                *ngIf="formGroup.controls['pasivos'].touched && formGroup.controls['pasivos'].errors?.required">los
+                                pasivos son requeridos</span>
                         </div>
                     </div>
 
@@ -81,68 +109,72 @@
 
                 <div>
                     <label class="form-check-label" for="exampleRadios2">
-                        ¿Estás obligado a tributar en otro país? 
+                        ¿Estás obligado a tributar en otro país?
                     </label><br>
-                   
 
-                    <div class="form-check form-check-inline" >
+
+                    <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tributarOtroPais" id="inlineRadio1"
                             value="option1" formControlName="tributarOtroPais">
                         <label class="form-check-label" for="inlineRadio1">SI</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tributarOtroPais" id="inlineRadio2"
-                            value="option2"  formControlName="tributarOtroPais">
+                            value="option2" formControlName="tributarOtroPais">
                         <label class="form-check-label" for="inlineRadio2">NO</label>
                     </div>
-                </div><hr>
+                </div>
+                <hr>
                 <div>
-                        <label class="form-check-label" for="exampleRadios2">
-                            ¿Eres declarante de renta ? 
-                        </label><br>
-                       
-    
-                        <div class="form-check form-check-inline" >
-                            <input class="form-check-input" type="radio" name="declaranteRenta" id="inlineRadio1"
-                                value="option1" formControlName="declaranteRenta">
-                            <label class="form-check-label" for="inlineRadio1">SI</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="declaranteRenta" id="inlineRadio2"
-                                value="option2" formControlName="declaranteRenta">
-                            <label class="form-check-label" for="inlineRadio2">NO</label>
-                        </div>
-                    </div><hr>
-                    <div>
-                            <label class="form-check-label" for="exampleRadios2">
-                                ¿Realizas operaciones de moneda extranjera ? 
-                            </label><br>
-                            <div class="form-check form-check-inline" >
-                                <input class="form-check-input" type="radio" name="monedaExtranjera" id="inlineRadio1"
-                                    value="si" formControlName="monedaExtranjera" (click)="ValidarOtroPais('si')">
-                                <label class="form-check-label" for="inlineRadio1">SI</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="monedaExtranjera" id="inlineRadio2"
-                                    value="no" formControlName="monedaExtranjera" (click)="ValidarOtroPais('no')">
-                                <label class="form-check-label" for="inlineRadio2">NO</label>
-                            </div>
-                            <div *ngIf="otroPais"> 
-                            <p>aaa</p>
-                            </div>
+                    <label class="form-check-label" for="exampleRadios2">
+                        ¿Eres declarante de renta ?
+                    </label><br>
 
 
-                        </div><hr>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="declaranteRenta" id="inlineRadio1"
+                            value="option1" formControlName="declaranteRenta">
+                        <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="declaranteRenta" id="inlineRadio2"
+                            value="option2" formControlName="declaranteRenta">
+                        <label class="form-check-label" for="inlineRadio2">NO</label>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <label class="form-check-label" for="exampleRadios2">
+                        ¿Realizas operaciones de moneda extranjera ?
+                    </label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="monedaExtranjera" id="inlineRadio1"
+                            value="si" formControlName="monedaExtranjera" (click)="ValidarOtroPais('si')">
+                        <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="monedaExtranjera" id="inlineRadio2"
+                            value="no" formControlName="monedaExtranjera" (click)="ValidarOtroPais('no')">
+                        <label class="form-check-label" for="inlineRadio2">NO</label>
+                    </div>
+                    <div *ngIf="otroPais">
+                        <p>aaa</p>
+                    </div>
 
-                        <div>
-                                <button type="submit" class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar </button>
-                            </div>
+
+                </div>
+                <hr>
+
+                <div>
+                    <button type="submit" id="btnSubmit" class="btn btn-primary" mat-button matStepperNext
+                        (click)="ValidarEconomica()">Continuar </button>
+                </div>
             </form>
 
         </div>
 
-       
+
     </div>
 
-    
+
 </div>

@@ -87,7 +87,8 @@
                         <label> Departamento</label>
                         <select  (change)="LlenarCiudad()"  class="form-control form-control-sm " class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="departamento" >
-                            <option>Seleccione Un Departamento</option>
+                            <option value="">Seleccione Departamento</option>
+                           
                             <option *ngFor="let dep of Departamento" [value]="dep.idDepartamento">{{dep.nombre}}</option>
                         </select>
                     </div>
@@ -96,7 +97,7 @@
                     <label> Ciudad</label>
                     <select class="form-control-sm" class="form-group " class="form-control mb-2"
                         formControlName="ciudad">
-                        <option>Seleccione Una Ciudad</option>
+                        <option value="">Seleccione Una Ciudad</option>
                         <option *ngFor="let ciu of Ciudad">{{ciu.nombre}}</option>
                     </select>
                 </div>
