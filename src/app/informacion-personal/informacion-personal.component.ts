@@ -96,7 +96,7 @@ export class InformacionPersonalComponent implements OnInit {
       pais: ['', Validators.required],
       departamento: ['', Validators.required],
       ciudad: [''],
-      inicioDireccion: ['', Validators.required],
+      inicioDireccion: [''],
       numeroInicioDireccion: ['', Validators.required],
       numeroDireccion: ['', Validators.required]
     });
