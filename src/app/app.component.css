@@ -21,13 +21,8 @@
     height: 83%;
 }
 .mat-horizontal-stepper-header { 
-<<<<<<< HEAD
-    pointer-events: none !important; 
-=======
-<<<<<<< HEAD
-/*pointer-events: none !important; */  
-=======
 
->>>>>>> 3d345a9bbc5424eddf554e012acb0fe73f9499fb
->>>>>>> 0c2d8d42174949eaccadb4339b62867171da6225
+    pointer-events: none !important; 
+
+
   }
