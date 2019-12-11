@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ClientesService } from '../clientes.service';
-import {MatDialog} from '@angular/material';
-import {ValidarCedulaControlComponent} from '../validar-cedula-control/validar-cedula-control.component';
+import { MatDialog } from '@angular/material';
+import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
 
 @Component({
   selector: 'app-informacion-personal',
@@ -15,16 +15,16 @@ export class InformacionPersonalComponent implements OnInit {
   public formGroup2: FormGroup;
 
   constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService,
-    public dialog: MatDialog ) { }
+    public dialog: MatDialog) { }
 
 
   public estadoCivil: any;
   public genero: any;
-  public Direcciones:any;
-  public Pais:any;
-  public Departamento:any;
-  public Ciudad:any;
-  public ValidarDelitos:any;
+  public Direcciones: any;
+  public Pais: any;
+  public Departamento: any;
+  public Ciudad: any;
+  public ValidarDelitos: any;
 
   ngOnInit() {
     this.buildForm();
@@ -33,12 +33,12 @@ export class InformacionPersonalComponent implements OnInit {
     this.LlenarDireccion();
     this.LlenarPais();
 
-    
-  
-  }
-  @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();  
 
-  
+
+  }
+  @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+
+
 
   public llenarEstadoCivil() {
     this.clientesService.getUsers().subscribe(response => {
@@ -52,95 +52,95 @@ export class InformacionPersonalComponent implements OnInit {
     })
   }
 
-  public LlenarDireccion(){    
-    this.clientesService.getDirecciones().subscribe(response =>{
-      this.Direcciones=response;
+  public LlenarDireccion() {
+    this.clientesService.getDirecciones().subscribe(response => {
+      this.Direcciones = response;
     })
   }
-  public LlenarPais(){    
-    this.clientesService.getPais().subscribe(response =>{
-      this.Pais=response;
-    })    
-    
-        
-  }
-  public LlenarDepartamento(){   
-    
-    if(this.formGroup2.get('pais').value!=null){}
-    this.clientesService.getDepartamentos(this.formGroup2.get('pais').value).subscribe(response =>{
-      this.Departamento=response;
+  public LlenarPais() {
+    this.clientesService.getPais().subscribe(response => {
+      this.Pais = response;
     })
-    
+
+
+  }
+  public LlenarDepartamento() {
+
+    if (this.formGroup2.get('pais').value != null) { }
+    this.clientesService.getDepartamentos(this.formGroup2.get('pais').value).subscribe(response => {
+      this.Departamento = response;
+    })
+
   }
 
-  public LlenarCiudad(){    
-        this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response =>{
-      this.Ciudad=response;
+  public LlenarCiudad() {
+    this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response => {
+      this.Ciudad = response;
     })
   }
 
-  
+
 
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      nombre: ['',Validators.required],
-      apellido: ['',Validators.required],
-      cedula: ['',Validators.required],
-      celular: ['',Validators.required],
-      correo: ['',Validators.required],
-      genero: ['',Validators.required],
-      estadoCivil: ['',Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      cedula: ['', Validators.required],
+      celular: ['', Validators.required],
+      correo: ['', Validators.required],
+      genero: ['', Validators.required],
+      estadoCivil: ['', Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: ['',Validators.required],
-      departamento: ['' ,Validators.required],
+      pais: ['', Validators.required],
+      departamento: ['', Validators.required],
       ciudad: [''],
-      inicioDireccion: ['' ,Validators.required],
-      numeroInicioDireccion: ['' ,Validators.required],
-      numeroDireccion: ['',Validators.required]
+      inicioDireccion: ['', Validators.required],
+      numeroInicioDireccion: ['', Validators.required],
+      numeroDireccion: ['', Validators.required]
     });
 
   }
   submit() {
-    
-   
-    if (this.formGroup2.valid && this.formGroup.valid) {
-      this.notify.emit(this.formGroup ); 
+
+
+    if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos ==false) {
+      this.notify.emit(this.formGroup);
     }
-    else{
-    
+    else {
+
     }
   }
 
-  ValidarCedula(){
+  ValidarCedula() {
 
-    this.clientesService.getValidarCedula(this.formGroup.get('cedula').value).subscribe(response =>{
-      this.ValidarDelitos=response;
+    this.clientesService.getValidarCedula(this.formGroup.get('cedula').value).subscribe(response => {
+      this.ValidarDelitos = response;
 
-      if(this.ValidarDelitos != false){
-            
-        let dialogRef= this.dialog.open(ValidarCedulaControlComponent, {
+      if (this.ValidarDelitos != false) {
+
+        let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
           data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
           width: '30%',
-          height:'30%'
-          });
-        dialogRef.afterClosed().subscribe (response =>{
+          height: '30%'
+        });
+        dialogRef.afterClosed().subscribe(response => {
           console.log(response);
         })
 
       }
 
-      
-      
-      
-      
 
-      })
- 
+
+
+
+
+    })
+
 
   }
- 
+
 
 }
 

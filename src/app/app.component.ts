@@ -11,8 +11,13 @@ export class AppComponent implements OnInit {
   title = 'VinculacionDigital';
   isLinear = false;
   myFormGroup: FormGroup;
+
   onNotify(formGroup: FormGroup): void {
       this.myFormGroup = formGroup;
   }
+
+
   ngOnInit() {}
+
+  
 }
