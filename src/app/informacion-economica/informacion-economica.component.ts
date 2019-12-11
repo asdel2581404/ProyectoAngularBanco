@@ -16,7 +16,7 @@ export class InformacionEconomicaComponent implements OnInit {
   public Ocupacion:any;
   public GastosMensuales:any;
   public PaisesInfoEconomica:any;
-
+  public OtroPaisTributa:any;
   ngOnInit() {
     this.buildForm();
     this.llenarOcupacion();
@@ -60,7 +60,9 @@ export class InformacionEconomicaComponent implements OnInit {
     pasivos:['',Validators.required],
     tributarOtroPais:['',Validators.required],
     declaranteRenta:['', Validators.required],
-    monedaExtranjera:['',Validators.required]  
+    monedaExtranjera:['',Validators.required],
+    paisMonedaExtranjera:[''],
+    otroPaisTributa:['']
    });
    
   }
