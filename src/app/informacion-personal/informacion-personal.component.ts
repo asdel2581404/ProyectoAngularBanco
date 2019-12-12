@@ -109,7 +109,7 @@ export class InformacionPersonalComponent implements OnInit {
       this.notify.emit(this.formGroup);
     }
     else {
-
+     
     }
   }
 

@@ -42,4 +42,8 @@ export class ClientesService {
     return this.http.get(`http://localhost:8086/control/${cedula}`)
   }
 
+  getValidarPais(id){
+    return this.http.get(`http://localhost:8086/paisesProhibidos/${id}`)
+  }
+
 }
