@@ -18,6 +18,8 @@ import {ClientesService} from '../app/clientes.service';
 import {MatCardModule} from '@angular/material/card';
 import { ValidarCedulaControlComponent } from './validar-cedula-control/validar-cedula-control.component';
 import {MatDialogModule} from '@angular/material';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import {MatDialogModule} from '@angular/material';
   
   ],
   imports: [
+    
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,7 +44,8 @@ import {MatDialogModule} from '@angular/material';
     NgxFileDropModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   entryComponents:[ValidarCedulaControlComponent],
   providers: [ClientesService],

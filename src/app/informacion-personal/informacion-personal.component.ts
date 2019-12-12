@@ -3,14 +3,15 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ClientesService } from '../clientes.service';
 import { MatDialog } from '@angular/material';
 import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
-
+import {Persona} from '../modelos/persona';
 @Component({
   selector: 'app-informacion-personal',
   templateUrl: './informacion-personal.component.html',
   styleUrls: ['./informacion-personal.component.css']
 })
 export class InformacionPersonalComponent implements OnInit {
-
+  public  modeloInformacionPersonal=new Persona();
+  
   public formGroup: FormGroup;
   public formGroup2: FormGroup;
 
@@ -70,7 +71,7 @@ export class InformacionPersonalComponent implements OnInit {
     this.clientesService.getDepartamentos(this.formGroup2.get('pais').value).subscribe(response => {
       this.Departamento = response;
     })
-
+    this.LlenarCiudad();
   }
 
   public LlenarCiudad() {
@@ -107,6 +108,8 @@ export class InformacionPersonalComponent implements OnInit {
 
     if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos ==false) {
       this.notify.emit(this.formGroup);
+      this.modeloInformacionPersonal=this.formGroup.value;
+      console.log(this.modeloInformacionPersonal);
     }
     else {
 
