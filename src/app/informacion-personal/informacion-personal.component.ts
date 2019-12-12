@@ -112,7 +112,7 @@ export class InformacionPersonalComponent implements OnInit {
       console.log(this.modeloInformacionPersonal);
     }
     else {
-
+     
     }
   }
 

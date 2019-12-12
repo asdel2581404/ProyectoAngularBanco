@@ -15,7 +15,8 @@
                             <label>Ocupación: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="ocupacion">
-                                <option *ngFor="let ocupacion of Ocupacion">{{ocupacion.nombre}}</option>
+                                <option value="">Seleccionar</option> 
+                                <option *ngFor="let ocupacion of Ocupacion" [value]='ocupacion.prohibido'>{{ocupacion.nombre}}</option>
                             </select>
                             <span style="color:Red;"
                                 *ngIf="formGroup.controls['ocupacion'].touched && formGroup.controls['ocupacion'].errors?.required">la
@@ -64,7 +65,7 @@
                     <label>País origen de los ingresos: </label>
                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                         formControlName="paisOrigenIngreson">
-                        <option *ngFor="let paises of PaisesInfoEconomica">
+                        <option *ngFor="let paises of PaisesInfoEconomica" [value]="paises.idPaises">
                             {{paises.nombre}}
                         </option>
                     </select>
@@ -134,7 +135,8 @@
                                 </label><br>
                             <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                             formControlName="paisMonedaExtranjera">
-                            <option *ngFor="let paises of OtroPaisTributa "> 
+                            <option value="">Seleccionar</option> 
+                            <option *ngFor="let paises of PaisesInfoEconomica "> 
                                 {{paises.nombre}}
                             </option>
                         </select>
@@ -178,7 +180,8 @@
                                         </label><br>
                                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                                     formControlName="paisMonedaExtranjera">
-                                    <option *ngFor="let paises of OtroPaisTributa "> 
+                                    <option value="">Seleccionar</option> 
+                                    <option *ngFor="let paises of PaisesInfoEconomica "> 
                                         {{paises.nombre}}
                                     </option>
                                 </select>
@@ -188,7 +191,7 @@
                         </div><hr>
 
                         <div>
-                                <button type="submit" class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar </button>
+                                <button type="submit" class="btn btn-primary" mat-button matStepperNext (click)='ValidarPaisOrigen()' (click)='validarOcupacion()'>Continuar </button>
                             </div>
             </form>
 

@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
 import { ClientesService } from '../clientes.service'
 @Component({
   selector: 'app-informacion-economica',
@@ -11,12 +13,15 @@ export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
   private otroPais: boolean = false;
   private otroPaisTributa: boolean = false;
-  constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService) { }
+  constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService,
+    public dialog: MatDialog) { }
 
   public Ocupacion: any;
   public GastosMensuales: any;
   public PaisesInfoEconomica: any;
-  public OtroPaisTributa: any;
+  public origenIngresos: any;
+
+
   ngOnInit() {
     this.buildForm();
     this.llenarOcupacion();
@@ -27,8 +32,8 @@ export class InformacionEconomicaComponent implements OnInit {
 
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
-  
-  public llenarOcupacion(){
+
+  public llenarOcupacion() {
     this.clientesService.getOcupacion().subscribe(response => {
       this.Ocupacion = response;
     })
@@ -45,10 +50,11 @@ export class InformacionEconomicaComponent implements OnInit {
     this.clientesService.getPais().subscribe(response => {
       this.PaisesInfoEconomica = response;
 
+
     })
   }
 
-
+  2
   private buildForm() {
     this.formGroup = this.formBuilder.group({
       ocupacion: ['', Validators.required],
@@ -89,11 +95,54 @@ export class InformacionEconomicaComponent implements OnInit {
 
   submit() {
     if (this.formGroup.valid) {
-       this.notify.emit(this.formGroup);
+      this.notify.emit(this.formGroup);
     }
     else {
       alert("Llene todo los campos por favor")
     }
 
   }
+
+
+  ValidarPaisOrigen() {
+
+
+    this.clientesService.getValidarPais(this.formGroup.get('paisOrigenIngreson').value).subscribe(response => {
+      this.origenIngresos = response;
+
+      if (this.origenIngresos != false) {
+
+        let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
+          data: 'Señor usuario con fines de validar una informacion adicional usted no puede continuar con la vinculacion digitalmente dirigase a una sucursal fisica o comunicate al 0180009292 para mas información',
+          width: '30%',
+          height: '30%'
+        });
+        dialogRef.afterClosed().subscribe(response => {
+          console.log(response);
+        })
+
+      }
+
+    })
+
+  }
+
+  validarOcupacion(){
+   
+    console.log(this.formGroup.get('ocupacion').value);
+   if(this.formGroup.get('ocupacion').value != 'false'){
+
+    console.log(this.formGroup.get('ocupacion').value);
+    let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
+      data: 'PRUEBA',
+      width: '30%',
+      height: '30%'
+    });
+    dialogRef.afterClosed().subscribe(response => {
+      console.log(response);
+    })
+
+   }
+  }
+
 }
