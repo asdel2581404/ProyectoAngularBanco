@@ -10,11 +10,12 @@ import {Economica} from '../app/modelos/economica'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  HayPersona:boolean=false;
   title = 'VinculacionDigital';
   isLinear = false;
   myFormGroup: FormGroup;
   ecoformGroup: FormGroup;
-  ModeloInformacionPersonal: Persona;
+  ModeloInformacionPersonal:Persona;
   modeloInformacionEconomica:Economica;
   modeloInformacionResidecia:Residencia;
   onNotify(formGroup: FormGroup): void {
@@ -27,20 +28,25 @@ export class AppComponent implements OnInit {
 
 onNotifyInformacionPersonal(ModeloInformacionPersonal:Persona ):void{
   this.ModeloInformacionPersonal=ModeloInformacionPersonal;
-  console.log('Persona')
   console.log(this.ModeloInformacionPersonal)
+  
+  
 }
 
 onNotifyInformacionResidencia(modeloInformacionResidencia: Residencia):void{
   this.modeloInformacionResidecia=modeloInformacionResidencia;
 
   console.log(this.modeloInformacionResidecia)
+  
 }
 
 onNotifyInformacionEconomica(ModeloInformacionEconmica:Economica ):void{
   this.modeloInformacionEconomica=ModeloInformacionEconmica;
   console.log(this.modeloInformacionEconomica);
+  this.HayPersona= true;
 }
+
+
 
   ngOnInit() {}
 
