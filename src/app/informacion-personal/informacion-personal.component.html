@@ -28,13 +28,13 @@
                     <div class="form-row">
                         <div class="col">
                             <label>Cedula: </label>
-                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
-                                formControlName="cedula">
+                            <input type="number" class="form-group " class="form-control mx-sm-1 mb-2"
+                                formControlName="cedula" >
                                 <span style="color:Red;" *ngIf="formGroup.controls['cedula'].touched && formGroup.controls['cedula'].errors?.required">La cedula  es requerida</span>
                         </div>
                         <div class="col">
                             <label>Celular: </label>
-                            <input type="text" class="form-group" class="form-control" formControlName="celular">
+                            <input type="number" class="form-group" class="form-control" formControlName="celular" >
                             <span style="color:Red;" *ngIf="formGroup.controls['celular'].touched && formGroup.controls['celular'].errors?.required">El número de celular es requerido</span>
                         </div>
                         
@@ -80,6 +80,7 @@
                         <label>Pais: </label>
                         <select  (change)="LlenarDepartamento()" class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais" >
+                            <option value="">Seleccionar</option> 
                             <option *ngFor="let pais of Pais" [value]="pais.idPaises">{{pais.nombre}}</option>
                         </select>
 
@@ -111,6 +112,7 @@
                     <div class="col">
                         <select class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="inicioDireccion">
+                            <option value="">Seleccionar</option>
                             <option *ngFor= "let esquemas of Direcciones">
                                 {{esquemas.nombre}}
                             </option>

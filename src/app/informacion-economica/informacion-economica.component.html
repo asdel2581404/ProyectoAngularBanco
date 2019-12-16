@@ -24,11 +24,8 @@
                         </div>
                         <div class="col">
                             <label>CIIU: </label>
-                            <select class="form-control form-control-sm" class="form-group "
-                                class="form-control mx-sm-1 mb-2" formControlName="ciiu">
-                                <option>Small select</option> 
-                               
-                            </select>
+                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                                formControlName="ciuu">
                         </div>
                         <div class="col-1"  >
                             <span matTooltip="este es el tool"><img  class="logo" src="../../assets/pregunta.png " > </span>
@@ -50,6 +47,7 @@
                             <label>Total ingresos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="totalIngresosMensuales">
+                                <option value="">Seleccionar</option> 
                                 <option *ngFor="let gastosmensuales of GastosMensuales ">
                                     {{gastosmensuales.cantidad}}
                                 </option>
@@ -65,6 +63,7 @@
                     <label>País origen de los ingresos: </label>
                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                         formControlName="paisOrigenIngreson">
+                        <option value="">Seleccionar</option> 
                         <option *ngFor="let paises of PaisesInfoEconomica" [value]="paises.idPaises">
                             {{paises.nombre}}
                         </option>
@@ -79,6 +78,7 @@
                             <label>Gastos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="gastosMesuales">
+                                <option value="">Seleccionar</option> 
                                 <option *ngFor="let gastosmensuales of GastosMensuales ">
                                     {{gastosmensuales.cantidad}}
                                 </option>

@@ -54,7 +54,7 @@ export class InformacionEconomicaComponent implements OnInit {
     })
   }
 
-  2
+  
   private buildForm() {
     this.formGroup = this.formBuilder.group({
       ocupacion: ['', Validators.required],
@@ -94,7 +94,7 @@ export class InformacionEconomicaComponent implements OnInit {
   }
 
   submit() {
-    if (this.formGroup.valid) {
+    if (this.formGroup.valid && this.origenIngresos != true && this.formGroup.get('ocupacion').value != 'true' ) {
       this.notify.emit(this.formGroup);
     }
     else {
@@ -130,7 +130,7 @@ export class InformacionEconomicaComponent implements OnInit {
   validarOcupacion(){
    
     console.log(this.formGroup.get('ocupacion').value);
-   if(this.formGroup.get('ocupacion').value != 'false'){
+   if(this.formGroup.get('ocupacion').value == 'true'){
 
     console.log(this.formGroup.get('ocupacion').value);
     let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
