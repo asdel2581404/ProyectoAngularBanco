@@ -4,5 +4,6 @@ export class Residencia{
     ciudad:string;
     direccionInicial:string;
     numeroDireccionInicial:number;
-    numeroDireccion:NumberConstructor;
+    numeroDireccion:Number;
+    idCliente:Number;
 }
