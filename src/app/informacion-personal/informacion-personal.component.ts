@@ -4,6 +4,7 @@ import { ClientesService } from '../clientes.service';
 import { MatDialog } from '@angular/material';
 import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
 import {Persona} from '../modelos/persona';
+import {Residencia} from '../modelos/residencia';
 @Component({
   selector: 'app-informacion-personal',
   templateUrl: './informacion-personal.component.html',
@@ -11,7 +12,7 @@ import {Persona} from '../modelos/persona';
 })
 export class InformacionPersonalComponent implements OnInit {
   public  modeloInformacionPersonal=new Persona();
-  
+  public modeloInformacionResidencia=new Residencia();
   public formGroup: FormGroup;
   public formGroup2: FormGroup;
 
@@ -26,7 +27,8 @@ export class InformacionPersonalComponent implements OnInit {
   public Departamento: any;
   public Ciudad: any;
   public ValidarDelitos: any;
-
+  
+ 
   ngOnInit() {
     this.buildForm();
     this.llenarEstadoCivil();
@@ -39,8 +41,8 @@ export class InformacionPersonalComponent implements OnInit {
   }
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
-
-
+  @Output() public ModeloInformacionPersonal: EventEmitter<Persona> = new EventEmitter<Persona>();
+  @Output() public ModeloInformacionResidencia: EventEmitter<Residencia> = new EventEmitter<Residencia>();
   public llenarEstadoCivil() {
     this.clientesService.getUsers().subscribe(response => {
       this.estadoCivil = response;
@@ -108,8 +110,12 @@ export class InformacionPersonalComponent implements OnInit {
 
     if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos ==false) {
       this.notify.emit(this.formGroup);
-      this.modeloInformacionPersonal=this.formGroup.value;
-      console.log(this.modeloInformacionPersonal);
+      this.ModeloInformacionPersonal.emit(this.formGroup.value)
+      this.modeloInformacionResidencia=this.formGroup2.value;
+      this.modeloInformacionResidencia.idCliente=this.formGroup.get('cedula').value;
+
+      this.ModeloInformacionResidencia.emit(this.modeloInformacionResidencia)
+     
     }
     else {
      

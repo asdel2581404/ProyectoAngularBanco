@@ -18,7 +18,7 @@
   </mat-step> 
 
   <mat-step   [completed]="false" [stepControl]="myFormGroup">
-    <app-informacion-personal (notify)='onNotify($event)'></app-informacion-personal>      
+    <app-informacion-personal (notify)='onNotify($event)' (ModeloInformacionPersonal)='onNotifyInformacionPersonal($event)' (ModeloInformacionResidencia)='onNotifyInformacionResidencia($event)'></app-informacion-personal>      
   </mat-step>
 
   <mat-step [completed]="false" [stepControl]="ecoformGroup">    
@@ -26,6 +26,7 @@
   </mat-step>
 
   <mat-step [stepControl]="formGroup">
+    
   </mat-step>
 
   
