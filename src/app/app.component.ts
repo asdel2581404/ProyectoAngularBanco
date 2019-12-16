@@ -2,6 +2,7 @@ import { Component,ViewEncapsulation, OnInit, COMPILER_OPTIONS } from '@angular/
 import { FormGroup } from '@angular/forms';
 import {Persona} from '../app/modelos/persona'
 import {Residencia} from '../app/modelos/residencia'
+import {Economica} from '../app/modelos/economica'
 @Component({
   selector: 'app-root',
   encapsulation: ViewEncapsulation.None,
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   myFormGroup: FormGroup;
   ecoformGroup: FormGroup;
   ModeloInformacionPersonal: Persona;
+  modeloInformacionEconomica:Economica;
   modeloInformacionResidecia:Residencia;
   onNotify(formGroup: FormGroup): void {
       this.myFormGroup = formGroup;
@@ -33,6 +35,11 @@ onNotifyInformacionResidencia(modeloInformacionResidencia: Residencia):void{
   this.modeloInformacionResidecia=modeloInformacionResidencia;
 
   console.log(this.modeloInformacionResidecia)
+}
+
+onNotifyInformacionEconomica(ModeloInformacionEconmica:Economica ):void{
+  this.modeloInformacionEconomica=ModeloInformacionEconmica;
+  console.log(this.modeloInformacionEconomica);
 }
 
   ngOnInit() {}

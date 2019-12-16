@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { MatDialog } from '@angular/material';
 import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
 import { ClientesService } from '../clientes.service'
+import {Economica} from '../modelos/economica'
+
 @Component({
   selector: 'app-informacion-economica',
   templateUrl: './informacion-economica.component.html',
@@ -11,8 +13,10 @@ import { ClientesService } from '../clientes.service'
 
 export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
+  public modeloInformacionEconomica= new Economica();
   private otroPais: boolean = false;
   private otroPaisTributa: boolean = false;
+
   constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService,
     public dialog: MatDialog) { }
 
@@ -31,6 +35,8 @@ export class InformacionEconomicaComponent implements OnInit {
   }
 
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+
+  @Output() public ModeloInformacionEconomica: EventEmitter<Economica> = new EventEmitter<Economica>();
 
 
   public llenarOcupacion() {
@@ -69,7 +75,9 @@ export class InformacionEconomicaComponent implements OnInit {
       declaranteRenta: ['', Validators.required],
       monedaExtranjera: ['', Validators.required],
       paisMonedaExtranjera: [''],
-      otroPaisTributa: ['']
+      otroPaisTributa: [''],
+      profesion:[''],
+
     });
 
   }
@@ -94,8 +102,10 @@ export class InformacionEconomicaComponent implements OnInit {
   }
 
   submit() {
-    if (this.formGroup.valid && this.origenIngresos != true && this.formGroup.get('ocupacion').value != 'true' ) {
+    if (this.formGroup.valid && this.origenIngresos == false && this.formGroup.get('ocupacion').value == 'false' ) {
       this.notify.emit(this.formGroup);
+      this.ModeloInformacionEconomica.emit(this.formGroup.value)
+      
     }
     else {
       alert("Llene todo los campos por favor")
