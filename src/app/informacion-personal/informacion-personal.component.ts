@@ -61,6 +61,7 @@ export class InformacionPersonalComponent implements OnInit {
     })
   }
   public LlenarPais() {
+    
     this.clientesService.getPais().subscribe(response => {
       this.Pais = response;
     })
@@ -69,17 +70,24 @@ export class InformacionPersonalComponent implements OnInit {
   }
   public LlenarDepartamento() {
 
-    if (this.formGroup2.get('pais').value != null) { }
+    if (this.formGroup2.get('pais').value != null && this.formGroup2.get('pais').value !="") { 
     this.clientesService.getDepartamentos(this.formGroup2.get('pais').value).subscribe(response => {
       this.Departamento = response;
+      this.LlenarCiudad();
     })
-    this.LlenarCiudad();
+    
+  }
+    
   }
 
   public LlenarCiudad() {
+
+    if(this.formGroup2.get('departamento').value!=null && this.formGroup2.get('departamento').value!=""){
     this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response => {
       this.Ciudad = response;
     })
+  }
+
   }
 
 
@@ -123,7 +131,8 @@ export class InformacionPersonalComponent implements OnInit {
   }
 
   ValidarCedula() {
-
+    console.log(this.formGroup.get('cedula').value)
+      if(this.formGroup.get('cedula').value!=null && this.formGroup.get('cedula').value!="" ){
     this.clientesService.getValidarCedula(this.formGroup.get('cedula').value).subscribe(response => {
       this.ValidarDelitos = response;
 
@@ -137,19 +146,10 @@ export class InformacionPersonalComponent implements OnInit {
         dialogRef.afterClosed().subscribe(response => {
           console.log(response);
         })
-
       }
-
-
-
-
-
-
     })
-
-
   }
-
+  }
 
 }
 

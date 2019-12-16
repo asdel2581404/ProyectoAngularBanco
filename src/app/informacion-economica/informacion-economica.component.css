@@ -1,7 +1,4 @@
-.formIngresar{
-    width: 100%;
-    padding: 3%;
-}
+
 
 .principal{
     display: flex;
@@ -12,4 +9,9 @@
 .logo{
     width: 100%;
     height: 35%;
+}
+.card{
+   padding:5%;
+    
+
 }

@@ -40,6 +40,7 @@ export class InformacionEconomicaComponent implements OnInit {
   }
 
   public llenarGastos() {
+    
     this.clientesService.getGastos().subscribe(response => {
       this.GastosMensuales = response;
 
@@ -78,10 +79,10 @@ export class InformacionEconomicaComponent implements OnInit {
     console.log(value)
     if (value == 'si') {
       this.otroPais = true;
-      this.otroPaisTributa = true;
+      
     } else
       this.otroPais = false;
-    this.otroPaisTributa = false
+    
 
   }
   public ValidarOtroPaisTributa(value) {

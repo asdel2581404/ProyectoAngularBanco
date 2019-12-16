@@ -1,47 +1,49 @@
 <div class="cedula">
 
-<div class="contenedorCargar  ">
-        <div class="mt-5 ml-5"> 
-                <h4>Para poder comenzar el proceso es necesario cargar la cedula</h4><br>
-        
-                <h5>Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>
-        
-                
-                <li>Se requiere foto de la de la cedula por ambos lados en un archivo</li><br>
-                <li>Se requiere  que la imagen sea legible y clara</li><br>
-                <li>Se requiere que la foto sea tomada sin flash</li><br>
-                <li>Se requiere la foto en formato .jpg .png o  un archivo .pdf</li><br>   
-                <hr>     
-                <button  class="btn btn-primary" mat-button matStepperNext [disabled]="continuar"  >Continuar</button>
-        </div> 
-<div class="center"  >
-        <ngx-file-drop   dropZoneLabel="Drop files  here" (onFileDrop)="dropped($event)" 
-        (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
-            <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-              Señor usuario por favor cargue el archivo.
-              <button type="button" (click)="openFileSelector()">Subir Imagen</button>
-            </ng-template>
-        </ngx-file-drop>
-        <div class="upload-table">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody class="upload-name-style">
-                    <tr *ngFor="let item of files; let i=index">
-                        <td><strong>{{ item.relativePath }}</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="contenedorCargar  ">
+        <div class="ayuda" class="mt-5 ml-5">
+            <h4>Para poder comenzar el proceso es necesario cargar la cedula</h4><br>
+
+            <h5>Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>
+
+
+            <li>Se requiere foto de la de la cedula por ambos lados en un archivo</li><br>
+            <li>Se requiere que la imagen sea legible y clara</li><br>
+            <li>Se requiere que la foto sea tomada sin flash</li><br>
+            <li>Se requiere la foto en formato .jpg .png o un archivo .pdf</li><br>
+            <hr>
+            <button class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar</button>
         </div>
-    </div>
-    <div> 
-           
-    </div>
-   
+
+        <mat-divider class="Dividir" [vertical]="true"></mat-divider>
+        <div class="center">
+            <ngx-file-drop dropZoneLabel="Drop files  here" (onFileDrop)="dropped($event)"
+                (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    Señor usuario por favor cargue el archivo.
+                    <button type="button" (click)="openFileSelector()">Subir Imagen</button>
+                </ng-template>
+            </ngx-file-drop>
+            <div class="upload-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody class="upload-name-style">
+                        <tr *ngFor="let item of files; let i=index">
+                            <td><strong>{{ item.relativePath }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+
+        </div>
+
     </div>
 
-    
+
 </div>

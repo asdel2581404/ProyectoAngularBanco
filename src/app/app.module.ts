@@ -19,7 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ValidarCedulaControlComponent } from './validar-cedula-control/validar-cedula-control.component';
 import {MatDialogModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   
   ],
   imports: [
-    
+    MatDividerModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,

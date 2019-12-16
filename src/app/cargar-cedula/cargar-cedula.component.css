@@ -7,7 +7,7 @@ justify-content: center;
 .center{
     width: 50%;
     padding-top: 12%;
-   
+    padding-left: 5%;
 }
 .cedula{
     display: flex;
@@ -15,4 +15,9 @@ justify-content: center;
 }
 .subir{
     height:100% ;
+    
+}
+
+.ayuda{
+    
 }
