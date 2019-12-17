@@ -20,6 +20,7 @@ import { ValidarCedulaControlComponent } from './validar-cedula-control/validar-
 import {MatDialogModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDividerModule} from '@angular/material/divider';
+import { ResumenClienteComponent } from './resumen-cliente/resumen-cliente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import {MatDividerModule} from '@angular/material/divider';
     InformacionPersonalComponent,
     InformacionEconomicaComponent,
     ValidarCedulaControlComponent,
+    ResumenClienteComponent,
     
   
   ],

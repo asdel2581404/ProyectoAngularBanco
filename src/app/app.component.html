@@ -25,8 +25,10 @@
       <app-informacion-economica (notify)='onNotify2($event)' (ModeloInformacionEconomica)='onNotifyInformacionEconomica($event)'></app-informacion-economica>   
   </mat-step>
 
-  <mat-step [stepControl]="formGroup">
-
+  <mat-step >
+    <div *ngIf ='HayPersona'>
+    <app-resumen-cliente [informacionPersonalCliente]= 'ModeloInformacionPersonal'></app-resumen-cliente>
+  </div>
   </mat-step>
 
   
