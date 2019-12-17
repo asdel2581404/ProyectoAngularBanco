@@ -40,7 +40,7 @@ export class InformacionPersonalComponent implements OnInit {
 
   }
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
-
+  @Output() public idCiudad: EventEmitter<Number> = new EventEmitter<Number>();
   @Output() public ModeloInformacionPersonal: EventEmitter<Persona> = new EventEmitter<Persona>();
   @Output() public ModeloInformacionResidencia: EventEmitter<Residencia> = new EventEmitter<Residencia>();
   public llenarEstadoCivil() {
@@ -106,7 +106,7 @@ export class InformacionPersonalComponent implements OnInit {
     this.formGroup2 = this.formBuilder.group({
       pais: [''],
       departamento: [''],
-      ciudad: [''],
+      idCiudad: [''],
       inicioDireccion: [''],
       numeroInicioDireccion: [''],
       numeroDireccion: ['']

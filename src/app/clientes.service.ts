@@ -45,5 +45,12 @@ export class ClientesService {
   getValidarPais(id){
     return this.http.get(`http://localhost:8086/paisesProhibidos/${id}`)
   }
+  
+  getValidarDepartamento(idDepartamento){
+    return this.http.get(`http://localhost:8086/Departamento/PorId/${idDepartamento}`)
+  }
 
+  getValidarCiudad(idCiudad){
+    return this.http.get(`http://localhost:8086/Ciudad/PorId/${idCiudad}`)
+  }
 }

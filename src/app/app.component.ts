@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   ModeloInformacionPersonal:Persona;
   modeloInformacionEconomica:Economica;
   modeloInformacionResidecia:Residencia;
+  idCiudad:Number;
   onNotify(formGroup: FormGroup): void {
       this.myFormGroup = formGroup;
   }
@@ -46,7 +47,10 @@ onNotifyInformacionEconomica(ModeloInformacionEconmica:Economica ):void{
   this.HayPersona= true;
 }
 
-
+onNotifyIdCiudad(idCiudad ):void{
+  this.idCiudad=idCiudad;
+ 
+}
 
   ngOnInit() {}
 

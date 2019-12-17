@@ -18,7 +18,7 @@
   </mat-step> 
 
   <mat-step   [completed]="false" [stepControl]="myFormGroup">
-    <app-informacion-personal (notify)='onNotify($event)' (ModeloInformacionPersonal)='onNotifyInformacionPersonal($event)' (ModeloInformacionResidencia)='onNotifyInformacionResidencia($event)'></app-informacion-personal>      
+    <app-informacion-personal (idCiudad)='onNotifyIdCiudad($event)' (notify)='onNotify($event)' (ModeloInformacionPersonal)='onNotifyInformacionPersonal($event)' (ModeloInformacionResidencia)='onNotifyInformacionResidencia($event)'></app-informacion-personal>      
   </mat-step>
 
   <mat-step [completed]="false" [stepControl]="ecoformGroup">    
@@ -30,7 +30,8 @@
     <div *ngIf ='HayPersona'>
     <app-resumen-cliente [informacionPersonalCliente]= 'ModeloInformacionPersonal' 
      [informacionResidenciaCliente]='modeloInformacionResidecia'
-     [informacionEconomicaCliente]='modeloInformacionEconomica'></app-resumen-cliente>
+     [informacionEconomicaCliente]='modeloInformacionEconomica'
+     [idCiudadRecibe]='idCiudad'></app-resumen-cliente>
   </div>
    
   </mat-step>
