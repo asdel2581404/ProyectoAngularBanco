@@ -64,17 +64,17 @@ export class InformacionEconomicaComponent implements OnInit {
   
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      ocupacion: ['', Validators.required],
+      ocupacion: [''],
       ciiu: [''],
-      ventasAnuales: ['', Validators.required],
-      totalIngresosMensuales: ['', Validators.required],
-      paisOrigenIngreson: ['', Validators.required],
-      gastosMesuales: ['', Validators.required],
-      activos: ['', Validators.required],
+      ventasAnuales: [''],
+      totalIngresosMensuales: [''],
+      paisOrigenIngreson: [''],
+      gastosMesuales: [''],
+      activos: [''],
       pasivos: [''],
-      tributarOtroPais: ['', Validators.required],
-      declaranteRenta: ['', Validators.required],
-      monedaExtranjera: ['', Validators.required],
+      tributarOtroPais: [''],
+      declaranteRenta: [''],
+      monedaExtranjera: [''], 
       paisMonedaExtranjera: [''],
       otroPaisTributa: [''],
       profesion:[''],
@@ -108,9 +108,10 @@ export class InformacionEconomicaComponent implements OnInit {
       this.ModeloInformacionEconomica.emit(this.formGroup.value)
       
     }
-    else {
-      alert("Llene todo los campos por favor")
+    else{
+      
     }
+   
 
   }
 

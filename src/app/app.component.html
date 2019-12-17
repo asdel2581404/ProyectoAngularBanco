@@ -22,13 +22,17 @@
   </mat-step>
 
   <mat-step [completed]="false" [stepControl]="ecoformGroup">    
-      <app-informacion-economica (notify)='onNotify2($event)' (ModeloInformacionEconomica)='onNotifyInformacionEconomica($event)'></app-informacion-economica>   
+      <app-informacion-economica (notify)='onNotify2($event)' 
+      (ModeloInformacionEconomica)='onNotifyInformacionEconomica($event)'></app-informacion-economica>   
   </mat-step>
 
   <mat-step >
     <div *ngIf ='HayPersona'>
-    <app-resumen-cliente [informacionPersonalCliente]= 'ModeloInformacionPersonal'></app-resumen-cliente>
+    <app-resumen-cliente [informacionPersonalCliente]= 'ModeloInformacionPersonal' 
+     [informacionResidenciaCliente]='modeloInformacionResidecia'
+     [informacionEconomicaCliente]='modeloInformacionEconomica'></app-resumen-cliente>
   </div>
+   
   </mat-step>
 
   

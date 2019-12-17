@@ -2,8 +2,8 @@ export class Residencia{
     pais:string;
     departamento:string;
     ciudad:string;
-    direccionInicial:string;
-    numeroDireccionInicial:number;
-    numeroDireccion:Number;
+    inicioDireccion:string;
+    numeroInicioDireccion:string;
+    numeroDireccion:string;
     idCliente:Number;
 }

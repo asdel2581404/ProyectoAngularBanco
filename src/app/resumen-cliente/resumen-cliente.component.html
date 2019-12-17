@@ -1,6 +1,119 @@
 
-<div>
+   
+  <div class="container">
+      <h3>Información personal:</h3><br>
+    <div class="row">
+      <div class="col">
+        <h5>Nombre:</h5>
+        <p>{{informacionPersonalCliente.nombre}}</p>
+      </div>
+      <div class="col order-1">
+        <h5>Apellido:</h5>
+        {{informacionPersonalCliente.apellido}}
+      </div>
+      <div class="col order-12">
+        <h5>Cedula:</h5>
+        {{informacionPersonalCliente.cedula}}
+      </div> 
 
-<p>Nombre</p>
-{{Nombre}}
-</div>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+          <h5>Celular:</h5>
+          {{informacionPersonalCliente.celular}}
+        </div>
+        <div class="col order-1">
+          <h5>Correo:</h5>
+          {{informacionPersonalCliente.correo}}
+        </div>
+        <div class="col order-12">
+          <h5>EstadoCivil:</h5>
+          {{informacionPersonalCliente.estadoCivil}}
+        </div> 
+        
+        <div class="col order-12">
+            <h5>Genero:</h5>
+            {{informacionPersonalCliente.genero}}
+
+          </div>        
+  
+      </div><br>
+
+
+     <hr> <h3>Información de residencia :</h3><br><br>
+      <div class="row">
+        <div class="col">
+          <h5>Pais:</h5>
+          <p>{{informacionResidenciaCliente.pais}}</p>
+        </div>
+        <div class="col order-1">
+          <h5>Departamento:</h5>
+          {{informacionResidenciaCliente.departamento}}
+        </div>
+        <div class="col order-12">
+          <h5>Ciudad:</h5>
+          {{informacionResidenciaCliente.ciudad}}
+        </div> 
+        
+               
+  
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h5>Direccion:</h5>
+          {{informacionResidenciaCliente.inicioDireccion}}
+        </div>
+        <div class="col order-1">
+          <h5>Numero:</h5>
+          {{informacionResidenciaCliente.numeroInicioDireccion}}
+        </div>
+        <div class="col order-12">
+          <h5> Numero:</h5>
+          {{informacionResidenciaCliente.numeroDireccion}}
+        </div> 
+        
+        
+        
+  
+      </div>
+
+      <hr> <h3>Información economica:</h3><br><br>
+
+      <div class="row">
+        <div class="col">
+          <h5>Ocupacion:</h5>
+          <p>{{informacionEconomicaCliente.Ocupacion}}</p>
+        </div>
+        <div class="col order-1">
+          <h5>Codigo CIIU:</h5>
+          {{informacionEconomicaCliente.ciiu}}
+        </div>
+        <div class="col order-12">
+          <h5>Pais origen de los ingresos:</h5>
+          {{informacionEconomicaCliente.paisOrigenIngreson}}
+        </div> 
+      </div>
+
+        <div class="row">
+            <div class="col">
+              <h5>Gastos mensuales:</h5>
+              <p>{{informacionEconomicaCliente.gastosMensuales}}</p>
+            </div>
+            <div class="col order-1">
+              <h5>Activos:</h5>
+              {{informacionEconomicaCliente.activos}}
+            </div>
+            <div class="col order-12">
+              <h5>Pasivos:</h5>
+              {{informacionEconomicaCliente.pasivos}}
+            </div> 
+        
+               
+  
+      </div>
+
+  </div>
+       

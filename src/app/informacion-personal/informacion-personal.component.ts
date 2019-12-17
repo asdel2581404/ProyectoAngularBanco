@@ -95,21 +95,21 @@ export class InformacionPersonalComponent implements OnInit {
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      cedula: ['', Validators.required],
-      celular: ['', Validators.required],
-      correo: ['', Validators.required],
-      genero: ['', Validators.required],
-      estadoCivil: ['', Validators.required],
+      nombre: [''],
+      apellido: [''],
+      cedula: [''],
+      celular: [''],
+      correo: [''],
+      genero: [''],
+      estadoCivil: [''],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: ['', Validators.required],
-      departamento: ['', Validators.required],
+      pais: [''],
+      departamento: [''],
       ciudad: [''],
       inicioDireccion: [''],
-      numeroInicioDireccion: ['', Validators.required],
-      numeroDireccion: ['', Validators.required]
+      numeroInicioDireccion: [''],
+      numeroDireccion: ['']
     });
 
   }
@@ -125,9 +125,10 @@ export class InformacionPersonalComponent implements OnInit {
       this.ModeloInformacionResidencia.emit(this.modeloInformacionResidencia)
      
     }
-    else {
-     
+    else{
+      
     }
+   
   }
 
   ValidarCedula() {

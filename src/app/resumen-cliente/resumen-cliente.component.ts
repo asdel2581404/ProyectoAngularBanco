@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Persona} from '../modelos/persona'
+import {Residencia} from '../modelos/residencia'
+import {Economica} from '../modelos/economica'
 
 @Component({
   selector: 'app-resumen-cliente',
@@ -9,7 +11,9 @@ import {Persona} from '../modelos/persona'
 export class ResumenClienteComponent implements OnInit {
 
   @Input()   informacionPersonalCliente:Persona;
-  public Nombre =this.informacionPersonalCliente.nombre;
+  @Input()   informacionResidenciaCliente:Residencia;
+  @Input()   informacionEconomicaCliente:Economica;
+  
 
 
 
@@ -17,7 +21,9 @@ export class ResumenClienteComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log( this.informacionPersonalCliente)
+   
   }
+
+ 
 
 }

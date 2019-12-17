@@ -2,9 +2,10 @@ export class Economica{
     
     ocupacion:string;
     ventasAnuales:number;
+    ciiu:number;
     totalIngresosMensuales:string;
     paisOrigenIngreson:string;
-    gastosMesuales:string;
+    gastosMensuales:string;
     activos:number;
     pasivos:number;
     tributarOtroPais:boolean;
@@ -16,5 +17,4 @@ export class Economica{
     profesion:string;
 
 }
-
 
