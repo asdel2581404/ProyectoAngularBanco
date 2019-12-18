@@ -5,7 +5,7 @@ export class Economica{
     ciiu:number;
     totalIngresosMensuales:string;
     paisOrigenIngreson:string;
-    gastosMensuales:string;
+    gastosMesuales:string;
     activos:number;
     pasivos:number;
     tributarOtroPais:boolean;

@@ -8,11 +8,11 @@
         <p>{{informacionPersonalCliente.nombre}}</p>
       </div>
       <div class="col order-1">
-        <h5>Apellido:</h5>
+        <h5>Apellidos:</h5>
         {{informacionPersonalCliente.apellido}}
       </div>
       <div class="col order-12">
-        <h5>Cedula:</h5>
+        <h5>Cédula:</h5>
         {{informacionPersonalCliente.cedula}}
       </div> 
 
@@ -29,12 +29,12 @@
           {{informacionPersonalCliente.correo}}
         </div>
         <div class="col order-12">
-          <h5>EstadoCivil:</h5>
+          <h5>Estado Civil:</h5>
           {{informacionPersonalCliente.estadoCivil}}
         </div> 
         
         <div class="col order-12">
-            <h5>Genero:</h5>
+            <h5>Género:</h5>
             {{informacionPersonalCliente.genero}}
 
           </div>        
@@ -45,7 +45,7 @@
      <hr> <h3>Información de residencia :</h3><br><br>
       <div class="row">
         <div class="col">
-          <h5>Pais:</h5>
+          <h5>País:</h5>
           <p>{{nombrePais}}</p>
         </div>
         <div class="col order-1">
@@ -63,15 +63,15 @@
 
       <div class="row">
         <div class="col">
-          <h5>Direccion:</h5>
+          <h5>Dirección:</h5>
           {{informacionResidenciaCliente.inicioDireccion}}
         </div>
         <div class="col order-1">
-          <h5>Numero:</h5>
+          <h5>Número primario:</h5>
           {{informacionResidenciaCliente.numeroInicioDireccion}}
         </div>
         <div class="col order-12">
-          <h5> Numero:</h5>
+          <h5> Número secundario:</h5>
           {{informacionResidenciaCliente.numeroDireccion}}
         </div> 
         
@@ -84,7 +84,7 @@
 
       <div class="row">
         <div class="col">
-          <h5>Ocupacion:</h5>
+          <h5>Ocupación:</h5>
           <p>{{informacionEconomicaCliente.ocupacion}}</p>
         </div>
         <div class="col order-1">
@@ -92,15 +92,19 @@
           {{informacionEconomicaCliente.ciiu}}
         </div>
         <div class="col order-12">
-          <h5>Pais origen de los ingresos:</h5>
+          <h5>País origen de los ingresos:</h5>
           {{informacionEconomicaCliente.paisOrigenIngreson}}
         </div> 
-      </div>
+      </div><br><br>
 
         <div class="row">
+          <div class="col order-12">
+            <h5>Ingresos mensuales:</h5>
+            {{informacionEconomicaCliente.totalIngresosMensuales}}
+          </div> 
             <div class="col">
               <h5>Gastos mensuales:</h5>
-              <p>{{informacionEconomicaCliente.gastosMensuales}}</p>
+              <p>{{informacionEconomicaCliente.gastosMesuales}}</p>
             </div>
             <div class="col order-1">
               <h5>Activos:</h5>
@@ -110,6 +114,8 @@
               <h5>Pasivos:</h5>
               {{informacionEconomicaCliente.pasivos}}
             </div> 
+
+          
         
                
   
