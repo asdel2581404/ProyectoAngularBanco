@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
 onNotifyInformacionPersonal(ModeloInformacionPersonal:Persona ):void{
   this.ModeloInformacionPersonal=ModeloInformacionPersonal;
-  console.log(this.ModeloInformacionPersonal)
+  
   
   
 }
@@ -37,13 +37,13 @@ onNotifyInformacionPersonal(ModeloInformacionPersonal:Persona ):void{
 onNotifyInformacionResidencia(modeloInformacionResidencia: Residencia):void{
   this.modeloInformacionResidecia=modeloInformacionResidencia;
 
-  console.log(this.modeloInformacionResidecia)
+  
   
 }
 
 onNotifyInformacionEconomica(ModeloInformacionEconmica:Economica ):void{
   this.modeloInformacionEconomica=ModeloInformacionEconmica;
-  console.log(this.modeloInformacionEconomica);
+  
   this.HayPersona= true;
 }
 

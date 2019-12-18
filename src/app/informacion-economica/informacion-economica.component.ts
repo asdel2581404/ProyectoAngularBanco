@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { MatDialog } from '@angular/material';
 import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
 import { ClientesService } from '../clientes.service'
-import {Economica} from '../modelos/economica'
+import { Economica } from '../modelos/economica'
 
 @Component({
   selector: 'app-informacion-economica',
@@ -13,7 +13,7 @@ import {Economica} from '../modelos/economica'
 
 export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
-  public modeloInformacionEconomica= new Economica();
+  public modeloInformacionEconomica = new Economica();
   private otroPais: boolean = false;
   private otroPaisTributa: boolean = false;
 
@@ -24,6 +24,7 @@ export class InformacionEconomicaComponent implements OnInit {
   public GastosMensuales: any;
   public PaisesInfoEconomica: any;
   public origenIngresos: any;
+  public OcupacionResumen: any;
 
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class InformacionEconomicaComponent implements OnInit {
     this.llenarOcupacion();
     this.llenarGastos();
     this.llenarPaises();
-    console.log(this.formGroup.value);
+   
   }
 
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
@@ -46,7 +47,7 @@ export class InformacionEconomicaComponent implements OnInit {
   }
 
   public llenarGastos() {
-    
+
     this.clientesService.getGastos().subscribe(response => {
       this.GastosMensuales = response;
 
@@ -61,41 +62,40 @@ export class InformacionEconomicaComponent implements OnInit {
     })
   }
 
-  
+
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      ocupacion: [''],
+      ocupacion: ['',Validators.required],
       ciiu: [''],
-      ventasAnuales: [''],
-      totalIngresosMensuales: [''],
-      paisOrigenIngreson: [''],
-      gastosMesuales: [''],
-      activos: [''],
-      pasivos: [''],
+      ventasAnuales: ['',Validators.required],
+      totalIngresosMensuales: ['',Validators.required],
+      paisOrigenIngreson: ['',Validators.required],
+      gastosMesuales: ['',Validators.required],
+      activos: ['',Validators.required],
+      pasivos: ['',Validators.required],
       tributarOtroPais: [''],
       declaranteRenta: [''],
-      monedaExtranjera: [''], 
+      monedaExtranjera: [''],
       paisMonedaExtranjera: [''],
       otroPaisTributa: [''],
-      profesion:[''],
+      profesion: [''],
 
     });
 
   }
   public ValidarOtroPais(value) {
 
-    console.log(value)
+   
     if (value == 'si') {
       this.otroPais = true;
-      
+
     } else
       this.otroPais = false;
-    
+
 
   }
   public ValidarOtroPaisTributa(value) {
 
-    console.log(value)
     if (value == 'si') {
       this.otroPaisTributa = true;
     } else
@@ -103,15 +103,17 @@ export class InformacionEconomicaComponent implements OnInit {
   }
 
   submit() {
-    if (this.formGroup.valid && this.origenIngresos == false && this.formGroup.get('ocupacion').value == 'false' ) {
+   this.ValidarPaisOrigen()
+    console.log(this.origenIngresos)
+    if (this.formGroup.valid && this.origenIngresos == false && this.formGroup.get('ocupacion').value == 'false') {
       this.notify.emit(this.formGroup);
       this.ModeloInformacionEconomica.emit(this.formGroup.value)
-      
+
     }
-    else{
-      
+    else {
+
     }
-   
+
 
   }
 
@@ -121,13 +123,14 @@ export class InformacionEconomicaComponent implements OnInit {
 
     this.clientesService.getValidarPais(this.formGroup.get('paisOrigenIngreson').value).subscribe(response => {
       this.origenIngresos = response;
-
-      if (this.origenIngresos != false) {
+      console.log(this.origenIngresos)
+      if (this.origenIngresos != false ) {
 
         let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
-          data: 'Señor usuario con fines de validar una informacion adicional usted no puede continuar con la vinculacion digitalmente dirigase a una sucursal fisica o comunicate al 0180009292 para mas información',
-          width: '30%',
-          height: '30%'
+        data: 'Señor usuario con fines de validar  información adicional usted no puede continuar con la vinculación digitalmente, puede dirigirse a una sucursal fisica o comunicate al 0180009292 para mas información',
+        width: '30%',
+        height: '30%'
+        
         });
         dialogRef.afterClosed().subscribe(response => {
           console.log(response);
@@ -139,22 +142,30 @@ export class InformacionEconomicaComponent implements OnInit {
 
   }
 
-  validarOcupacion(){
-   
-    console.log(this.formGroup.get('ocupacion').value);
-   if(this.formGroup.get('ocupacion').value == 'true'){
 
-    console.log(this.formGroup.get('ocupacion').value);
-    let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
-      data: 'PRUEBA',
-      width: '30%',
-      height: '30%'
-    });
-    dialogRef.afterClosed().subscribe(response => {
-      console.log(response);
+  llenarOcupacionPorId() {
+    this.clientesService.getValidarOcupacionResumen(this.formGroup.get('ocupacion').value).subscribe(response => {
+      this.OcupacionResumen=response;
+      return this.OcupacionResumen;
     })
+  }
 
-   }
+  validarOcupacion() {
+    
+   
+    if (this.formGroup.get('ocupacion').value == 'true') {
+
+     
+      let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
+        data: 'Señor usuario con fines de validar  información adicional usted no puede continuar con la vinculación digitalmente, puede dirigirse a una sucursal fisica o comunicate al 0180009292 para mas información',
+        width: '30%',
+        height: '30%'
+      });
+      dialogRef.afterClosed().subscribe(response => {
+        
+      })
+
+    }
   }
 
 }

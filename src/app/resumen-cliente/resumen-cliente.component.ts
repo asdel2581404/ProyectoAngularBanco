@@ -62,5 +62,12 @@ this.llenarCiudadResumen( )
     })
   }
 
+  GuardarInformacion(){
+      alert('SU VINCULACIÓN FUE EXITOSA');
+      location.reload();
+      
+
+  }
+
   
 }

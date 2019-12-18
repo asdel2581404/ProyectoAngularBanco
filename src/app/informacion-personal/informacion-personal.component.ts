@@ -95,48 +95,35 @@ export class InformacionPersonalComponent implements OnInit {
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      nombre: [''],
-      apellido: [''],
-      cedula: [''],
-      celular: [''],
-      correo: [''],
-      genero: [''],
-      estadoCivil: [''],
+      nombre: ['',Validators.required],
+      apellido: ['',Validators.required],
+      cedula: ['',Validators.required],
+      celular: ['',Validators.required],
+      correo: ['',Validators.required],
+      genero: ['',Validators.required],
+      estadoCivil: ['',Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: [''],
-      departamento: [''],
-      idCiudad: [''],
-      inicioDireccion: [''],
-      numeroInicioDireccion: [''],
-      numeroDireccion: ['']
+      pais: ['',Validators.required],
+      departamento: ['',Validators.required],
+      idCiudad: ['',Validators.required],
+      inicioDireccion: ['',Validators.required],
+      numeroInicioDireccion: ['',Validators.required],
+      numeroDireccion: ['',Validators.required]
     });
 
   }
-  submit() {
 
-
-    if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos == false) {
-      this.notify.emit(this.formGroup);
-      this.ModeloInformacionPersonal.emit(this.formGroup.value)
-      this.modeloInformacionResidencia = this.formGroup2.value;
-      this.modeloInformacionResidencia.idCliente = this.formGroup.get('cedula').value;
-
-      this.ModeloInformacionResidencia.emit(this.modeloInformacionResidencia)
-
-    }
-    else {
-
-    }
-
-  }
 
   ValidarCedula() {
-    console.log(this.formGroup.get('cedula').value)
+   console.log(this.formGroup.get('cedula').value)
+   console.log(this.formGroup.get('cedula').value)
     if (this.formGroup.get('cedula').value != null && this.formGroup.get('cedula').value != "") {
       this.clientesService.getValidarCedula(this.formGroup.get('cedula').value).subscribe(response => {
+        console.log
+        console.log(response)
         this.ValidarDelitos = response;
-
+     
         if (this.ValidarDelitos != false) {
 
           let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
@@ -151,6 +138,31 @@ export class InformacionPersonalComponent implements OnInit {
       })
     }
   }
+
+
+  submit() {
+
+         
+   
+    
+    
+    if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos == false) {
+      this.notify.emit(this.formGroup);
+      this.ModeloInformacionPersonal.emit(this.formGroup.value)
+      this.modeloInformacionResidencia = this.formGroup2.value;
+      this.modeloInformacionResidencia.idCliente = this.formGroup.get('cedula').value;
+
+      this.ModeloInformacionResidencia.emit(this.modeloInformacionResidencia)
+
+    }
+    else {
+      console.log(this.ValidarDelitos);
+        
+    }
+
+  }
+
+  
 
 }
 

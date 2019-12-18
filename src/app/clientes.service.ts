@@ -38,7 +38,7 @@ export class ClientesService {
   }
 
   getValidarCedula(cedula){
-
+console.log(cedula)
     return this.http.get(`http://localhost:8086/control/${cedula}`)
   }
 
@@ -57,6 +57,12 @@ export class ClientesService {
   getValidarPaisResumen(idPais){
 
     return this.http.get(`http://localhost:8086/Paises/PorId/${idPais}`)
+
+  }
+
+  getValidarOcupacionResumen(idOcupacion){
+
+    return this.http.get(`http://localhost:8086/ocupacion/PorId/${idOcupacion}`)
 
   }
 }

@@ -5,7 +5,7 @@
 
 
 <mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="formGroup">
+  <mat-step [stepControl]="formGroup" editable=false>
         <div class="container">
 
       <app-recomendaciones ></app-recomendaciones>
@@ -13,7 +13,7 @@
          </div>
   </mat-step>
 
-  <mat-step [stepControl]="formGroup" >
+  <mat-step [stepControl]="formGroup" editable=false>
     <app-cargar-cedula></app-cargar-cedula>
   </mat-step> 
 
