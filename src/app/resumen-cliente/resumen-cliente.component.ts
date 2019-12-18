@@ -12,8 +12,11 @@ import { ClientesService } from '../clientes.service'
 export class ResumenClienteComponent implements OnInit {
   public departamento:any;
   public ciudad:any;
+  public pais:any;
   public nombreCiudad: String;
   public nombreDepartamento:String;
+  public nombrePais:String;
+
   @Input()   informacionPersonalCliente:Persona;
   @Input()   informacionResidenciaCliente:Residencia;
   @Input()   informacionEconomicaCliente:Economica;
@@ -36,8 +39,9 @@ this.llenarCiudadResumen( )
 
     this.clientesService.getValidarCiudad(this.informacionResidenciaCliente.idCiudad).subscribe(response=>{
       this.ciudad=response;
-      this.nombreCiudad= this.ciudad.nombre
-      this.llenarDepartamentoResumaen()
+      this.nombreCiudad= this.ciudad.nombre;
+      this.llenarDepartamentoResumaen();
+      
     })
     
   }
@@ -47,7 +51,16 @@ this.llenarCiudadResumen( )
     this.clientesService.getValidarDepartamento(this.ciudad.idDepartamento).subscribe(response => {
       this.departamento = response;
       this.nombreDepartamento=this.departamento.nombre;
-     
+      this.llenarPaisResumen();
     })
   }
+
+  public llenarPaisResumen(){
+    this.clientesService.getValidarPaisResumen(this.departamento.idPais).subscribe(response=>{
+      this.pais=response;
+      this.nombrePais=this.pais.nombre;
+    })
+  }
+
+  
 }

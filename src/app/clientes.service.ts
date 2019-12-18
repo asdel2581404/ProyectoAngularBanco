@@ -53,4 +53,10 @@ export class ClientesService {
   getValidarCiudad(idCiudad){
     return this.http.get(`http://localhost:8086/Ciudad/PorId/${idCiudad}`)
   }
+
+  getValidarPaisResumen(idPais){
+
+    return this.http.get(`http://localhost:8086/Paises/PorId/${idPais}`)
+
+  }
 }
