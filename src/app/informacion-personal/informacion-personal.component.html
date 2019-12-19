@@ -78,7 +78,7 @@
                 <div class="form-row">
                     <div class="col-sm-6">
                         <label>Pais: </label>
-                        <select  (change)="LlenarDepartamento()" (change)="ValidarCedula()" class="form-control form-control-sm" class="form-group "
+                        <select  (change)="LlenarDepartamento()"  class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais" >
                             <option value="">Seleccionar</option> 
                             <option *ngFor="let pais of Pais" [value]="pais.idPaises">{{pais.nombre}}</option>

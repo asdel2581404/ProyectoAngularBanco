@@ -35,7 +35,7 @@ export class InformacionPersonalComponent implements OnInit {
     this.LlenarGenero();
     this.LlenarDireccion();
     this.LlenarPais();
-
+  
 
 
   }

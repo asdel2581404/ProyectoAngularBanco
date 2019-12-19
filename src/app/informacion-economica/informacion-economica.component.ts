@@ -32,7 +32,7 @@ export class InformacionEconomicaComponent implements OnInit {
     this.llenarOcupacion();
     this.llenarGastos();
     this.llenarPaises();
-   
+    
   }
 
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
