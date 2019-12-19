@@ -3,15 +3,11 @@
 .principal{
     display: flex;
     justify-content: center;
-    
 }
-
 .logo{
-    width: 100%;
+    width: 90%;
     height: 35%;
 }
 .card{
    padding:5%;
-    
-
 }
