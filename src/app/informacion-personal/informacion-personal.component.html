@@ -22,7 +22,7 @@
                         <div class="col">
                             <label>Apellido: </label>
                             <input type="text" class="form-group" class="form-control" formControlName="apellido"  >
-                            <span style="color:Red;" *ngIf="formGroup.controls['apellido'].touched && formGroup.controls['apellido'].errors?.required">El apellido es requerido</span>
+                            <span style="color:Red;" *ngIf="formGroup.controls['apellido'].touched && formGroup.controls['apellido'].errors?.required ">El apellido es requerido</span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -30,7 +30,7 @@
                             <label>Cedula: </label>
                             <input type="number" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="cedula" >
-                                <span style="color:Red;" *ngIf="formGroup.controls['cedula'].touched && formGroup.controls['cedula'].errors?.required">La cedula  es requerida</span>
+                                <span style="color:Red;" *ngIf="formGroup.controls['cedula'].touched && formGroup.controls['cedula'].errors?.required ">La cedula  es requerida</span>
                         </div>
                         <div class="col">
                             <label>Celular: </label>
@@ -78,7 +78,7 @@
                 <div class="form-row">
                     <div class="col-sm-6">
                         <label>Pais: </label>
-                        <select  (change)="LlenarDepartamento()" (change)="ValidarCedula()" class="form-control form-control-sm" class="form-group "
+                        <select  (change)="LlenarDepartamento()" class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais" >
                             <option value="">Seleccionar</option> 
                             <option *ngFor="let pais of Pais" [value]="pais.idPaises">{{pais.nombre}}</option>
@@ -135,7 +135,7 @@
                 </div>
             </form>
         </div>
-        <button type="button"  neme="submit"  id="btnSubmit"  class="btn btn-primary" (click)="submit()"  mat-button matStepperNext  >Continuar </button>
+        <button type="button"  neme="submit"  id="btnSubmit"  class="btn btn-primary" (click)="submit()" (click)="validateForm()"   mat-button matStepperNext  >Continuar </button>
     </mat-card>
     </div>
 

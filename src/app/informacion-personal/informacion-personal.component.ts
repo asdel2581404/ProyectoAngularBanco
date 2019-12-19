@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Component, OnInit, EventEmitter, Output, AfterContentInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl, ValidatorFn } from '@angular/forms';
 import { ClientesService } from '../clientes.service';
 import { MatDialog } from '@angular/material';
 import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
@@ -17,7 +17,10 @@ export class InformacionPersonalComponent implements OnInit {
   public formGroup2: FormGroup;
 
   constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) {
+
+  }
+
 
 
   public estadoCivil: any;
@@ -28,6 +31,7 @@ export class InformacionPersonalComponent implements OnInit {
   public Ciudad: any;
   public ValidarDelitos: any;
 
+  
 
   ngOnInit() {
     this.buildForm();
@@ -35,10 +39,11 @@ export class InformacionPersonalComponent implements OnInit {
     this.LlenarGenero();
     this.LlenarDireccion();
     this.LlenarPais();
-
-
-
+    setTimeout(() => {
+      this.notify.emit(this.formGroup);
+    });
   }
+
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public idCiudad: EventEmitter<Number> = new EventEmitter<Number>();
   @Output() public ModeloInformacionPersonal: EventEmitter<Persona> = new EventEmitter<Persona>();
@@ -47,6 +52,23 @@ export class InformacionPersonalComponent implements OnInit {
     this.clientesService.getUsers().subscribe(response => {
       this.estadoCivil = response;
     })
+  }
+
+  validarCedulaControl(control: AbstractControl) {
+
+    console.log(control.value)
+    if (control.value != null && control.value != "") {
+      this.clientesService.getValidarCedula(control.value).subscribe(response => {
+        this.ValidarDelitos = response
+        console.log(response)
+      })
+    }
+    if (this.ValidarDelitos == true) {
+      return { valid: true };
+    } else {
+      return;
+    }
+
   }
 
   public LlenarGenero() {
@@ -95,59 +117,57 @@ export class InformacionPersonalComponent implements OnInit {
 
   private buildForm() {
     this.formGroup = this.formBuilder.group({
-      nombre: ['',Validators.required],
-      apellido: ['',Validators.required],
-      cedula: ['',Validators.required],
-      celular: ['',Validators.required],
-      correo: ['',Validators.required],
-      genero: ['',Validators.required],
-      estadoCivil: ['',Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      cedula: ['', [Validators.required, this.validarCedulaControl.bind(this)]],
+      celular: ['', Validators.required],
+      correo: ['', Validators.required],
+      genero: ['', Validators.required],
+      estadoCivil: ['', Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
-      pais: ['',Validators.required],
-      departamento: ['',Validators.required],
-      idCiudad: ['',Validators.required],
-      inicioDireccion: ['',Validators.required],
-      numeroInicioDireccion: ['',Validators.required],
-      numeroDireccion: ['',Validators.required]
+      pais: ['', Validators.required],
+      departamento: ['', Validators.required],
+      idCiudad: ['', Validators.required],
+      inicioDireccion: [''],
+      numeroInicioDireccion: [''],
+      numeroDireccion: ['']
     });
 
   }
 
 
-  ValidarCedula() {
-   console.log(this.formGroup.get('cedula').value)
-   console.log(this.formGroup.get('cedula').value)
-    if (this.formGroup.get('cedula').value != null && this.formGroup.get('cedula').value != "") {
-      this.clientesService.getValidarCedula(this.formGroup.get('cedula').value).subscribe(response => {
-        console.log
-        console.log(response)
-        this.ValidarDelitos = response;
-     
-        if (this.ValidarDelitos != false) {
 
-          let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
-            data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
-            width: '30%',
-            height: '30%'
-          });
-          dialogRef.afterClosed().subscribe(response => {
-            
-          })
-        }
-      })
+
+
+  validateForm() {
+    if (this.formGroup.invalid) {
+      this.formGroup.get('nombre').markAsTouched();
+      this.formGroup.get('apellido').markAsTouched();
+      this.formGroup.get('cedula').markAsTouched();
+      this.formGroup.get('celular').markAsTouched();
+      this.formGroup.get('genero').markAsTouched();
+
+
     }
+
   }
 
-
   submit() {
+    console.log(this.formGroup.valid, 'hola')
 
-         
-   
-    
-    
+    if (this.ValidarDelitos == true) {
+      let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
+        data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
+        width: '30%',
+        height: '30%'
+      });
+      dialogRef.afterClosed().subscribe(response => {
+      })
+    }
+
     if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos == false) {
-      this.notify.emit(this.formGroup);
+
       this.ModeloInformacionPersonal.emit(this.formGroup.value)
       this.modeloInformacionResidencia = this.formGroup2.value;
       this.modeloInformacionResidencia.idCliente = this.formGroup.get('cedula').value;
@@ -157,12 +177,12 @@ export class InformacionPersonalComponent implements OnInit {
     }
     else {
       console.log(this.ValidarDelitos);
-        
+
     }
 
   }
 
-  
+
 
 }
 
