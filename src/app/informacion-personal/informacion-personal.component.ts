@@ -55,15 +55,17 @@ export class InformacionPersonalComponent implements OnInit {
   }
 
   validarCedulaControl(control: AbstractControl) {
-
+    
     console.log(control.value)
     if (control.value != null && control.value != "") {
       this.clientesService.getValidarCedula(control.value).subscribe(response => {
-        this.ValidarDelitos = response
+       this.ValidarDelitos = response
+       
         console.log(response)
       })
     }
-    if (this.ValidarDelitos == true) {
+    console.log('sitiene',this.ValidarDelitos )
+    if (this.ValidarDelitos== true) {
       return { valid: true };
     } else {
       return;
