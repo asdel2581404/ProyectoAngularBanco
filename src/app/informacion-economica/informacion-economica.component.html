@@ -41,10 +41,14 @@
                                 *ngIf="formGroup.controls['ventasAnuales'].touched && formGroup.controls['ventasAnuales'].errors?.required">las
                                 ventas anuales son requeridas</span>
                         </div>
-
+                            
 
                         <div class="col">
-                            <label>Total ingresos mensuales: </label>
+
+                            <label>Total ingresos mensuales:</label>
+                                
+                            
+                            
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="totalIngresosMensuales">
                                 <option value="">Seleccionar</option> 
@@ -61,14 +65,16 @@
                     </div>
 
                     <label>País origen de los ingresos: </label>
-                    <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
-                        formControlName="paisOrigenIngreson"
-                        >
-                        <option value="">Seleccionar</option> 
-                        <option *ngFor="let paises of PaisesInfoEconomica" [value]="paises.idPaises">
-                            {{paises.nombre}}
-                        </option>
-                    </select>
+
+
+                <mat-form-field>
+                  <mat-label>Favorite food</mat-label>
+                  <mat-select formControlName="paisOrigenIngreson">
+                    <mat-option *ngFor="let paises of PaisesInfoEconomica" [value]="paises.idPaises">
+                        {{paises.nombre}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
                     <span style="color:Red;"
                         *ngIf="formGroup.controls['paisOrigenIngreson'].touched && formGroup.controls['paisOrigenIngreson'].errors?.required">el
                         país es requerido</span>

@@ -21,6 +21,7 @@ import {MatDialogModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDividerModule} from '@angular/material/divider';
 import { ResumenClienteComponent } from './resumen-cliente/resumen-cliente.component';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { ResumenClienteComponent } from './resumen-cliente/resumen-cliente.compo
   
   ],
   imports: [
+    MatSelectModule,
     MatDividerModule,
     HttpClientModule,
     BrowserModule,

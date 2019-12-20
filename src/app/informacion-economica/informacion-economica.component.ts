@@ -37,6 +37,7 @@ export class InformacionEconomicaComponent implements OnInit {
     this.llenarPaises();
     setTimeout(() => {
       this.notify.emit(this.formGroup);
+    
     });
     
   }
@@ -114,7 +115,7 @@ export class InformacionEconomicaComponent implements OnInit {
 
 
    validarOCupacionControl(controlOcupacion: AbstractControl){
-
+    
     console.log(controlOcupacion.value, 'prueba')
     if (controlOcupacion.value != null && controlOcupacion.value != "") {
      this.ValidarOcupacion = controlOcupacion.value ;
@@ -127,28 +128,36 @@ export class InformacionEconomicaComponent implements OnInit {
     return;
     }
 
-      LLamarValidarPais(value){
-        if (value != null && value != "") {
-          this.clientesService.getValidarPais(value).subscribe(response => {
+      public LLamarValidarPais(control) { 
+      
+      return new Promise((resolve,reget)=>{
+        
+        console.log(control)
+        if(control!=""){
+          this.clientesService.getValidarPais(control).subscribe(response => {
             this.ValidarOrigenIngresos = response
-            if(this.ValidarOrigenIngresos==true){
-              origendeIngresos=true;
-            }
+            return resolve(this.ValidarOrigenIngresos)
+            
           })
         }
-      }
+        
+      });}
     
     validarPaisOrigenIngresos(controlOrigenIngreso: AbstractControl) {
-        
-      console.log(controlOrigenIngreso.value)
-      this.LLamarValidarPais(controlOrigenIngreso.value)
-     
-      if (this.ValidarOrigenIngresos == true) {
+   
+   
+     this.LLamarValidarPais(controlOrigenIngreso.value).then(response=>{
+      console.log(response,"esta")
+      if (response == true) {
         return { valid: true };
-      } else {
-        return;
+      }else{
+        return false
       }
+      
   
+     })
+     
+     
     }  
     
 
@@ -157,7 +166,7 @@ export class InformacionEconomicaComponent implements OnInit {
 
   public ValidarOtroPais(value) {
 
-   
+    
     if (value == 'si') {
       this.otroPais = true;
 
@@ -186,9 +195,9 @@ export class InformacionEconomicaComponent implements OnInit {
       dialogRef.afterClosed().subscribe(response => {
       })
     }
+  
     
-    
-    console.log(this.formGroup.controls["ocupacion"].invalid, 'hola8');
+   
     if (this.formGroup.valid && this.ValidarOcupacion == 'false' && this.ValidarOrigenIngresos == false ) {
      
       this.ModeloInformacionEconomica.emit(this.formGroup.value)
@@ -202,7 +211,7 @@ export class InformacionEconomicaComponent implements OnInit {
   }
 
 
-
+}
  
 
-}
+
