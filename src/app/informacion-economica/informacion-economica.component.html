@@ -7,7 +7,7 @@
 
         <div class="formIngresar">
 
-            <form [formGroup]="formGroup" class="formInformacionEconomica" (ngSubmit)="submit()">
+            <form [formGroup]="formGroup" class="formInformacionEconomica" (ngSubmit)="submit()" >
                 <div class="form-group">
 
                     <div class="form-row">
@@ -62,7 +62,8 @@
 
                     <label>País origen de los ingresos: </label>
                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
-                        formControlName="paisOrigenIngreson">
+                        formControlName="paisOrigenIngreson"
+                        >
                         <option value="">Seleccionar</option> 
                         <option *ngFor="let paises of PaisesInfoEconomica" [value]="paises.idPaises">
                             {{paises.nombre}}
@@ -136,7 +137,7 @@
                             <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                             formControlName="paisMonedaExtranjera">
                             <option value="">Seleccionar</option> 
-                            <option *ngFor="let paises of PaisesInfoEconomica "> 
+                            <option > 
                                 {{paises.nombre}}
                             </option>
                         </select>
@@ -181,7 +182,7 @@
                                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                                     formControlName="paisMonedaExtranjera">
                                     <option value="">Seleccionar</option> 
-                                    <option *ngFor="let paises of PaisesInfoEconomica "> 
+                                    <option > 
                                         {{paises.nombre}}
                                     </option>
                                 </select>
@@ -191,7 +192,7 @@
                         </div><hr>
 
                         <div>
-                                <button type="submit" class="btn btn-primary" mat-button matStepperNext  (click)='validarOcupacion()'>Continuar </button>
+                                <button type="submit" class="btn btn-primary" mat-button matStepperNext   (click)="validateForm()">Continuar </button>
                             </div>
             </form>
 
