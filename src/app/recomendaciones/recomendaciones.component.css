@@ -34,3 +34,35 @@
      transform: translateX(-50%);
 }
      
+.h-1-heading-dark-left {
+	height: 110px;
+	width: 500px;
+    color: #FFCF01;
+	font-family: Nunito;
+	font-size: 40px;
+	font-weight: bold;
+	
+	line-height: 40px;
+}
+.h-3-heading-dark-left {	height: 90px;	
+   width: 431px;	
+   color: #00448D;	
+   font-family: Nunito;
+   font-size: 28px;
+   font-weight: bold;
+   
+   line-height: 30px;
+  }
+
+
+  .body-dark-left {	
+      
+     width: 335px;
+     color: #292929;
+     font-family: "Open Sans";
+     font-size: 16px;
+     letter-spacing: -0.3px;
+                        }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+     background-color: #FFCF01;}
