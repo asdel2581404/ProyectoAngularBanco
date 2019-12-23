@@ -12,7 +12,7 @@
             <li>Se requiere que la foto sea tomada sin flash</li><br>
             <li>Se requiere la foto en formato .jpg .png o un archivo .pdf</li><br>
             <hr>
-            <button class="btn btn-primary" mat-button matStepperNext [disabled]="continuar">Continuar</button>
+            <button class="ui-button-primary-default-focu" mat-button matStepperNext [disabled]="continuar">Continuar</button>
         </div>
 
         <mat-divider class="Dividir" [vertical]="true"></mat-divider>
@@ -21,7 +21,7 @@
                 (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                     Señor usuario por favor cargue el archivo.
-                    <button type="button" (click)="openFileSelector()">Subir Imagen</button>
+                    <button  type="button" (click)="openFileSelector()">Subir Imagen</button>
                 </ng-template>
             </ngx-file-drop>
             <div class="upload-table">
