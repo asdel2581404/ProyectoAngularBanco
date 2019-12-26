@@ -2,9 +2,9 @@
     <div>
             <mat-card class="card">
         <div>
-            <h4>Igresa tu información personal: </h4>
+            <h4 class="h-3-heading-dark-left ">Igresa tu información personal: </h4>
 
-            <h6>¡En este paso te solicitamos digitar algunos datos acerca de tu información  personal y económica, esto será sencillo! </h6>
+            <h6 class="subtitulo">¡En este paso te solicitamos digitar algunos datos acerca de tu información  personal y económica, esto será sencillo! </h6>
         </div>
      
         <div class="formIngresar">
@@ -14,39 +14,39 @@
 
                     <div class="form-row">
                         <div class="col">
-                            <label>Nombre: </label>
+                            <label class="body-dark-left">Nombre: </label>
                             <input type="text" class="form-group is-valid " class="form-control mx-sm-1 mb-2"
                                 formControlName="nombre" >
                                 <span style="color:Red;" *ngIf="formGroup.controls['nombre'].touched && formGroup.controls['nombre'].errors?.required">El nombre es requerido</span>
                         </div>
                         <div class="col">
-                            <label>Apellido: </label>
+                            <label class="body-dark-left">Apellido: </label>
                             <input type="text" class="form-group" class="form-control" formControlName="apellido"  >
                             <span style="color:Red;" *ngIf="formGroup.controls['apellido'].touched && formGroup.controls['apellido'].errors?.required ">El apellido es requerido</span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <label>Cedula: </label>
+                            <label class="body-dark-left">Cedula: </label>
                             <input type="number" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="cedula" >
                                 <span style="color:Red;" *ngIf="formGroup.controls['cedula'].touched && formGroup.controls['cedula'].errors?.required ">La cedula  es requerida</span>
                         </div>
                         <div class="col">
-                            <label>Celular: </label>
+                            <label class="body-dark-left">Celular: </label>
                             <input type="number" class="form-group" class="form-control" formControlName="celular" >
                             <span style="color:Red;" *ngIf="formGroup.controls['celular'].touched && formGroup.controls['celular'].errors?.required">El número de celular es requerido</span>
                         </div>
                         
                     </div>
 
-                    <label>Correo electrónico: </label>
+                    <label class="body-dark-left">Correo electrónico: </label>
                     <input type="mail" class="form-group" class="form-control" formControlName="correo"><br>
                     <span style="color:Red;" *ngIf="formGroup.controls['correo'].touched && formGroup.controls['correo'].errors?.required">El correo es requerido</span>
 
                     <div class="form-row">
                         <div class="col">
-                            <label>Genero: </label>
+                            <label class="body-dark-left">Genero: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="genero" >
                                 <option value="">Seleccionar</option> 
@@ -57,7 +57,7 @@
 
                         </div>
                         <div class="col">
-                            <label>Estado civil: </label>
+                            <label class="body-dark-left">Estado civil: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="estadoCivil">
                                 <option value="">Seleccionar</option> 
@@ -70,14 +70,14 @@
 
 
                 </div>
-            </form>
+            </form><br>
          
             <form [formGroup]="formGroup2" class="formDatosPersonales" (ngSubmit)="submit()">
-                    <h4>Información de residencia: </h4>
+                    <h4 class="h-3-heading-dark-left ">Información de residencia: </h4>
                 
                 <div class="form-row">
                     <div class="col-sm-6">
-                        <label>Pais: </label>
+                        <label class="body-dark-left">Pais: </label>
                         <select  (change)="LlenarDepartamento()"  class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais" >
                             <option value="">Seleccionar</option> 
@@ -86,7 +86,7 @@
 
                     </div>
                     <div class="col-sm-6">
-                        <label> Departamento</label>
+                        <label class="body-dark-left"> Departamento</label>
                         <select  (change)="LlenarCiudad()"  class="form-control form-control-sm " class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="departamento" >
                             <option value="">Seleccione Departamento</option>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                
-                    <label> Ciudad</label>
+                    <label class="body-dark-left"> Ciudad</label>
                     <select class="form-control-sm" class="form-group " class="form-control mb-2"
                         formControlName="idCiudad">
                         <option value="">Seleccione Una Ciudad</option>
