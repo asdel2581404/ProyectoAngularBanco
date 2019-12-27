@@ -1,5 +1,5 @@
 
-   
+    <mat-card class=card>
   <div class="container">
       <h3 class="h-3-heading-dark-left">Información personal:</h3><br>
     <div class="row">
@@ -26,11 +26,11 @@
         </div>
         <div class="col order-1">
           <h5>Correo:</h5>
-          {{informacionPersonalCliente.correo}}
+          {{informacionPersonalCliente.email}}
         </div>
         <div class="col order-12">
           <h5>Estado Civil:</h5>
-          {{informacionPersonalCliente.estadoCivil}}
+          {{informacionPersonalCliente.estadocivil}}
         </div> 
         
         <div class="col order-12">
@@ -59,7 +59,7 @@
         
                
   
-      </div><hr>
+      </div>
 
       <div class="row">
         <div class="col">
@@ -122,4 +122,4 @@
       </div><br><br><hr>
       <button type="submit"  neme="submit"  id="btnSubmit"  class="ui-button-primary-default-focu "   mat-button matStepperNext (click)="GuardarInformacion()" >Enviar </button>
   </div>
-       
+</mat-card>

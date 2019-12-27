@@ -40,9 +40,9 @@
                         
                     </div>
 
-                    <label class="body-dark-left">Correo electrónico: </label>
-                    <input type="mail" class="form-group" class="form-control" formControlName="correo"><br>
-                    <span style="color:Red;" *ngIf="formGroup.controls['correo'].touched && formGroup.controls['correo'].errors?.required">El correo es requerido</span>
+                    <label class="body-dark-left">email electrónico: </label>
+                    <input type="mail" class="form-group" class="form-control" formControlName="email"><br>
+                    <span style="color:Red;" *ngIf="formGroup.controls['email'].touched && formGroup.controls['email'].errors?.required">El email es requerido</span>
 
                     <div class="form-row">
                         <div class="col">
@@ -59,7 +59,7 @@
                         <div class="col">
                             <label class="body-dark-left">Estado civil: </label>
                             <select class="form-control form-control-sm" class="form-group "
-                                class="form-control mx-sm-1 mb-2" formControlName="estadoCivil">
+                                class="form-control mx-sm-1 mb-2" formControlName="estadocivil">
                                 <option value="">Seleccionar</option> 
                                 <option *ngFor="let estado of estadoCivil ">{{estado.nombre}} </option>
                             </select>

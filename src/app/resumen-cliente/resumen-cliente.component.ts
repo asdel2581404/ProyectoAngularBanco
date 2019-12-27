@@ -4,6 +4,7 @@ import {Residencia} from '../modelos/residencia'
 import {Economica} from '../modelos/economica'
 import { ClientesService } from '../clientes.service'
 
+
 @Component({
   selector: 'app-resumen-cliente',
   templateUrl: './resumen-cliente.component.html',
@@ -61,11 +62,14 @@ this.llenarCiudadResumen( )
       this.nombrePais=this.pais.nombre;
     })
   }
-
+ 
   GuardarInformacion(){
-      alert('SU VINCULACIÓN FUE EXITOSA');
-      location.reload();
-      
+        console.log(this.informacionPersonalCliente);
+        this.clientesService.postGuardarCliente(this.informacionPersonalCliente).subscribe(response =>{
+          console.log(response);
+          alert('Vinculacion Exitosa');
+          
+        })
 
   }
 

@@ -123,9 +123,9 @@ export class InformacionPersonalComponent implements OnInit {
       apellido: ['', Validators.required],
       cedula: ['', [Validators.required, this.validarCedulaControl.bind(this)]],
       celular: ['', Validators.required],
-      correo: ['', Validators.required],
+      email: ['', Validators.required],
       genero: ['', Validators.required],
-      estadoCivil: ['', Validators.required],
+      estadocivil: ['', Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
       pais: ['', Validators.required],

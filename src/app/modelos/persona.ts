@@ -3,7 +3,7 @@ export class Persona{
     apellido:string;
     cedula:number;
     celular:number;
-    correo:string;
+    email:string;
     genero:string;
-    estadoCivil:string;
+    estadocivil:string;
 }

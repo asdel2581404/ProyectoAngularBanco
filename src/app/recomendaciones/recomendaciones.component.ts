@@ -11,7 +11,7 @@ export class RecomendacionesComponent implements OnInit {
 }
   constructor() { }
   ngOnInit() { }
-   continuar:boolean=false;
+  continuar:boolean=false;
    habilitar() {
      console.log(this.continuar)
     if(this.continuar==false){
