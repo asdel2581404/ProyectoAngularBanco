@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Persona} from '../app/modelos/persona'
+import {Persona} from '../app/modelos/persona';
+import{Residencia} from '../app/modelos/residencia';
 @Injectable({
   providedIn: 'root'
 })
@@ -69,5 +70,10 @@ console.log(cedula)
 
   postGuardarCliente(cliente :Persona){
     return this.http.post<Persona>('http://localhost:8086/clientes/insertarCliente' , cliente)
+  }
+
+
+  postGuardarClienteResidencia(clienteResidencia :Residencia){
+    return this.http.post<Residencia>('http://localhost:8086/Infodomicilio/insertarDomicilio' , clienteResidencia)
   }
 }

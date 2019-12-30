@@ -98,7 +98,7 @@
                
                     <label class="body-dark-left"> Ciudad</label>
                     <select class="form-control-sm" class="form-group " class="form-control mb-2"
-                        formControlName="idCiudad">
+                        formControlName="idciudad">
                         <option value="">Seleccione Una Ciudad</option>
                         <option *ngFor="let ciu of Ciudad"  [value]="ciu.idCiudad">{{ciu.nombre}}</option>
                     </select>
@@ -111,7 +111,7 @@
                 <div class="form-row">
                     <div class="col-4">
                         <select class="form-control form-control-sm" class="form-group "
-                            class="form-control mx-sm-1 mb-2" formControlName="inicioDireccion">
+                            class="form-control mx-sm-1 mb-2" formControlName="nomenclatura">
                             <option value="">Seleccionar</option>
                             <option *ngFor= "let esquemas of Direcciones">
                                 {{esquemas.nombre}}
@@ -121,12 +121,12 @@
                     </div>
                     <div class="col">
                         <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
-                            formControlName="numeroInicioDireccion" placeholder="Ejemplo:48 B">
+                            formControlName="numeroinicial" placeholder="Ejemplo:48 B">
                     </div>
                     <label>#</label>
                     <div class="col">
                         <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
-                            formControlName="numeroDireccion" placeholder="Numero">
+                            formControlName="numerosecundario" placeholder="Numero">
                     </div>
 
                 </div>
