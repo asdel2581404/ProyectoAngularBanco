@@ -143,7 +143,7 @@
                             <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                             formControlName="paisMonedaExtranjera">
                             <option value="">Seleccionar</option> 
-                            <option > 
+                            <option  *ngFor="let paises of PaisesInfoEconomica " > 
                                 {{paises.nombre}}
                             </option>
                         </select>
@@ -188,7 +188,7 @@
                                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                                     formControlName="paisMonedaExtranjera">
                                     <option value="">Seleccionar</option> 
-                                    <option > 
+                                    <option *ngFor="let paises of PaisesInfoEconomica " > 
                                         {{paises.nombre}}
                                     </option>
                                 </select>

@@ -68,6 +68,7 @@ export class InformacionEconomicaComponent implements OnInit {
 
   
   llenarOcupacionPorId() {
+    
     this.clientesService.getValidarOcupacionResumen(this.formGroup.get('ocupacion').value).subscribe(response => {
       this.OcupacionResumen=response;
       return this.OcupacionResumen;
@@ -107,14 +108,16 @@ export class InformacionEconomicaComponent implements OnInit {
 
 
    validarOCupacionControl(controlOcupacion: AbstractControl){  
-    console.log(controlOcupacion.value, 'prueba')
-    if (controlOcupacion.value != null && controlOcupacion.value != "") {
-     this.ValidarOcupacion = controlOcupacion.value ;
-        if ( controlOcupacion.value == 'true') {
+    let ocupacion:any=controlOcupacion.value
+    console.log(ocupacion.prohibido,'ocupacion')
+    
+    if (ocupacion != null && ocupacion != "") {
+     this.ValidarOcupacion = ocupacion.prohibido ;
+        if ( ocupacion.prohibido == true) {
           console.log('el formulario es falso')
           return { valid: true };}
         }
-        console.log(controlOcupacion.value ,"aaa")
+        console.log(ocupacion.prohibido ,"aaa")
     return;
     }
 
@@ -159,7 +162,8 @@ export class InformacionEconomicaComponent implements OnInit {
     
     if (value == 'si') {
       this.otroPais = true;
-
+      
+      console.log(this.PaisesInfoEconomica ,'pasises')
     } else
       this.otroPais = false;
 
@@ -189,7 +193,7 @@ export class InformacionEconomicaComponent implements OnInit {
     
    
     if (this.formGroup.valid && this.ValidarOcupacion == 'false' && this.ValidarOrigenIngresos == false ) {
-     
+      console.log(this.formGroup.get('tributarOtroPais').value , 'check')
       this.ModeloInformacionEconomica.emit(this.formGroup.value)
 
     }

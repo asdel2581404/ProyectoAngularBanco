@@ -5,7 +5,7 @@ justify-content: center;
 }
 
 .center{
-    width: 50%;
+    width: 40%;
     padding-top: 5%;
     padding-left: 5%;
     position: relative;
@@ -18,8 +18,8 @@ color: #808285;
     border: 2px dashed #ccc;
     background: url("../../assets/camera.8427a75d9ae405d3a090.svg")  center 40% no-repeat #eaeaea;
     max-width: 500px ;
-   height:70%;
-   width: 100%;
+   height:50%;
+   width: 80%;
     overflow: auto;
     display: block;
     text-align: center;
@@ -66,6 +66,10 @@ color: #808285;
 #subeImagen{
 display:none;
 }
+
+.ayuda{
+    margin-right:4%;
+}
 .ui-button-primary-default-focu {	
     height: 60px;	
     width: 220px;
@@ -99,7 +103,7 @@ display:none;
    
   .body-dark-left {	
       
-    width: 300px;
+    width: 100%;
     color: #292929;
     font-family: "Open Sans";
     font-size: 16px;
