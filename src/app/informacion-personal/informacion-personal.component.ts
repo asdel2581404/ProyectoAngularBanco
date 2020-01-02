@@ -46,6 +46,7 @@ export class InformacionPersonalComponent implements OnInit {
 
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public idCiudad: EventEmitter<Number> = new EventEmitter<Number>();
+  @Output() public cedula: EventEmitter<Number> = new EventEmitter<Number>();
   @Output() public ModeloInformacionPersonal: EventEmitter<Persona> = new EventEmitter<Persona>();
   @Output() public ModeloInformacionResidencia: EventEmitter<Residencia> = new EventEmitter<Residencia>();
   public llenarEstadoCivil() {
@@ -157,7 +158,7 @@ export class InformacionPersonalComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.formGroup.valid, 'hola')
+   
 
     if (this.ValidarDelitos == true) {
       let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {

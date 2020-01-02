@@ -3,16 +3,16 @@ export class Economica{
     ocupacion:string;
     ventasAnuales:number;
     ciiu:number;
-    totalIngresosMensuales:string;
-    paisOrigenIngreson:string;
-    gastosMesuales:string;
+    totalMensuales:string;
+    paisOrigenIngresos:string;
+    gastosMensuales:string;
     activos:number;
     pasivos:number;
-    tributarOtroPais:boolean;
-    otroPaisTributa:string;
+    paisTributo:string;
     declaranteRenta:boolean;
-    monedaExtranjera:boolean;
-    paisMonedaExtranjera:string;    
+    obligadoTributar:boolean;
+    opeMonedaExtranjera:boolean;
+    paisOperacion:string;    
     idCliente:Number;
     profesion:string;
 

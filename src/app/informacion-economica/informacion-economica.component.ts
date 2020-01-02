@@ -15,7 +15,7 @@ export class InformacionEconomicaComponent implements OnInit {
   public formGroup: FormGroup;
   public modeloInformacionEconomica = new Economica();
   private otroPais: boolean = false;
-  private otroPaisTributa: boolean = false;
+  private paisTributo: boolean = false;
 
 
   constructor(private formBuilder: FormBuilder, protected clientesService: ClientesService,
@@ -28,7 +28,7 @@ export class InformacionEconomicaComponent implements OnInit {
   public OcupacionResumen: any;
   public ValidarOcupacion: any;
   public ValidarOrigenIngresos: any;
-  
+  public ocupacion: any;
 
   ngOnInit() {
     this.buildForm();
@@ -71,6 +71,7 @@ export class InformacionEconomicaComponent implements OnInit {
 
   
   llenarOcupacionPorId() {
+    
     this.clientesService.getValidarOcupacionResumen(this.formGroup.get('ocupacion').value).subscribe(response => {
       this.OcupacionResumen=response;
       return this.OcupacionResumen;
@@ -83,28 +84,40 @@ export class InformacionEconomicaComponent implements OnInit {
       ocupacion: ['',[Validators.required,this.validarOCupacionControl.bind(this)]],
       ciiu: [''],
       ventasAnuales: ['',Validators.required],
-      totalIngresosMensuales: ['',Validators.required],
-      paisOrigenIngreson: ['',[Validators.required,this.validarPaisOrigenIngresos.bind(this)]],
-      gastosMesuales: ['',Validators.required],
+      totalMensuales: ['',Validators.required],
+      paisOrigenIngresos: ['',[Validators.required,this.validarPaisOrigenIngresos.bind(this)]],
+      gastosMensuales: ['',Validators.required],
       activos: ['',Validators.required],
-      pasivos: ['',Validators.required],
-      tributarOtroPais: [''],
+      pasivos: ['',Validators.required],     
       declaranteRenta: [''],
-      monedaExtranjera: [''],
-      paisMonedaExtranjera: [''],
-      otroPaisTributa: [''],
+      obligadoTributar: [''],
+      paisTributo: [''],
+      opeMonedaExtranjera: [''],
+      paisOperacion: [''],      
       profesion: [''],
+      
 
     });
 
   }
-
+                                  
+    
+   
+                                                                               
+                                                  
+                                                 
+ 
+    
+  
+                                                                        
+  
+                                                                        
   validateForm() {
 
     if (this.formGroup.invalid) {
       this.formGroup.get('ocupacion').markAsTouched();
       this.formGroup.get('ciiu').markAsTouched();
-      this.formGroup.get('totalIngresosMensuales').markAsTouched();
+      this.formGroup.get('totalMensuales').markAsTouched();
       this.formGroup.get('activos').markAsTouched();
       this.formGroup.get('pasivos').markAsTouched();
 
@@ -115,11 +128,12 @@ export class InformacionEconomicaComponent implements OnInit {
 
 
    validarOCupacionControl(controlOcupacion: AbstractControl){
-    
-    console.log(controlOcupacion.value, 'prueba')
-    if (controlOcupacion.value != null && controlOcupacion.value != "") {
-     this.ValidarOcupacion = controlOcupacion.value ;
-        if ( controlOcupacion.value == 'true') {
+    this.ocupacion=controlOcupacion.value
+    console.log(this.ocupacion.prohibido,'this.ocupacion1')
+    if (this.ocupacion != null && this.ocupacion != "") {
+      console.log(this.ocupacion.prohibido,'this.ocupacion')
+     this.ValidarOcupacion = this.ocupacion.prohibido ;
+        if ( this.ocupacion.prohibido == true) {
           console.log('el formulario es falso')
           return { valid: true };}
       
@@ -178,15 +192,15 @@ export class InformacionEconomicaComponent implements OnInit {
   public ValidarOtroPaisTributa(value) {
 
     if (value == 'si') {
-      this.otroPaisTributa = true;
+      this.paisTributo = true;
     } else
-      this.otroPaisTributa = false
+      this.paisTributo = false
   }
 
   submit() {
     
    
-    if (this.ValidarOcupacion == 'true' || this.ValidarOrigenIngresos == true) {
+    if (this.ValidarOcupacion == true || this.ValidarOrigenIngresos == true) {
       let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
         data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
         width: '30%',
@@ -196,11 +210,33 @@ export class InformacionEconomicaComponent implements OnInit {
       })
     }
   
-    
+    console.log(this.formGroup.valid)
+    console.log(this.ValidarOcupacion)
+    console.log( this.ValidarOrigenIngresos)
    
-    if (this.formGroup.valid && this.ValidarOcupacion == 'false' && this.ValidarOrigenIngresos == false ) {
-     
-      this.ModeloInformacionEconomica.emit(this.formGroup.value)
+    if (this.formGroup.valid && this.ValidarOcupacion == false && this.ValidarOrigenIngresos == false ) {
+      
+      this.ocupacion=this.formGroup.get('ocupacion').value;  
+      console.log(this.ocupacion,'completo')
+      console.log(this.ocupacion.nombre,'completo')
+      this.modeloInformacionEconomica.ocupacion= this.ocupacion.nombre;    
+      this.modeloInformacionEconomica.ciiu= this.formGroup.get('ciiu').value;
+      this.modeloInformacionEconomica.ventasAnuales= this.formGroup.get('ventasAnuales').value;      
+      this.modeloInformacionEconomica.totalMensuales= this.formGroup.get('totalMensuales').value;
+      this.modeloInformacionEconomica.paisOrigenIngresos= this.formGroup.get('paisOrigenIngresos').value;      
+      this.modeloInformacionEconomica.gastosMensuales= this.formGroup.get('gastosMensuales').value;
+      this.modeloInformacionEconomica.activos= this.formGroup.get('activos').value;      
+      this.modeloInformacionEconomica.pasivos= this.formGroup.get('pasivos').value;
+      this.modeloInformacionEconomica.declaranteRenta= this.formGroup.get('declaranteRenta').value;      
+      this.modeloInformacionEconomica.obligadoTributar= this.formGroup.get('obligadoTributar').value;
+      this.modeloInformacionEconomica.paisTributo= this.formGroup.get('paisTributo').value;      
+      this.modeloInformacionEconomica.opeMonedaExtranjera= this.formGroup.get('opeMonedaExtranjera').value;
+      this.modeloInformacionEconomica.paisOperacion= this.formGroup.get('paisOperacion').value;      
+      this.modeloInformacionEconomica.profesion= this.formGroup.get('profesion').value;
+  
+      console.log(this.modeloInformacionEconomica)
+      this.ModeloInformacionEconomica.emit(this.modeloInformacionEconomica);
+
 
     }
     else {
