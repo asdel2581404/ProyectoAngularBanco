@@ -84,3 +84,27 @@ display:none;
      margin-left: 50%;
      transform: translateX(-50%);
 }
+
+.h-3-heading-dark-left {	height: 90px;	
+    width: 431px;	
+    color: #00448D;	
+    font-family: Nunito;
+    font-size: 28px;
+    font-weight: bold;
+    
+    line-height: 30px;
+   }
+
+
+   
+  .body-dark-left {	
+      
+    width: 300px;
+    color: #292929;
+    font-family: "Open Sans";
+    font-size: 16px;
+    letter-spacing: -0.3px;
+                       }
+
+                       
+                       

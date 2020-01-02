@@ -4,6 +4,7 @@ import {Residencia} from '../modelos/residencia'
 import {Economica} from '../modelos/economica'
 import { ClientesService } from '../clientes.service'
 
+
 @Component({
   selector: 'app-resumen-cliente',
   templateUrl: './resumen-cliente.component.html',
@@ -16,7 +17,7 @@ export class ResumenClienteComponent implements OnInit {
   public nombreCiudad: String;
   public nombreDepartamento:String;
   public nombrePais:String;
-
+  public EnvioInformacioResidencia:Residencia;
   @Input()   informacionPersonalCliente:Persona;
   @Input()   informacionResidenciaCliente:Residencia;
   @Input()   informacionEconomicaCliente:Economica;
@@ -37,7 +38,7 @@ this.llenarCiudadResumen( )
   public llenarCiudadResumen( ) {
 
 
-    this.clientesService.getValidarCiudad(this.informacionResidenciaCliente.idCiudad).subscribe(response=>{
+    this.clientesService.getValidarCiudad(this.informacionResidenciaCliente.idciudad).subscribe(response=>{
       this.ciudad=response;
       this.nombreCiudad= this.ciudad.nombre;
       this.llenarDepartamentoResumaen();
@@ -61,12 +62,26 @@ this.llenarCiudadResumen( )
       this.nombrePais=this.pais.nombre;
     })
   }
+ 
+  GuardarInformacionPersonalCliente(){
+        console.log(this.informacionPersonalCliente);
+        console.log(this.informacionEconomicaCliente);
+        console.log(this.informacionResidenciaCliente);
+        this.clientesService.postGuardarCliente(this.informacionPersonalCliente).subscribe(response =>{
+          console.log(response);
+          alert('Vinculacion Exitosa');
+          
+        })
 
-  GuardarInformacion(){
-      alert('SU VINCULACIÓN FUE EXITOSA');
-      location.reload();
-      
+  }
 
+  GuardarInformacionPersonalResidencia(){
+    
+   
+    this.clientesService.postGuardarClienteResidencia(this.informacionResidenciaCliente).subscribe(respose=>{
+      console.log(respose);
+    })
+    
   }
 
   

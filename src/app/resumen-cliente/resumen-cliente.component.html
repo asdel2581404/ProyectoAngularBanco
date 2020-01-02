@@ -1,7 +1,7 @@
 
-   
+    <mat-card class=card>
   <div class="container">
-      <h3>Información personal:</h3><br>
+      <h3 class="h-3-heading-dark-left">Información personal:</h3><br>
     <div class="row">
       <div class="col">
         <h5>Nombre:</h5>
@@ -21,16 +21,16 @@
 
     <div class="row">
         <div class="col">
-          <h5>Celular:</h5>
+          <h5 >Celular:</h5>
           {{informacionPersonalCliente.celular}}
         </div>
         <div class="col order-1">
           <h5>Correo:</h5>
-          {{informacionPersonalCliente.correo}}
+          {{informacionPersonalCliente.email}}
         </div>
         <div class="col order-12">
           <h5>Estado Civil:</h5>
-          {{informacionPersonalCliente.estadoCivil}}
+          {{informacionPersonalCliente.estadocivil}}
         </div> 
         
         <div class="col order-12">
@@ -42,7 +42,7 @@
       </div><br>
 
 
-     <hr> <h3>Información de residencia :</h3><br><br>
+     <hr> <h3 class="h-3-heading-dark-left">Información de residencia :</h3><br><br>
       <div class="row">
         <div class="col">
           <h5>País:</h5>
@@ -59,20 +59,20 @@
         
                
   
-      </div><hr>
+      </div>
 
       <div class="row">
         <div class="col">
           <h5>Dirección:</h5>
-          {{informacionResidenciaCliente.inicioDireccion}}
+          {{informacionResidenciaCliente.nomenclatura}}
         </div>
         <div class="col order-1">
           <h5>Número primario:</h5>
-          {{informacionResidenciaCliente.numeroInicioDireccion}}
+          {{informacionResidenciaCliente.numeroinicial}}
         </div>
         <div class="col order-12">
           <h5> Número secundario:</h5>
-          {{informacionResidenciaCliente.numeroDireccion}}
+          {{informacionResidenciaCliente.numerosecundario}}
         </div> 
         
         
@@ -80,7 +80,7 @@
   
       </div>
 
-      <hr> <h3>Información económica:</h3><br><br>
+      <hr> <h3 class="h-3-heading-dark-left">Información económica:</h3><br><br>
 
       <div class="row">
         <div class="col">
@@ -120,6 +120,6 @@
                
   
       </div><br><br><hr>
-      <button type="submit"  neme="submit"  id="btnSubmit"  class="btn btn-primary"   mat-button matStepperNext (click)="GuardarInformacion()" >Enviar </button>
+      <button type="submit"  neme="submit"  id="btnSubmit"  class="ui-button-primary-default-focu "   mat-button matStepperNext (click)="GuardarInformacionPersonalCliente()" (click)="GuardarInformacionPersonalResidencia()" >Enviar </button>
   </div>
-       
+</mat-card>

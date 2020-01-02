@@ -109,6 +109,7 @@ export class InformacionPersonalComponent implements OnInit {
     if (this.formGroup2.get('departamento').value != null && this.formGroup2.get('departamento').value != "") {
       this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response => {
         this.Ciudad = response;
+        console.log(this.Ciudad)
       })
     }
 
@@ -123,17 +124,17 @@ export class InformacionPersonalComponent implements OnInit {
       apellido: ['', Validators.required],
       cedula: ['', [Validators.required, this.validarCedulaControl.bind(this)]],
       celular: ['', Validators.required],
-      correo: ['', Validators.required],
+      email: ['', Validators.required],
       genero: ['', Validators.required],
-      estadoCivil: ['', Validators.required],
+      estadocivil: ['', Validators.required],
     });
     this.formGroup2 = this.formBuilder.group({
       pais: ['', Validators.required],
       departamento: ['', Validators.required],
-      idCiudad: ['', Validators.required],
-      inicioDireccion: [''],
-      numeroInicioDireccion: [''],
-      numeroDireccion: ['']
+      idciudad: ['', Validators.required],
+      nomenclatura: [''],
+      numeroinicial: [''],
+      numerosecundario: ['']
     });
 
   }
@@ -171,10 +172,16 @@ export class InformacionPersonalComponent implements OnInit {
     if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos == false) {
 
       this.ModeloInformacionPersonal.emit(this.formGroup.value)
-      this.modeloInformacionResidencia = this.formGroup2.value;
-      this.modeloInformacionResidencia.idCliente = this.formGroup.get('cedula').value;
+      this.modeloInformacionResidencia.nomenclatura = this.formGroup2.get('nomenclatura').value;
+      this.modeloInformacionResidencia.numeroinicial = this.formGroup2.get('numeroinicial').value;
+      this.modeloInformacionResidencia.numerosecundario = this.formGroup2.get('numerosecundario').value;
+      this.modeloInformacionResidencia.idclientes = this.formGroup.get('cedula').value;
 
+      this.modeloInformacionResidencia.idciudad=parseInt( this.formGroup2.get('idciudad').value);
+      console.log(this.formGroup2.get('idciudad').value)
       this.ModeloInformacionResidencia.emit(this.modeloInformacionResidencia)
+
+      
 
     }
     else {
