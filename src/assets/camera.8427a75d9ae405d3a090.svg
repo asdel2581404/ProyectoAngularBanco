@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="28px" viewBox="0 0 31 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>iconografia/Solid/camera</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M30,8.4375 L30,25.3125 C30,26.8652344 28.7402344,28.125 27.1875,28.125 L2.8125,28.125 C1.25976562,28.125 0,26.8652344 0,25.3125 L0,8.4375 C0,6.88476562 1.25976562,5.625 2.8125,5.625 L7.96875,5.625 L8.68945312,3.69726562 C9.09960938,2.6015625 10.1484375,1.875 11.3203125,1.875 L18.6738281,1.875 C19.8457031,1.875 20.8945312,2.6015625 21.3046875,3.69726562 L22.03125,5.625 L27.1875,5.625 C28.7402344,5.625 30,6.88476562 30,8.4375 Z M22.03125,16.875 C22.03125,12.9960938 18.8789062,9.84375 15,9.84375 C11.1210938,9.84375 7.96875,12.9960938 7.96875,16.875 C7.96875,20.7539062 11.1210938,23.90625 15,23.90625 C18.8789062,23.90625 22.03125,20.7539062 22.03125,16.875 Z M20.15625,16.875 C20.15625,19.7167969 17.8417969,22.03125 15,22.03125 C12.1582031,22.03125 9.84375,19.7167969 9.84375,16.875 C9.84375,14.0332031 12.1582031,11.71875 15,11.71875 C17.8417969,11.71875 20.15625,14.0332031 20.15625,16.875 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03--Subir-foto-Copy" transform="translate(-358.000000, -420.000000)">
+            <g id="Group-10" transform="translate(237.000000, 387.000000)">
+                <g id="Group-3" transform="translate(47.000000, 32.000000)">
+                    <g id="iconografia/Solid/camera" transform="translate(74.500000, 0.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                        <g id="colores/iconos/azul" mask="url(#mask-2)" fill="#0060AF" fill-rule="evenodd">
+                            <rect x="0" y="0" width="30" height="30"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
