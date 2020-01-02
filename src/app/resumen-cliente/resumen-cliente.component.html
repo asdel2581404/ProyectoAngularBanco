@@ -93,18 +93,18 @@
         </div>
         <div class="col order-12">
           <h5>País origen de los ingresos:</h5>
-          {{informacionEconomicaCliente.paisOrigenIngreson}}
+          {{informacionEconomicaCliente.paisOrigenIngresos}}
         </div> 
       </div><br><br>
 
         <div class="row">
           <div class="col order-12">
             <h5>Ingresos mensuales:</h5>
-            {{informacionEconomicaCliente.totalIngresosMensuales}}
+            {{informacionEconomicaCliente.totalMensuales}}
           </div> 
             <div class="col">
               <h5>Gastos mensuales:</h5>
-              <p>{{informacionEconomicaCliente.gastosMesuales}}</p>
+              <p>{{informacionEconomicaCliente.gastosMensuales}}</p>
             </div>
             <div class="col order-1">
               <h5>Activos:</h5>
@@ -120,6 +120,6 @@
                
   
       </div><br><br><hr>
-      <button type="submit"  neme="submit"  id="btnSubmit"  class="ui-button-primary-default-focu "   mat-button matStepperNext (click)="GuardarInformacionPersonalCliente()" (click)="GuardarInformacionPersonalResidencia()" >Enviar </button>
+      <button type="submit"  neme="submit"  id="btnSubmit"  class="ui-button-primary-default-focu "   mat-button matStepperNext (click)="GuardarInformacionPersonalCliente()" (click)="GuardarInformacionPersonalResidencia()" (click)="guardarInformacionPersonalEconomica()" >Enviar </button>
   </div>
 </mat-card>

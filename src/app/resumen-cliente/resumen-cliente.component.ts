@@ -84,5 +84,18 @@ this.llenarCiudadResumen( )
     
   }
 
+  guardarInformacionPersonalEconomica(){
+
+    console.log(this.informacionEconomicaCliente);
+    this.informacionEconomicaCliente.idCliente= this.informacionPersonalCliente.cedula;
+    console.log(this.informacionEconomicaCliente , 'completo')
+    this.clientesService.postGuardarClienteEconomica(this.informacionEconomicaCliente).subscribe(response => {
+      console.log(response);
+    })
+
+  }
+
   
 }
+
+

@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Persona} from '../app/modelos/persona';
 import{Residencia} from '../app/modelos/residencia';
+import {Economica} from '../app/modelos/economica';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientesService {
 
   constructor(protected http: HttpClient) { }
@@ -76,4 +79,15 @@ console.log(cedula)
   postGuardarClienteResidencia(clienteResidencia :Residencia){
     return this.http.post<Residencia>('http://localhost:8086/Infodomicilio/insertarDomicilio' , clienteResidencia)
   }
+
+  
+  
+  postGuardarClienteEconomica(clienteEconomica :Economica){
+    return this.http.post<Economica>('http://localhost:8086/informacionEconomica/Insertar' , clienteEconomica)
+  }
+
+  
+
+
+
 }

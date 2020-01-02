@@ -16,7 +16,7 @@
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="ocupacion">
                                 <option value="">Seleccionar</option> 
-                                <option *ngFor="let ocupacion of Ocupacion"  [value]='ocupacion.prohibido'>{{ocupacion.nombre}}</option>
+                                <option *ngFor="let ocupacion of Ocupacion"  [ngValue]='ocupacion'>{{ocupacion.nombre}}</option>
                             </select>
                             <span style="color:Red;"
                                 *ngIf="formGroup.controls['ocupacion'].touched && formGroup.controls['ocupacion'].errors?.required">la
@@ -50,14 +50,14 @@
                             
                             
                             <select class="form-control form-control-sm" class="form-group "
-                                class="form-control mx-sm-1 mb-2" formControlName="totalIngresosMensuales">
+                                class="form-control mx-sm-1 mb-2" formControlName="totalMensuales">
                                 <option value="">Seleccionar</option> 
                                 <option *ngFor="let gastosmensuales of GastosMensuales ">
                                     {{gastosmensuales.cantidad}}
                                 </option>
                             </select>
                             <span style="color:Red;"
-                                *ngIf="formGroup.controls['totalIngresosMensuales'].touched && formGroup.controls['totalIngresosMensuales'].errors?.required">los
+                                *ngIf="formGroup.controls['totalMensuales'].touched && formGroup.controls['totalMensuales'].errors?.required">los
                                 ingresos son requeridos</span>
 
 
@@ -69,14 +69,14 @@
 
                 <mat-form-field>
                   <mat-label>Favorite food</mat-label>
-                  <mat-select formControlName="paisOrigenIngreson">
+                  <mat-select formControlName="paisOrigenIngresos">
                     <mat-option *ngFor="let paises of PaisesInfoEconomica" [value]="paises.idPaises">
                         {{paises.nombre}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
                     <span style="color:Red;"
-                        *ngIf="formGroup.controls['paisOrigenIngreson'].touched && formGroup.controls['paisOrigenIngreson'].errors?.required">el
+                        *ngIf="formGroup.controls['paisOrigenIngresos'].touched && formGroup.controls['paisOrigenIngresos'].errors?.required">el
                         país es requerido</span>
 
 
@@ -84,14 +84,14 @@
                         <div class="col">
                             <label>Gastos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
-                                class="form-control mx-sm-1 mb-2" formControlName="gastosMesuales">
+                                class="form-control mx-sm-1 mb-2" formControlName="gastosMensuales">
                                 <option value="">Seleccionar</option> 
                                 <option *ngFor="let gastosmensuales of GastosMensuales ">
                                     {{gastosmensuales.cantidad}}
                                 </option>
                             </select>
                             <span style="color:Red;"
-                                *ngIf="formGroup.controls['gastosMesuales'].touched && formGroup.controls['gastosMesuales'].errors?.required">los
+                                *ngIf="formGroup.controls['gastosMensuales'].touched && formGroup.controls['gastosMensuales'].errors?.required">los
                                 Gastos mensuales son requeridos</span>
                         </div>
 
@@ -127,23 +127,23 @@
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="tributarOtroPais" id="radio5"
-                            value="option1" formControlName="tributarOtroPais" (click)="ValidarOtroPaisTributa('si')">
+                        <input class="form-check-input" type="radio" name="obligadoTributar" id="radio5"
+                            [value]=true formControlName="obligadoTributar" (click)="ValidarOtroPaisTributa('si')">
                         <label class="form-check-label" for="inlineRadio1">SI</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="tributarOtroPais" id="radio4"
-                            value="option2"  formControlName="tributarOtroPais"  (click)="ValidarOtroPaisTributa ('no')">
+                        <input class="form-check-input" type="radio" name="obligadoTributar" id="radio4"
+                            [value]=false formControlName="obligadoTributar"  (click)="ValidarOtroPaisTributa ('no')">
                         <label class="form-check-label" for="inlineRadio2">NO</label>
                     </div>
-                    <div *ngIf="otroPaisTributa"> 
+                    <div *ngIf="paisTributo"> 
                             <label class="form-check-label" for="exampleRadios2">
                                     ¿ Pais que tributa ? 
                                 </label><br>
                             <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
-                            formControlName="paisMonedaExtranjera">
+                            formControlName="paisOperacion">
                             <option value="">Seleccionar</option> 
-                            <option  *ngFor="let paises of PaisesInfoEconomica " > 
+                            <option *ngFor="let paises of PaisesInfoEconomica " > 
                                 {{paises.nombre}}
                             </option>
                         </select>
@@ -157,12 +157,12 @@
     
                         <div class="form-check form-check-inline" >
                             <input class="form-check-input" type="radio" name="declaranteRenta" id="inlineRadio1"
-                                value="option1" formControlName="declaranteRenta">
+                            [value]=true formControlName="declaranteRenta">
                             <label class="form-check-label" for="inlineRadio1">SI</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="declaranteRenta" id="inlineRadio2"
-                                value="option2" formControlName="declaranteRenta">
+                            [value]=false formControlName="declaranteRenta">
                             <label class="form-check-label" for="inlineRadio2">NO</label>
                         </div>
                     </div><hr>
@@ -171,13 +171,13 @@
                                 ¿Realizas operaciones de moneda extranjera ? 
                             </label><br>
                             <div class="form-check form-check-inline" >
-                                <input class="form-check-input" type="radio" name="monedaExtranjera" id="radio1"
-                                    value="si" formControlName="monedaExtranjera" (click)="ValidarOtroPais('si')">
+                                <input class="form-check-input" type="radio" name="opeMonedaExtranjera" id="radio1"
+                                [value]=true formControlName="opeMonedaExtranjera" (click)="ValidarOtroPais('si')">
                                 <label class="form-check-label" for="inlineRadio1">SI</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="monedaExtranjera" id="radio2"
-                                    value="no" formControlName="monedaExtranjera" (click)="ValidarOtroPais('no')">
+                                <input class="form-check-input" type="radio" name="opeMonedaExtranjera" id="radio2"
+                                [value]=false formControlName="opeMonedaExtranjera" (click)="ValidarOtroPais('no')">
                                 <label class="form-check-label" for="inlineRadio2">NO</label>
                             </div>
                             
@@ -186,9 +186,10 @@
                                             ¿Pais de modeneda Extranjera? 
                                         </label><br>
                                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
-                                    formControlName="paisMonedaExtranjera">
+                                    formControlName="paisOperacion">
                                     <option value="">Seleccionar</option> 
-                                    <option *ngFor="let paises of PaisesInfoEconomica " > 
+                                    <option *ngFor="let paises of PaisesInfoEconomica "> 
+                                        
                                         {{paises.nombre}}
                                     </option>
                                 </select>
