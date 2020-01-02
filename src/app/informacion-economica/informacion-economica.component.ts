@@ -57,15 +57,12 @@ export class InformacionEconomicaComponent implements OnInit {
 
     this.clientesService.getGastos().subscribe(response => {
       this.GastosMensuales = response;
-
     })
   }
 
   public llenarPaises() {
     this.clientesService.getPais().subscribe(response => {
       this.PaisesInfoEconomica = response;
-
-
     })
   }
 
@@ -98,7 +95,6 @@ export class InformacionEconomicaComponent implements OnInit {
       
 
     });
-
   }
                                   
     
@@ -120,10 +116,7 @@ export class InformacionEconomicaComponent implements OnInit {
       this.formGroup.get('totalMensuales').markAsTouched();
       this.formGroup.get('activos').markAsTouched();
       this.formGroup.get('pasivos').markAsTouched();
-
-
     }
-
   }
 
 
@@ -136,13 +129,12 @@ export class InformacionEconomicaComponent implements OnInit {
         if ( this.ocupacion.prohibido == true) {
           console.log('el formulario es falso')
           return { valid: true };}
-      
         }
         console.log(controlOcupacion.value ,"aaa")
     return;
     }
 
-      public LLamarValidarPais(control) { 
+        public LLamarValidarPais(control) { 
       
       return new Promise((resolve,reget)=>{
         

@@ -16,35 +16,32 @@
         </div>
 
         <mat-divider class="Dividir" [vertical]="true"></mat-divider>
-        <div class="center">
-            <ngx-file-drop dropZoneLabel="Drop files  here" (onFileDrop)="dropped($event)"
-                (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
-                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                    Señor usuario por favor cargue el archivo.
-                    <button  type="button" (click)="openFileSelector()">Subir Imagen</button>
-                </ng-template>
-            </ngx-file-drop>
-            <div class="upload-table">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                        </tr>
-                    </thead>
-                    <tbody class="upload-name-style">
-                        <tr *ngFor="let item of files; let i=index">
-                            <td><strong>{{ item.relativePath }}</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div  class="center">
+            <h5>Sube una imagen de tu cedula </h5><br>
+            <div for="subeImagen" class="form-group" class="adjuntar">
+                <img class="Imgcedula" [src]="imgURL" *ngIf="imgURL">
+                <div *ngIf="Habilitado==false">
+                <input  id="subeImagen"  #file type="file" accept='image/*' (change)="preview(file.files)" value="Type here">
+        
+                <label for="subeImagen" class="t-Img">Seleccionar Imagen</label>
             </div>
-        </div>
+            </div>
+
+            
+            <div *ngIf="Habilitado==true" class="btn-Seleccionar">
+                <input  id="subeImagen"  #file type="file" accept='image/*' (change)="preview(file.files)" >
+        
+                <label tipe="Button" for="subeImagen" class="InputFile">Seleccionar Imagen</label>
+        
+            </div>
+        </div> 
+        
         <div>
 
         </div>
 
     </div>
-
+    
 
 </div>
 

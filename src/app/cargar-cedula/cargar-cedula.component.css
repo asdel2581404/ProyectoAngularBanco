@@ -1,27 +1,71 @@
 .contenedorCargar{
-
+margin:2%;
 display: flex;
 justify-content: center;
 }
 
 .center{
     width: 50%;
-    padding-top: 12%;
+    padding-top: 5%;
     padding-left: 5%;
-}
-.cedula{
-    display: flex;
-justify-content: center;
-}
-.subir{
-    height:100% ;
-    
+    position: relative;
 }
 
-.ayuda{
-    
+
+
+.adjuntar{
+color: #808285;
+    border: 2px dashed #ccc;
+    background: url("../../assets/camera.8427a75d9ae405d3a090.svg")  center 40% no-repeat #eaeaea;
+    max-width: 500px ;
+   height:70%;
+   width: 100%;
+    overflow: auto;
+    display: block;
+    text-align: center;
+    position: relative;
+   
 }
 
+.Imgcedula{
+    max-height:500px;
+    width:60%;
+    
+   
+}
+
+.t-Img{
+    color: rgb(62, 62, 175);
+    position: absolute;
+	top: 90%;
+	left: 50%;
+	height: 30%;
+	width: 50%;
+    margin: -15% 0 0 -25%;
+
+}
+.btn-Seleccionar{
+    margin-top: 2%;
+}
+.InputFile{
+    box-sizing: border-box;	
+    height: 46px;	width: 283.43px;	
+    border: 1px solid #00448D;	
+    border-radius: 100px;
+    height: 24px;	width: 226.2px;	
+    color: #00448D;	
+    font-family: Nunito;	
+    font-size: 20px;	
+    font-weight: bold;
+    letter-spacing: -0.38px;
+    line-height: 24px;
+    text-align: center;
+}
+
+
+#subeImagen{
+display:none;
+}
 .ui-button-primary-default-focu {	
     height: 60px;	
     width: 220px;
