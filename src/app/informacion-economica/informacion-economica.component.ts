@@ -194,7 +194,9 @@ export class InformacionEconomicaComponent implements OnInit {
     
     if (this.ValidarOcupacion == true || this.ValidarOrigenIngresos == true) {
       let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
-        data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
+        data: {body:'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
+        id:2
+      },
         width: '30%',
         height: '40%',
         disableClose:true

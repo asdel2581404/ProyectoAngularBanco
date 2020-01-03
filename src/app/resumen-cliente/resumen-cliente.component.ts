@@ -3,6 +3,8 @@ import {Persona} from '../modelos/persona'
 import {Residencia} from '../modelos/residencia'
 import {Economica} from '../modelos/economica'
 import { ClientesService } from '../clientes.service'
+import { ValidarCedulaControlComponent } from '../validar-cedula-control/validar-cedula-control.component';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -25,7 +27,7 @@ export class ResumenClienteComponent implements OnInit,OnChanges {
   @Input()    idCiudadRecibe:Number;
 
 
-  constructor(protected clientesService: ClientesService) { }
+  constructor(protected clientesService: ClientesService , public dialog: MatDialog) { }
   ngOnChanges() {
     console.log('hola 42')
   }
@@ -73,7 +75,18 @@ this.llenarCiudadResumen( )
           console.log(response);
          this.GuardarInformacionPersonalResidencia()
          this.guardarInformacionPersonalEconomica()
-          alert('Vinculacion Exitosa');
+
+         let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
+          data: {id:1,
+            body:'VINCULACIÓN EXITOSA'},
+          width: '30%',
+          height: '40%',
+          disableClose:true
+         
+        });
+        dialogRef.afterClosed().subscribe(response => {
+        })
+       
         })
 
   }

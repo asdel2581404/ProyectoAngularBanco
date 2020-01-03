@@ -170,7 +170,7 @@ export class InformacionPersonalComponent implements OnInit,OnChanges {
 
     if (this.ValidarDelitos == true) {
       let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
-        data: {id:1,
+        data: {id:2,
           body:'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989'},
         width: '30%',
         height: '40%',
