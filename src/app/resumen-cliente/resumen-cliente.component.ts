@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {Persona} from '../modelos/persona'
 import {Residencia} from '../modelos/residencia'
 import {Economica} from '../modelos/economica'
@@ -10,7 +10,7 @@ import { ClientesService } from '../clientes.service'
   templateUrl: './resumen-cliente.component.html',
   styleUrls: ['./resumen-cliente.component.css']
 })
-export class ResumenClienteComponent implements OnInit {
+export class ResumenClienteComponent implements OnInit,OnChanges {
   public departamento:any;
   public ciudad:any;
   public pais:any;
@@ -26,7 +26,9 @@ export class ResumenClienteComponent implements OnInit {
 
 
   constructor(protected clientesService: ClientesService) { }
-
+  ngOnChanges() {
+    console.log('hola 42')
+  }
   ngOnInit() {
     
     
@@ -69,15 +71,14 @@ this.llenarCiudadResumen( )
         console.log(this.informacionResidenciaCliente);
         this.clientesService.postGuardarCliente(this.informacionPersonalCliente).subscribe(response =>{
           console.log(response);
+         this.GuardarInformacionPersonalResidencia()
+         this.guardarInformacionPersonalEconomica()
           alert('Vinculacion Exitosa');
-          
         })
 
   }
 
   GuardarInformacionPersonalResidencia(){
-    
-   
     this.clientesService.postGuardarClienteResidencia(this.informacionResidenciaCliente).subscribe(respose=>{
       console.log(respose);
     })

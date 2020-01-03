@@ -122,15 +122,15 @@ export class InformacionEconomicaComponent implements OnInit {
 
    validarOCupacionControl(controlOcupacion: AbstractControl){
     this.ocupacion=controlOcupacion.value
-    console.log(this.ocupacion.prohibido,'this.ocupacion1')
+   
     if (this.ocupacion != null && this.ocupacion != "") {
       console.log(this.ocupacion.prohibido,'this.ocupacion')
      this.ValidarOcupacion = this.ocupacion.prohibido ;
         if ( this.ocupacion.prohibido == true) {
-          console.log('el formulario es falso')
+          
           return { valid: true };}
         }
-        console.log(this.ocupacion.prohibido ,"aaa")
+        
     return;
     }
 
@@ -138,11 +138,11 @@ export class InformacionEconomicaComponent implements OnInit {
       
       return new Promise((resolve,reget)=>{
         
-        console.log(control)
+     
         if(control!=""){
           this.clientesService.getValidarPais(control).subscribe(response => {
-            this.ValidarOrigenIngresos = response
-            return resolve(this.ValidarOrigenIngresos)
+             response
+            return resolve(response)
             
           })
         }
@@ -153,7 +153,7 @@ export class InformacionEconomicaComponent implements OnInit {
    
    
      this.LLamarValidarPais(controlOrigenIngreso.value).then(response=>{
-      console.log(response,"esta")
+      this.ValidarOrigenIngresos=response;
       if (response == true) {
         return { valid: true };
       }else{
@@ -192,26 +192,23 @@ export class InformacionEconomicaComponent implements OnInit {
 
   submit() {
     
-   
     if (this.ValidarOcupacion == true || this.ValidarOrigenIngresos == true) {
       let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
         data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
         width: '30%',
-        height: '30%'
+        height: '40%',
+        disableClose:true
       });
       dialogRef.afterClosed().subscribe(response => {
       })
     }
   
-    console.log(this.formGroup.valid)
-    console.log(this.ValidarOcupacion)
-    console.log( this.ValidarOrigenIngresos)
+ 
    
     if (this.formGroup.valid && this.ValidarOcupacion == false && this.ValidarOrigenIngresos == false ) {
       
       this.ocupacion=this.formGroup.get('ocupacion').value;  
-      console.log(this.ocupacion,'completo')
-      console.log(this.ocupacion.nombre,'completo')
+      
       this.modeloInformacionEconomica.ocupacion= this.ocupacion.nombre;    
       this.modeloInformacionEconomica.ciiu= this.formGroup.get('ciiu').value;
       this.modeloInformacionEconomica.ventasAnuales= this.formGroup.get('ventasAnuales').value;      
@@ -227,7 +224,7 @@ export class InformacionEconomicaComponent implements OnInit {
       this.modeloInformacionEconomica.paisOperacion= this.formGroup.get('paisOperacion').value;      
       this.modeloInformacionEconomica.profesion= this.formGroup.get('profesion').value;
   
-      console.log(this.modeloInformacionEconomica)
+     
       this.ModeloInformacionEconomica.emit(this.modeloInformacionEconomica);
 
 

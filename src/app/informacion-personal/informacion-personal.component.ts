@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, AfterContentInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, AfterContentInit ,OnChanges} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl, ValidatorFn } from '@angular/forms';
 import { ClientesService } from '../clientes.service';
 import { MatDialog } from '@angular/material';
@@ -10,7 +10,13 @@ import { Residencia } from '../modelos/residencia';
   templateUrl: './informacion-personal.component.html',
   styleUrls: ['./informacion-personal.component.css']
 })
-export class InformacionPersonalComponent implements OnInit {
+export class InformacionPersonalComponent implements OnInit,OnChanges {
+  
+  
+  
+  ngOnChanges() {
+    console.log('hola 42')
+  }
   public modeloInformacionPersonal = new Persona();
   public modeloInformacionResidencia = new Residencia();
   public formGroup: FormGroup;
@@ -32,7 +38,6 @@ export class InformacionPersonalComponent implements OnInit {
   public ValidarDelitos: any;
 
   
-
   ngOnInit() {
     this.buildForm();
     this.llenarEstadoCivil();
@@ -40,10 +45,12 @@ export class InformacionPersonalComponent implements OnInit {
     this.LlenarDireccion();
     this.LlenarPais();
     setTimeout(() => {
-      this.notify.emit(this.formGroup);
+    
     });
-  }
 
+    
+  }
+  @Output() public formulario2: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public idCiudad: EventEmitter<Number> = new EventEmitter<Number>();
   @Output() public cedula: EventEmitter<Number> = new EventEmitter<Number>();
@@ -57,15 +64,15 @@ export class InformacionPersonalComponent implements OnInit {
 
   validarCedulaControl(control: AbstractControl) {
     
-    console.log(control.value)
+    
     if (control.value != null && control.value != "") {
       this.clientesService.getValidarCedula(control.value).subscribe(response => {
        this.ValidarDelitos = response
        
-        console.log(response)
+       
       })
     }
-    console.log('sitiene',this.ValidarDelitos )
+    
     if (this.ValidarDelitos== true) {
       return { valid: true };
     } else {
@@ -110,7 +117,6 @@ export class InformacionPersonalComponent implements OnInit {
     if (this.formGroup2.get('departamento').value != null && this.formGroup2.get('departamento').value != "") {
       this.clientesService.getCiudad(this.formGroup2.get('departamento').value).subscribe(response => {
         this.Ciudad = response;
-        console.log(this.Ciudad)
       })
     }
 
@@ -166,14 +172,20 @@ export class InformacionPersonalComponent implements OnInit {
         data: {id:1,
           body:'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989'},
         width: '30%',
-        height: '30%'
+        height: '40%',
+        disableClose:true
+       
       });
       dialogRef.afterClosed().subscribe(response => {
       })
     }
 
+    
+    
+    console.log(this.formGroup2.valid)
     if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos == false) {
-
+      this.notify.emit(this.formGroup);
+      this.formulario2.emit(this.formGroup2);
       this.ModeloInformacionPersonal.emit(this.formGroup.value)
       this.modeloInformacionResidencia.nomenclatura = this.formGroup2.get('nomenclatura').value;
       this.modeloInformacionResidencia.numeroinicial = this.formGroup2.get('numeroinicial').value;
@@ -181,14 +193,14 @@ export class InformacionPersonalComponent implements OnInit {
       this.modeloInformacionResidencia.idclientes = this.formGroup.get('cedula').value;
 
       this.modeloInformacionResidencia.idciudad=parseInt( this.formGroup2.get('idciudad').value);
-      console.log(this.formGroup2.get('idciudad').value)
+      
       this.ModeloInformacionResidencia.emit(this.modeloInformacionResidencia)
 
       
 
     }
     else {
-      console.log(this.ValidarDelitos);
+      
 
     }
 

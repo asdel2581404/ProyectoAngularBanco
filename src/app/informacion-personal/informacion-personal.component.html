@@ -84,6 +84,7 @@
                             <option *ngFor="let pais of Pais" [value]="pais.idPaises">{{pais.nombre}}</option>
                         </select>
 
+
                     </div>
                     <div class="col-sm-6">
                         <label class="body-dark-left"> Departamento</label>
@@ -93,6 +94,7 @@
                            
                             <option *ngFor="let dep of Departamento" [value]="dep.idDepartamento">{{dep.nombre}}</option>
                         </select>
+                        
                     </div>
                 </div>
                
@@ -102,7 +104,7 @@
                         <option value="">Seleccione Una Ciudad</option>
                         <option *ngFor="let ciu of Ciudad"  [value]="ciu.idCiudad">{{ciu.nombre}}</option>
                     </select>
-           
+                    
 
 
 
