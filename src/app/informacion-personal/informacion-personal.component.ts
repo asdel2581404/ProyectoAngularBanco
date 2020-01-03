@@ -128,15 +128,16 @@ export class InformacionPersonalComponent implements OnInit {
       email: ['', Validators.required],
       genero: ['', Validators.required],
       estadocivil: ['', Validators.required],
+      Residecia: this.formGroup2 = this.formBuilder.group({
+        pais: ['', Validators.required],
+        departamento: ['', Validators.required],
+        idciudad: ['', Validators.required],
+        nomenclatura: [''],
+        numeroinicial: [''],
+        numerosecundario: ['']
+      })
     });
-    this.formGroup2 = this.formBuilder.group({
-      pais: ['', Validators.required],
-      departamento: ['', Validators.required],
-      idciudad: ['', Validators.required],
-      nomenclatura: [''],
-      numeroinicial: [''],
-      numerosecundario: ['']
-    });
+    
 
   }
 
@@ -162,7 +163,8 @@ export class InformacionPersonalComponent implements OnInit {
 
     if (this.ValidarDelitos == true) {
       let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
-        data: 'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989',
+        data: {id:1,
+          body:'Señor usuario hemos encontrado una inhabilidad para poder continuar el proceso, para mas informacion comuniquese al 0180098989'},
         width: '30%',
         height: '30%'
       });

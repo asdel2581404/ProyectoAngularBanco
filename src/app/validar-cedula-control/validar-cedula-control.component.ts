@@ -9,8 +9,8 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 export class ValidarCedulaControlComponent implements OnInit {
 
   constructor(public dialogRef:MatDialogRef<ValidarCedulaControlComponent>,
-     @Inject(MAT_DIALOG_DATA) public message:  string) { }
-
+     @Inject(MAT_DIALOG_DATA) public message) { }
+  
   ngOnInit() {
   }
     Aceptar(): void{
