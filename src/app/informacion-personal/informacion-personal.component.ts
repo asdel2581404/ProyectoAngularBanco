@@ -45,12 +45,13 @@ export class InformacionPersonalComponent implements OnInit,OnChanges {
     this.LlenarDireccion();
     this.LlenarPais();
     setTimeout(() => {
-    
+      this.notify.emit(this.formGroup);
+      
     });
 
     
   }
-  @Output() public formulario2: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+ 
   @Output() public notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public idCiudad: EventEmitter<Number> = new EventEmitter<Number>();
   @Output() public cedula: EventEmitter<Number> = new EventEmitter<Number>();
@@ -184,8 +185,7 @@ export class InformacionPersonalComponent implements OnInit,OnChanges {
     
     console.log(this.formGroup2.valid)
     if (this.formGroup2.valid && this.formGroup.valid && this.ValidarDelitos == false) {
-      this.notify.emit(this.formGroup);
-      this.formulario2.emit(this.formGroup2);
+   
       this.ModeloInformacionPersonal.emit(this.formGroup.value)
       this.modeloInformacionResidencia.nomenclatura = this.formGroup2.get('nomenclatura').value;
       this.modeloInformacionResidencia.numeroinicial = this.formGroup2.get('numeroinicial').value;

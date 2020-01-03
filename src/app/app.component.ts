@@ -15,7 +15,7 @@ export class AppComponent implements OnInit,OnChanges {
     console.log(changes)
   }
   HayPersona:boolean=false;
-  FormulariosValidos:boolean=false;
+  
   title = 'VinculacionDigital';
   isLinear = false;
   myFormGroup: FormGroup;
@@ -34,22 +34,11 @@ export class AppComponent implements OnInit,OnChanges {
     
 }
 
-RecibeFormulario(formGroup2: FormGroup){
-  console.log('prueba de emision')
-  this.myFormgrup2=formGroup2
-
-  this.ValidarFormularios()
-}
 
 
-  ValidarFormularios(){
-    console.log('heyy')
-    if(this.myFormGroup.valid==true && this.myFormgrup2.valid==true){
-      this.FormulariosValidos=true;
-    }else{
-      this.FormulariosValidos=false
-    }
-  }
+
+  
+  
 onNotifyInformacionPersonal(ModeloInformacionPersonal:Persona ):void{
   this.ModeloInformacionPersonal=ModeloInformacionPersonal;
   
