@@ -1,4 +1,4 @@
-import { Component,ViewEncapsulation, OnInit, COMPILER_OPTIONS } from '@angular/core';
+import { Component,ViewEncapsulation, OnInit, COMPILER_OPTIONS, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {Persona} from '../app/modelos/persona'
 import {Residencia} from '../app/modelos/residencia'
@@ -9,12 +9,18 @@ import {Economica} from '../app/modelos/economica'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,OnChanges {
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
+  }
   HayPersona:boolean=false;
+  FormulariosValidos:boolean=false;
   title = 'VinculacionDigital';
   isLinear = false;
   myFormGroup: FormGroup;
   ecoformGroup: FormGroup;
+  myFormgrup2:FormGroup;
   ModeloInformacionPersonal:Persona;
   modeloInformacionEconomica:Economica;
   modeloInformacionResidecia:Residencia;
@@ -25,8 +31,25 @@ export class AppComponent implements OnInit {
 
   onNotify2(formGroup: FormGroup): void {
     this.ecoformGroup = formGroup;
+    
 }
 
+RecibeFormulario(formGroup2: FormGroup){
+  console.log('prueba de emision')
+  this.myFormgrup2=formGroup2
+
+  this.ValidarFormularios()
+}
+
+
+  ValidarFormularios(){
+    console.log('heyy')
+    if(this.myFormGroup.valid==true && this.myFormgrup2.valid==true){
+      this.FormulariosValidos=true;
+    }else{
+      this.FormulariosValidos=false
+    }
+  }
 onNotifyInformacionPersonal(ModeloInformacionPersonal:Persona ):void{
   this.ModeloInformacionPersonal=ModeloInformacionPersonal;
   

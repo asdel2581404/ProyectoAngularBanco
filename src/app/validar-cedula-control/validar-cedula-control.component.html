@@ -1,7 +1,16 @@
-<div mat-dialog-content>{{message}} </div>
 
-<div mat-dialog-actions>
+<h1 class="icono" mat-dialog-title>
+    <img src="../../assets/cancel.png"> 
+</h1>
+
+<mat-dialog-content  class="mat-typography"   >
+      <div class="mensaje" > {{message}} </div>
+        
     
-    <button mat-button (click)="Aceptar()">Aceptar</button>
+</mat-dialog-content >
+
+<div class="dialogo" mat-dialog-actions>
+    
+    <button class="prueba" mat-button (click)="Aceptar()">Aceptar</button>
     
 </div>
