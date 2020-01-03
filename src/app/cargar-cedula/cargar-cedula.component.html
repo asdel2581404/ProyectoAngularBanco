@@ -1,7 +1,7 @@
 <div class="cedula">
 
-    <div class="contenedorCargar  ">
-        <div class="ayuda" class="mt-5 ml-5">
+    <div class="contenedorCargar" >
+        <div class="ayuda" >
             <h4 class="h-3-heading-dark-left">Para poder comenzar el proceso es necesario cargar la cedula</h4><br>
 
             <h5 >Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>
@@ -17,7 +17,7 @@
 
         <mat-divider class="Dividir" [vertical]="true"></mat-divider>
         <div  class="center">
-            <h5>Sube una imagen de tu cedula </h5><br>
+            <h5 class="h-3-heading-dark-left">Sube una imagen de tu cedula </h5><br>
             <div for="subeImagen" class="form-group" class="adjuntar">
                 <img class="Imgcedula" [src]="imgURL" *ngIf="imgURL">
                 <div *ngIf="Habilitado==false">

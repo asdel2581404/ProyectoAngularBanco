@@ -175,7 +175,8 @@ export class InformacionEconomicaComponent implements OnInit {
     
     if (value == 'si') {
       this.otroPais = true;
-
+      
+      console.log(this.PaisesInfoEconomica ,'pasises')
     } else
       this.otroPais = false;
 
