@@ -16,9 +16,11 @@ export class ResumenClienteComponent implements OnInit,OnChanges {
   public departamento:any;
   public ciudad:any;
   public pais:any;
+  public paisOrigenIngresos:any;
   public nombreCiudad: String;
   public nombreDepartamento:String;
   public nombrePais:String;
+  public nombrePaisOrigenIngresos:String;
   public EnvioInformacioResidencia:Residencia;
   @Input()   informacionPersonalCliente:Persona;
   @Input()   informacionResidenciaCliente:Residencia;
@@ -64,6 +66,16 @@ this.llenarCiudadResumen( )
     this.clientesService.getValidarPaisResumen(this.departamento.idPais).subscribe(response=>{
       this.pais=response;
       this.nombrePais=this.pais.nombre;
+      this.llenarPaisOrigenIngresosResusmen();
+    })
+  }
+
+  public llenarPaisOrigenIngresosResusmen(){
+    console.log(this.informacionEconomicaCliente.paisOrigenIngresos)
+    this.clientesService.getValidarPaisResumen(this.informacionEconomicaCliente.paisOrigenIngresos).subscribe(response=>{
+      this.paisOrigenIngresos=response;
+      this.nombrePaisOrigenIngresos=this.paisOrigenIngresos.nombre;
+
     })
   }
  
