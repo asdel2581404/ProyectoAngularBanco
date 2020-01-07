@@ -13,10 +13,13 @@ export class RecomendacionesComponent implements OnInit {
   ngOnInit() { }
   continuar:boolean=false;
    habilitar() {
-     console.log(this.continuar)
+     
     if(this.continuar==false){
+
       this.continuar=true;
+
     }else{
+      
       this.continuar=false;
     }
  
