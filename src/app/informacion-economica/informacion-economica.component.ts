@@ -116,6 +116,9 @@ export class InformacionEconomicaComponent implements OnInit {
       this.formGroup.get('totalMensuales').markAsTouched();
       this.formGroup.get('activos').markAsTouched();
       this.formGroup.get('pasivos').markAsTouched();
+
+
+      
     }
   }
 
@@ -130,23 +133,18 @@ export class InformacionEconomicaComponent implements OnInit {
           
           return { valid: true };}
         }
-        
     return;
     }
 
         public LLamarValidarPais(control) { 
       
       return new Promise((resolve,reget)=>{
-        
-     
         if(control!=""){
           this.clientesService.getValidarPais(control).subscribe(response => {
              response
             return resolve(response)
-            
           })
         }
-        
       });}
     
     validarPaisOrigenIngresos(controlOrigenIngreso: AbstractControl) {
@@ -159,11 +157,7 @@ export class InformacionEconomicaComponent implements OnInit {
       }else{
         return false
       }
-      
-  
      })
-     
-     
     }  
     
 
@@ -225,11 +219,8 @@ export class InformacionEconomicaComponent implements OnInit {
       this.modeloInformacionEconomica.opeMonedaExtranjera= this.formGroup.get('opeMonedaExtranjera').value;
       this.modeloInformacionEconomica.paisOperacion= this.formGroup.get('paisOperacion').value;      
       this.modeloInformacionEconomica.profesion= this.formGroup.get('profesion').value;
-  
      
       this.ModeloInformacionEconomica.emit(this.modeloInformacionEconomica);
-
-
     }
     else {
 

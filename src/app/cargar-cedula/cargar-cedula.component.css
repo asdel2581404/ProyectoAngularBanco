@@ -18,17 +18,18 @@ color: #808285;
     border: 2px dashed #ccc;
     background: url("../../assets/camera.8427a75d9ae405d3a090.svg")  center 40% no-repeat #eaeaea;
     max-width: 500px ;
-   height:50%;
+   height:70%;
    width: 80%;
     overflow: auto;
     display: block;
     text-align: center;
     position: relative;
+    margin-left: 10%;
    
 }
 
 .Imgcedula{
-    max-height:500px;
+    max-height:100%;
     width:60%;
     
    
@@ -71,6 +72,7 @@ display:none;
     margin-right:4%;
 }
 .ui-button-primary-default-focu {	
+    	
     height: 60px;	
     width: 220px;
      border-radius: 30px;	
@@ -89,8 +91,8 @@ display:none;
      transform: translateX(-50%);
 }
 
-.h-3-heading-dark-left {	height: 90px;	
-    width: 431px;	
+.h-3-heading-dark-left {		
+    width: 100%;	
     color: #00448D;	
     font-family: Nunito;
     font-size: 28px;
@@ -109,6 +111,9 @@ display:none;
     font-size: 16px;
     letter-spacing: -0.3px;
                        }
+ .boton{
+     margin-top: 40%;
+ }
 
                        
                        

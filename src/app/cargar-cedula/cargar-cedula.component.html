@@ -1,7 +1,7 @@
 <div class="cedula">
 
-    <div class="contenedorCargar" >
-        <div class="ayuda" >
+    <div class="contenedorCargar row " >
+        <div class="ayuda col-sm " >
             <h4 class="h-3-heading-dark-left">Para poder comenzar el proceso es necesario cargar la cedula</h4><br>
 
             <h5 >Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>
@@ -11,12 +11,13 @@
             <li class="body-dark-left">Se requiere que la imagen sea legible y clara</li><br>
             <li class="body-dark-left">Se requiere que la foto sea tomada sin flash</li><br>
             <li class="body-dark-left">Se requiere la foto en formato .jpg .png o un archivo .pdf</li><br>
-            <hr>
-            <button class="ui-button-primary-default-focu" mat-button matStepperNext [disabled]="continuar">Continuar</button>
+
+            
         </div>
+       
 
         <mat-divider class="Dividir" [vertical]="true"></mat-divider>
-        <div  class="center">
+        <div  class=" col-sm ml-5-lg mb-5 ">
             <h5 class="h-3-heading-dark-left">Sube una imagen de tu cedula </h5><br>
             <div for="subeImagen" class="form-group" class="adjuntar">
                 <img class="Imgcedula" [src]="imgURL" *ngIf="imgURL">
@@ -35,11 +36,12 @@
         
             </div>
         </div> 
-        
-        <div>
-
+        <div class="w-100"></div>
+        <div class="col-sm mt-5 " >
+            <button class="ui-button-primary-default-focu" mat-button matStepperNext [disabled]="continuar">Continuar</button>
         </div>
-
+      
+      
     </div>
     
 

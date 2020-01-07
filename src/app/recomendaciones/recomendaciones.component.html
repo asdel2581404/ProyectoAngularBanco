@@ -1,7 +1,9 @@
 <div class="Informacion">
-        <h4 class="h-1-heading-dark-left" >Vincúlate a la Fiduciaria Bancolombia fácil y rápido</h4>
+       
+        <h4 class="col-sm h-1-heading-dark-left mb-5" >Vincúlate a la Fiduciaria Bancolombia fácil y rápido</h4>
+        <h5 class="col-sm-mb-5 h-3-heading-dark-left ">Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>
 
-        <h5 class="h-3-heading-dark-left ">Para realizar este proceso debes tener en cuenta lo siguiente: </h5><br>             
+          
         <li class="body-dark-left">Se requiere tener la cedula a la mano</li><br>
         <li class=body-dark-left>Se requiere ser ciudadano Colombiano</li><br>
         <li class="body-dark-left">Se requiere declaración de renta</li><br>
@@ -22,11 +24,11 @@
 
 </div>
 <hr>
-
-<mat-checkbox  ng-model="continuar" (click)="habilitar()" class="body-dark-left" >Autorizo a Fiduciaria Bancolombia para que me consulten ante operadores de información 
-                y riesgo con el fin de verificar mi información personal</mat-checkbox> 
-
-<div>
+<div class="col order-12">
+<mat-checkbox  ng-model="continuar" (click)="habilitar()" class="body-dark-left " >  Autorizo a Fiduciaria Bancolombia para que me consulten ante operadores de información 
+                y riesgo con el fin de verificar mi información personal </mat-checkbox> 
+        </div>
+<div >
         <re-captcha (resolved)="resolved($event)" siteKey="6Lfo_sQUAAAAAOV59gKwAzomCYSp6w2vRzwon2dD"></re-captcha>
 </div>
 <div  *ngIf="continuar">

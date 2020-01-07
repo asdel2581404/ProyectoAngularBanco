@@ -159,8 +159,8 @@ export class InformacionPersonalComponent implements OnInit,OnChanges {
       this.formGroup.get('cedula').markAsTouched();
       this.formGroup.get('celular').markAsTouched();
       this.formGroup.get('genero').markAsTouched();
-
-
+      this.formGroup2.get('pais').markAsTouched();
+      this.formGroup2.get('departamento').markAsTouched();
     }
 
   }

@@ -83,6 +83,8 @@
                             <option value="">Seleccionar</option> 
                             <option *ngFor="let pais of Pais" [value]="pais.idPaises">{{pais.nombre}}</option>
                         </select>
+                        <span style="color:Red;" *ngIf="formGroup2.controls['pais'].touched && formGroup2.controls['pais'].errors?.required ">El pais es requerido</span>
+
 
 
                     </div>
@@ -94,7 +96,7 @@
                            
                             <option *ngFor="let dep of Departamento" [value]="dep.idDepartamento">{{dep.nombre}}</option>
                         </select>
-                        
+                        <span style="color:Red;" *ngIf="formGroup2.controls['departamento'].touched && formGroup2.controls['departamento'].errors?.required ">El departamento es requerido</span>
                     </div>
                 </div>
                

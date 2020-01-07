@@ -17,16 +17,35 @@
      margin-left: 50%;
      transform: translateX(-50%);
 }
+ 
 
-.mensaje {
+.img-final{
+    height:50%;
+    width: 30%;
+   position: absolute; right:140px;
+   position: absolute; bottom:100px;
+}
+.mensaje2 {
    
-    color: #292929;	
-    font-family: "Open Sans";	
-    font-size: 16px;	
     
-    line-height: 24px;
+    color: #292929;
+    font-family: Nunito;	
+    font-size: 56px;	
+    font-weight: 800;	
+    letter-spacing: -0.47px;
+    line-height: 50px;
     text-align: center;
    
+}
+.mensaje2{
+    height: 100%;	
+    width: 100%;	
+    color: #292929;	
+    font-family: "Open Sans";	
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    text-align: center;
 }
 
 .icono{

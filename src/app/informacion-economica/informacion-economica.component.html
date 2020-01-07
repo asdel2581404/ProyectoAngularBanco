@@ -11,7 +11,7 @@
                 <div class="form-group">
 
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-sm">
                             <label>Ocupación: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="ocupacion">
@@ -22,7 +22,7 @@
                                 *ngIf="formGroup.controls['ocupacion'].touched && formGroup.controls['ocupacion'].errors?.required">la
                                 ocupacion es requerida</span>
                         </div>
-                        <div class="col">
+                        <div class="col-sm">
                             <label>CIIU: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="ciiu">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-sm">
                             <label>Ventas anuales: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="ventasAnuales">
@@ -43,7 +43,7 @@
                         </div>
                             
 
-                        <div class="col">
+                        <div class="col-sm">
 
                             <label>Total ingresos mensuales:</label>
                                 
@@ -64,24 +64,26 @@
                         </div>
                     </div>
 
-                    <label>País origen de los ingresos: </label>
+                    
 
-
-                <mat-form-field>
-                  <mat-label>Favorite food</mat-label>
-                  <mat-select formControlName="paisOrigenIngresos">
-                    <mat-option *ngFor="let paises of PaisesInfoEconomica" [value]="paises.idPaises">
-                        {{paises.nombre}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                    <span style="color:Red;"
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label>País origen de los ingresos: </label>
+                                <select class="form-control form-control-sm" class="form-group "
+                                    class="form-control mx-sm-1 mb-2" formControlName="paisOrigenIngresos">
+                                    <option value="">Seleccionar</option> 
+                                    <option *ngFor="let paises of PaisesInfoEconomica "  [value]="paises.idPaises">
+                                        {{paises.nombre}}
+                                    </option>
+                                </select>
+                                <span style="color:Red;"
                         *ngIf="formGroup.controls['paisOrigenIngresos'].touched && formGroup.controls['paisOrigenIngresos'].errors?.required">el
                         país es requerido</span>
-
+                            </div>
+                        </div>
 
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-sm">
                             <label>Gastos mensuales: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="gastosMensuales">
@@ -97,7 +99,7 @@
 
                     </div>
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-sm">
                             <label>Activos: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="activos">
@@ -106,7 +108,7 @@
                                 *ngIf="formGroup.controls['activos'].touched && formGroup.controls['activos'].errors?.required">los
                                 activos son requeridos</span>
                         </div>
-                        <div class="col">
+                        <div class="col-sm">
                             <label>pasivos: </label>
                             <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="pasivos">

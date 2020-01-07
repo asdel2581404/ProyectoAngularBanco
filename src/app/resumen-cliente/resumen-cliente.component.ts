@@ -91,8 +91,8 @@ this.llenarCiudadResumen( )
          let dialogRef = this.dialog.open(ValidarCedulaControlComponent, {
           data: {id:1,
             body:'VINCULACIÓN EXITOSA'},
-          width: '30%',
-          height: '40%',
+          width: '60%',
+          height: '80%',
           disableClose:true
          
         });
