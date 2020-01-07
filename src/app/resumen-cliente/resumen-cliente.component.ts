@@ -80,11 +80,9 @@ this.llenarCiudadResumen( )
   }
  
   GuardarInformacionPersonalCliente(){
-        console.log(this.informacionPersonalCliente);
-        console.log(this.informacionEconomicaCliente);
-        console.log(this.informacionResidenciaCliente);
+       
         this.clientesService.postGuardarCliente(this.informacionPersonalCliente).subscribe(response =>{
-          console.log(response);
+          
          this.GuardarInformacionPersonalResidencia()
          this.guardarInformacionPersonalEconomica()
 
@@ -116,7 +114,7 @@ this.llenarCiudadResumen( )
     this.informacionEconomicaCliente.idCliente= this.informacionPersonalCliente.cedula;
     console.log(this.informacionEconomicaCliente , 'completo')
     this.clientesService.postGuardarClienteEconomica(this.informacionEconomicaCliente).subscribe(response => {
-      console.log(response);
+     
     })
 
   }

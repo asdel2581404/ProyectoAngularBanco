@@ -15,7 +15,7 @@ export class InformacionPersonalComponent implements OnInit,OnChanges {
   
   
   ngOnChanges() {
-    console.log('hola 42')
+    
   }
   public modeloInformacionPersonal = new Persona();
   public modeloInformacionResidencia = new Residencia();
