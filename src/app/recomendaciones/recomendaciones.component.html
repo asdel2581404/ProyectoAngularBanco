@@ -15,7 +15,7 @@
 <div class="seguridad" > 
         
        <p class="body-dark-left"> <img class="logo" src="../../assets/seguridad.png"   > Usted se encuentra en una 
-            zona segura, su información sera administrada con los mas altos estandares de seguridad
+            zona segura, su información será administrada con los mas altos estandares de seguridad
         </p>
 
        <p class="body-dark-left"> <img class="logo" src="../../assets/info.png"  > En este proceso puedes encontrar apoyo online,
@@ -24,11 +24,11 @@
 
 </div>
 <hr>
-<div class="col order-12">
-<mat-checkbox  ng-model="continuar" (click)="habilitar()" class="body-dark-left " >  Autorizo a Fiduciaria Bancolombia para que me consulten ante operadores de información 
-                y riesgo con el fin de verificar mi información personal </mat-checkbox> 
-        </div>
-<div >
+
+<mat-checkbox  ng-model="continuar" (click)="habilitar()" class="body-dark-left" >Autorizo a la Fiduciaria Bancolombia para que me consulten ante operadores de información 
+                y riesgo con el fin de verificar mi información personal</mat-checkbox> 
+
+<div>
         <re-captcha (resolved)="resolved($event)" siteKey="6Lfo_sQUAAAAAOV59gKwAzomCYSp6w2vRzwon2dD"></re-captcha>
 </div>
 <div  *ngIf="continuar">
