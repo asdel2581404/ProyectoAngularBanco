@@ -25,6 +25,7 @@ export class AppComponent implements OnInit,OnChanges {
   modeloInformacionEconomica:Economica;
   modeloInformacionResidecia:Residencia;
   idCiudad:Number;
+  
   onNotify(formGroup: FormGroup): void {
       this.myFormGroup = formGroup;
   }

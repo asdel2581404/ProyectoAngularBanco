@@ -16,21 +16,24 @@
      text-align: center;
      margin-left: 50%;
      transform: translateX(-50%);
+     bottom: 105px;
+     position: absolute;
+     left: 1px;
 }
  
 
 .img-final{
     height:50%;
     width: 30%;
-   position: absolute; right:140px;
-   position: absolute; bottom:100px;
+   position: absolute; right:240px;
+   position: absolute; bottom:80px;
 }
-.mensaje2 {
+.mensaje {
    
     
     color: #292929;
     font-family: Nunito;	
-    font-size: 56px;	
+    font-size: 30px;	
     font-weight: 800;	
     letter-spacing: -0.47px;
     line-height: 50px;

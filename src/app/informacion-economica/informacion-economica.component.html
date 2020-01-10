@@ -20,11 +20,11 @@
                             </select>
                             <span style="color:Red;"
                                 *ngIf="formGroup.controls['ocupacion'].touched && formGroup.controls['ocupacion'].errors?.required">la
-                                ocupacion es requerida</span>
+                                ocupación es requerida</span>
                         </div>
                         <div class="col-sm">
                             <label>CIIU: </label>
-                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                            <input type="number" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="ciiu">
                         </div>
                         <div class="col-1-sm"  >
@@ -34,7 +34,7 @@
                     <div class="form-row">
                         <div class="col-sm">
                             <label>Ventas anuales: </label>
-                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                            <input type="number" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="ventasAnuales">
 
                             <span style="color:Red;"
@@ -101,7 +101,7 @@
                     <div class="form-row">
                         <div class="col-sm">
                             <label>Activos: </label>
-                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                            <input type="number " class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="activos">
 
                             <span style="color:Red;"
@@ -110,7 +110,7 @@
                         </div>
                         <div class="col-sm">
                             <label>pasivos: </label>
-                            <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                            <input type="number" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="pasivos">
 
                             <span style="color:Red;"
@@ -140,7 +140,7 @@
                     </div>
                     <div *ngIf="paisTributo"> 
                             <label class="form-check-label" for="exampleRadios2">
-                                    ¿ Pais que tributa ? 
+                                    ¿ País que tributa ? 
                                 </label><br>
                             <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                             formControlName="paisOperacion">
@@ -185,7 +185,7 @@
                             
                             <div *ngIf="otroPais"> 
                                     <label class="form-check-label" for="exampleRadios2">
-                                            ¿Pais de modeneda Extranjera? 
+                                            ¿País de modeneda Extranjera? 
                                         </label><br>
                                     <select class="form-control form-control-sm" class="form-group " class="form-control mx-sm-1 mb-2"
                                     formControlName="paisOperacion">

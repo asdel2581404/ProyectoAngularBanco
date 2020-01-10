@@ -14,20 +14,20 @@
 
                     <div class="form-row">
                         <div class="col">
-                            <label class="body-dark-left">Nombre: </label>
+                            <label class="body-dark-left">Nombres: </label>
                             <input type="text" class="form-group is-valid " class="form-control mx-sm-1 mb-2"
                                 formControlName="nombre" >
                                 <span style="color:Red;" *ngIf="formGroup.controls['nombre'].touched && formGroup.controls['nombre'].errors?.required">El nombre es requerido</span>
                         </div>
                         <div class="col">
-                            <label class="body-dark-left">Apellido: </label>
+                            <label class="body-dark-left">Apellidos: </label>
                             <input type="text" class="form-group" class="form-control" formControlName="apellido"  >
                             <span style="color:Red;" *ngIf="formGroup.controls['apellido'].touched && formGroup.controls['apellido'].errors?.required ">El apellido es requerido</span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <label class="body-dark-left">Cedula: </label>
+                            <label class="body-dark-left">Cédula: </label>
                             <input type="number" class="form-group " class="form-control mx-sm-1 mb-2"
                                 formControlName="cedula" >
                                 <span style="color:Red;" *ngIf="formGroup.controls['cedula'].touched && formGroup.controls['cedula'].errors?.required ">La cedula  es requerida</span>
@@ -46,7 +46,7 @@
 
                     <div class="form-row">
                         <div class="col">
-                            <label class="body-dark-left">Genero: </label>
+                            <label class="body-dark-left">Género: </label>
                             <select class="form-control form-control-sm" class="form-group "
                                 class="form-control mx-sm-1 mb-2" formControlName="genero" >
                                 <option value="">Seleccionar</option> 
@@ -76,8 +76,8 @@
                     <h4 class="h-3-heading-dark-left ">Información de residencia: </h4>
                 
                 <div class="form-row">
-                    <div class="col-sm-6">
-                        <label class="body-dark-left">Pais: </label>
+                    <div class="col-sm-5">
+                        <label class="body-dark-left">País: </label>
                         <select  (change)="LlenarDepartamento()"  class="form-control form-control-sm" class="form-group "
                             class="form-control mx-sm-1 mb-2" formControlName="pais" >
                             <option value="">Seleccionar</option> 
@@ -131,6 +131,10 @@
                     <div class="col">
                         <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
                             formControlName="numerosecundario" placeholder="Numero">
+                    </div><br>
+                    <div class="col">
+                        <input type="text" class="form-group " class="form-control mx-sm-1 mb-2"
+                            formControlName="detalle" placeholder="Torre o manzana numero">
                     </div>
 
                 </div>
